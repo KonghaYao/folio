@@ -1,0 +1,35 @@
+{
+  "browser": "158.0.8127.0",
+  "originalCanvasPixels": {
+    "red": 10332,
+    "blue": 10332,
+    "blueFillRatio": 0.98381
+  },
+  "importedCanvasPixels": {
+    "red": 0,
+    "blue": 37199,
+    "blueFillRatio": 0.78126
+  },
+  "afterOnlineReload": {
+    "red": 0,
+    "blue": 37199,
+    "blueFillRatio": 0.78126
+  },
+  "crop": {
+    "leftPercent": 55,
+    "ellipseMask": true,
+    "undoRestoredBothColors": true,
+    "redoRestoredBlueEllipse": true,
+    "exportPng": {
+      "red": 0,
+      "blue": 149752,
+      "blueFillRatio": 0.78481
+    }
+  },
+  "afterOfflineColdStart": {
+    "red": 0,
+    "blue": 37199,
+    "blueFillRatio": 0.78126
+  },
+  "colorsIdenticalAcrossColdStart": true
+}

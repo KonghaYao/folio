@@ -1,0 +1,9 @@
+{
+  "browser": "158.0.8127.0",
+  "offlineTabs": 2,
+  "shutdown": "after two confirmed journal commits",
+  "strokesVisibleAfterOfflineRestart": 2,
+  "strokesOnServerAfterReconnect": 2,
+  "serverRevisionAfterReload": 2,
+  "authenticatedApiEntriesInShellCache": 0
+}

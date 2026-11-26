@@ -1,0 +1,15 @@
+{
+  "engine": "158.0.8127.0",
+  "independentOfflineTabs": 2,
+  "originalRequestsReplayed": 2,
+  "originalRequestStatuses": [
+    200,
+    409
+  ],
+  "restoredCellValues": [
+    "左页的修改",
+    "右页的修改"
+  ],
+  "conflictCopies": 1,
+  "revisionAfterReload": 3
+}

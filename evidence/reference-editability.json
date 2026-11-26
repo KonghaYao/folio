@@ -1,0 +1,14 @@
+{
+  "boardTitle": "Agent Design",
+  "objects": 125,
+  "counts": {
+    "geo": 33,
+    "line": 33,
+    "arrow": 12,
+    "text": 47
+  },
+  "imageAssets": 0,
+  "colorRegionIoU": 0.9144,
+  "contentMeanAbsoluteRGBError": 6.75,
+  "handwrittenLabelEditedViaCanvas": true
+}

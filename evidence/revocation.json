@@ -1,0 +1,6 @@
+{
+  "revokeEditorGrant": "downgraded live to viewer",
+  "revokeFinalViewerGrant": "removed live canvas and tools",
+  "otherDataSafe": "guest opened their own board after losing shared access",
+  "browser": "158.0.8127.0"
+}

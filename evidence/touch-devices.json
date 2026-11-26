@@ -1,0 +1,53 @@
+[
+  {
+    "formFactor": "phone",
+    "viewport": [
+      390,
+      844
+    ],
+    "touchDraw": true,
+    "fingerUndoRedo": true,
+    "touchFilledShape": true,
+    "selectionFormatAndLayersPersisted": true,
+    "canInsertTable": true,
+    "canShare": true,
+    "libraryAccess": true,
+    "menuInsideViewport": true,
+    "pageOverflow": false,
+    "uncaughtErrors": []
+  },
+  {
+    "formFactor": "small-phone",
+    "viewport": [
+      320,
+      568
+    ],
+    "touchDraw": true,
+    "fingerUndoRedo": true,
+    "touchFilledShape": true,
+    "selectionFormatAndLayersPersisted": true,
+    "canInsertTable": true,
+    "canShare": true,
+    "libraryAccess": true,
+    "menuInsideViewport": true,
+    "pageOverflow": false,
+    "uncaughtErrors": []
+  },
+  {
+    "formFactor": "tablet",
+    "viewport": [
+      820,
+      1180
+    ],
+    "touchDraw": true,
+    "fingerUndoRedo": true,
+    "touchFilledShape": true,
+    "selectionFormatAndLayersPersisted": true,
+    "canInsertTable": true,
+    "canShare": true,
+    "libraryAccess": true,
+    "menuInsideViewport": true,
+    "pageOverflow": false,
+    "uncaughtErrors": []
+  }
+]

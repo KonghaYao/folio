@@ -1,0 +1,206 @@
+.folio-extra-body {
+  display: grid;
+  gap: 13px;
+  min-width: min(320px, 71vw);
+  color: #293e35;
+}
+.folio-extra-bar,
+.folio-projector-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.folio-extra-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  justify-content: center;
+  min-height: 36px;
+  padding: 7px 12px;
+  font: inherit;
+  font-size: 13px;
+  color: #293e35;
+  background: #fffefa;
+  border: 1px solid #daded2;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.folio-extra-action:hover:not(:disabled),
+.folio-scene-options summary:hover {
+  background: #edf1e9;
+}
+.folio-extra-action:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.folio-extra-action:focus-visible,
+.folio-scene-options summary:focus-visible {
+  outline: 2px solid #738e75;
+  outline-offset: 2px;
+}
+.folio-extra-bar > :first-child,
+.folio-import-form > button {
+  color: #fff;
+  border-color: #2e493d;
+  background: #2e493d;
+}
+.folio-extra-bar > :first-child:hover:not(:disabled),
+.folio-import-form > button:hover {
+  background: #20382e;
+}
+.folio-scene-list {
+  display: grid;
+  max-height: min(48vh, 470px);
+  overflow: auto;
+}
+.folio-scene-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  padding: 5px 0;
+  column-gap: 8px;
+  border-bottom: 1px solid #e3e5da;
+}
+.folio-scene-row > button {
+  background: transparent;
+  border-color: transparent;
+  justify-content: start;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.folio-scene-options summary {
+  margin: 1px 0;
+  padding: 7px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.folio-scene-commands {
+  display: grid;
+  gap: 3px;
+  padding-bottom: 5px;
+}
+.folio-scene-commands button {
+  min-height: 29px;
+  padding: 3px 8px;
+  font-size: 12px;
+}
+.folio-extra-status,
+.folio-scene-empty {
+  font-size: 12px;
+  color: #5f6f63;
+  margin: 0;
+  line-height: 1.6;
+}
+.folio-extra-status:empty {
+  display: none;
+}
+.folio-export-list > button {
+  min-height: 44px;
+  justify-content: flex-start;
+}
+.folio-import-form label {
+  display: grid;
+  gap: 10px;
+}
+.folio-projector-dialog[open] {
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100dvh;
+  max-width: unset;
+  max-height: unset;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #1e2822;
+}
+.folio-projector-dialog > header {
+  display: none;
+}
+.folio-projector {
+  display: grid;
+  height: 100%;
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+.folio-projector-stage {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  min-height: 0;
+  overflow: hidden;
+}
+.folio-projector-controls {
+  justify-content: center;
+  padding: 10px;
+  color: #f6f7ee;
+  flex-wrap: wrap;
+}
+.folio-projector-controls span {
+  padding: 0 8px;
+  font-size: 13px;
+}
+.folio-find {
+  position: fixed;
+  z-index: 35;
+  top: 74px;
+  right: 14px;
+  box-sizing: border-box;
+  width: min(440px, calc(100vw - 28px));
+  padding: 12px;
+  display: grid;
+  gap: 7px;
+  border-radius: 12px;
+  border: 1px solid #d8dccc;
+  box-shadow: 0 5px 22px #24382c21;
+  background: #fffefa;
+  color: #2c4236;
+}
+.folio-find-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.folio-find input,
+.folio-find button {
+  box-sizing: border-box;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 12px;
+  min-height: 34px;
+}
+.folio-find input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #c9d0bf;
+  padding: 5px 8px;
+}
+.folio-find button {
+  white-space: nowrap;
+  cursor: pointer;
+  color: #294638;
+  border: 0;
+  padding: 5px 7px;
+  background: #ecf0e8;
+}
+.folio-find button:disabled {
+  opacity: 0.44;
+  cursor: default;
+}
+.folio-find output,
+.folio-find p {
+  margin: 0;
+  font-size: 12px;
+  color: #526456;
+  overflow-wrap: anywhere;
+}
+.folio-find output:empty,
+.folio-find p:empty {
+  display: none;
+}
+.folio-find mark {
+  background: #dce8a7;
+  color: #233322;
+}

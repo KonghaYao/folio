@@ -1,0 +1,2356 @@
+diff --git a/bun.lock b/bun.lock
+index e1d91ef..ec7c146 100644
+--- a/bun.lock
++++ b/bun.lock
+@@ -11,13 +11,10 @@
+         "hono": "4.13.22",
+         "ipaddr.js": "2.3.0",
+         "pdf-lib": "1.17.1",
+-        "quickselect": "3.0.0",
+-        "rbush": "4.0.1",
+         "zod": "4.6.7",
+       },
+       "devDependencies": {
+         "@types/bun": "1.4.5",
+-        "@types/rbush": "4.0.0",
+         "pdfjs-dist": "6.5.438",
+         "prettier": "3.6.2",
+         "typescript": "5.9.3",
+@@ -184,8 +181,6 @@
+ 
+     "@types/node": ["@types/node@26.6.10", "", { "dependencies": { "undici-types": "~8.9.0" } }, "sha512-WJuPHoGB8WNQuTksNF7SOQpnH02PXeDYz4iueWbBT6/hTWnShY5F3T/hoJA3fY9+uYReDZ7pyTKKx83jQa7aGg=="],
+ 
+-    "@types/rbush": ["@types/rbush@4.0.0", "", {}, "sha512-+N+2H39P8X+Hy1I5mC6awlTX54k3FhiUmvt7HWzGJZvF+syUAAxP/stwppS8JE84YHqFgRMv6fCy31202CMFxQ=="],
+-
+     "accepts": ["accepts@2.0.0", "", { "dependencies": { "mime-types": "^3.0.0", "negotiator": "^1.0.0" } }, "sha512-5cvg6CtKwfgdmVqY1WIiXKc3Q1bkRqGLi+2W/6ao+6Y7gu/RCwRuAhGEzh5B4KlszSuTLgZYuqFqo5bImjNKng=="],
+ 
+     "ajv": ["ajv@8.20.0", "", { "dependencies": { "fast-deep-equal": "^3.1.3", "fast-uri": "^3.0.1", "json-schema-traverse": "^1.0.0", "require-from-string": "^2.0.2" } }, "sha512-Thbli+OlOj+iMPYFBVBfJ3OmCAnaSyNn4M1vz9T6Gka5Jt9ba/HIR56joy65tY6kx/FCF5VXNB819Y7/GUrBGA=="],
+@@ -350,14 +345,10 @@
+ 
+     "qs": ["qs@6.17.1", "", { "dependencies": { "es-define-property": "^1.0.1", "side-channel": "^1.1.1" } }, "sha512-jd3COkaKVgGUW+ZHyEHCG9bH7RoaaiWuMgzsIBjUMVjLAaWGWpoUAVwljVvBHxRu/2qEHnadLGZrkutYUBPQJA=="],
+ 
+-    "quickselect": ["quickselect@3.0.0", "", {}, "sha512-XdjUArbK4Bm5fLLvlm5KpTFOiOThgfWWI4axAZDWg4E/0mKdZyI9tNEfds27qCi1ze/vwTR16kvmmGhRra3c2g=="],
+-
+     "range-parser": ["range-parser@1.3.0", "", {}, "sha512-hek2mFQpPuI4E1BBKrSto+BU3e3x4xuarsbiwr3+lf7p44juvFMV0XFWQAP3xUyqXA4RrXLIoaSUGbSt056ZMw=="],
+ 
+     "raw-body": ["raw-body@3.0.2", "", { "dependencies": { "bytes": "~3.1.2", "http-errors": "~2.0.1", "iconv-lite": "~0.7.0", "unpipe": "~1.0.0" } }, "sha512-K5zQjDllxWkf7Z5xJdV0/B0WTNqx6vxG70zJE4N0kBs4LovmEYWJzQGxC9bS9RAKu3bgM40lrd5zoLJ12MQ5BA=="],
+ 
+-    "rbush": ["rbush@4.0.1", "", { "dependencies": { "quickselect": "^3.0.0" } }, "sha512-IP0UpfeWQujYC8Jg162rMNc01Rf0gWMMAb2Uxus/Q0qOFw4lCcq6ZnQEZwUoJqWyUGJ9th7JjwI4yIWo+uvoAQ=="],
+-
+     "react": ["react@19.3.1", "", {}, "sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw=="],
+ 
+     "react-dom": ["react-dom@19.3.1", "", { "dependencies": { "scheduler": "^0.28.0" }, "peerDependencies": { "react": "^19.3.1" } }, "sha512-Y0bARz53lhEC1NMCASs0/j+faB/zqt3R8hpvg1e8+61ZVJ4UL0UdC4cBbXfZMcIuhrfgeILTLe+ZeBCavQPtKQ=="],
+diff --git a/client/api.ts b/client/api.ts
+index 25e9f1a..e1343f8 100644
+--- a/client/api.ts
++++ b/client/api.ts
+@@ -3,7 +3,6 @@ import { forgetBoardAssets } from './asset-cache';
+ import {
+   cachedBoard,
+   cachedBoardList,
+-  cachedBoardHeader,
+   cacheBoard,
+   cacheBoardList,
+   currentCacheScope,
+@@ -49,7 +48,7 @@ export class RequestError extends Error {
+     super(code);
+   }
+ }
+-async function fetchEndpoint(path: string, method = 'GET', body?: unknown): Promise<Response> {
++export async function request<T>(path: string, method = 'GET', body?: unknown): Promise<T> {
+   const file = body instanceof Blob;
+   const response = await fetch(path, {
+     method,
+@@ -65,10 +64,6 @@ async function fetchEndpoint(path: string, method = 'GET', body?: unknown): Prom
+     const problem = await response.json().catch(() => null);
+     throw new RequestError(response.status, problem?.error || response.statusText);
+   }
+-  return response;
+-}
+-export async function request<T>(path: string, method = 'GET', body?: unknown): Promise<T> {
+-  const response = await fetchEndpoint(path, method, body);
+   if (response.status === 204) return undefined as T;
+   return response.json() as Promise<T>;
+ }
+@@ -93,57 +88,12 @@ export async function createBoard(title?: string) {
+   await Promise.allSettled([cacheBoard(board), rememberSummary(board)]);
+   return board;
+ }
+-export interface BoardDelta extends BoardSummary {
+-  put: Record<string, BoardRecord>;
+-  remove: string[];
+-}
+-export const getChanges = (id: string, since: number) =>
+-  request<BoardDelta>(boardPath(id) + '/changes?since=' + since);
+-
+-export function applyDelta(board: Board, delta: BoardDelta): Board {
+-  for (const id of delta.remove) delete board.items[id];
+-  Object.assign(board.items, delta.put);
+-  return {
+-    id: board.id,
+-    title: delta.title,
+-    rev: delta.rev,
+-    role: delta.role,
+-    updatedAt: delta.updatedAt,
+-    items: board.items,
+-  };
+-}
+-
+ export async function getBoard(id: string) {
+   const scope = currentCacheScope();
+   try {
+-    const header = await cachedBoardHeader(id, scope).catch(() => undefined);
+-    if (header) {
+-      try {
+-        const delta = await getChanges(id, header.rev);
+-        const local = await cachedBoard(id, scope).catch(() => undefined);
+-        // Another tab can advance the local base while this request is in flight.
+-        if (local && local.rev >= header.rev && local.rev <= delta.rev) {
+-          const board = applyDelta(local, delta);
+-          await Promise.allSettled([
+-            cacheBoard(board, scope, {
+-              since: header.rev,
+-              ids: [...Object.keys(delta.put), ...delta.remove],
+-            }),
+-            rememberSummary(board, scope),
+-          ]);
+-          return board;
+-        }
+-      } catch (error) {
+-        if (!(error instanceof RequestError) || error.status !== 409) throw error;
+-      }
+-    }
+-    // Keep the received bytes as the cold offline base; storing a Blob does not synchronously
+-    // structured-clone a whole document (including every nested pressure sample) on the UI thread.
+-    const response = await fetchEndpoint(boardPath(id));
+-    const snapshot = await response.blob();
+-    const board = JSON.parse(await snapshot.text()) as Board;
++    const board = await request<Board>(boardPath(id));
+     await Promise.allSettled([
+-      cacheBoard(board, scope ?? currentCacheScope(), snapshot),
++      cacheBoard(board, scope ?? currentCacheScope()),
+       rememberSummary(board, scope ?? currentCacheScope()),
+     ]);
+     return board;
+diff --git a/client/canvas-mcp/index.test.ts b/client/canvas-mcp/index.test.ts
+index 09ab261..b1c8edf 100644
+--- a/client/canvas-mcp/index.test.ts
++++ b/client/canvas-mcp/index.test.ts
+@@ -204,121 +204,3 @@ test('single-object lookup returns bounded pages of table cells', async () => {
+   expect(last.nextOffset).toBeNull();
+   expect(last.data[7]).toEqual({ row: 2, column: 7, text: '2-7' });
+ });
+-
+-test('targeted reads intersect filters, drop missing/duplicate IDs and keep stacking order', async () => {
+-  const f = await fixture();
+-  const base = {
+-    typeName: 'shape' as const,
+-    type: 'geo' as const,
+-    x: 0,
+-    y: 0,
+-    rot: 0,
+-    z: 5,
+-    props: { geo: 'rectangle', w: 10, h: 10, label: 'target' },
+-  };
+-  for (const [id, x, z] of [
+-    ['alpha', 10, 5],
+-    ['bravo', 800, 4],
+-    ['charlie', -1000, 5],
+-  ] as const) {
+-    f.store.put({ ...base, id, x, z }, 'remote');
+-  }
+-  f.editor.setSelection(['charlie', 'alpha']);
+-  // Looking up a handful of records never enumerates the whole board.
+-  f.store.shapes = () => {
+-    throw Error('Unexpected full-board scan');
+-  };
+-  let r = await f.call('canvas_read', { ids: ['charlie', 'missing', 'alpha', 'bravo', 'alpha'] });
+-  expect(r.objects.map((o: { id: string }) => o.id)).toEqual(['bravo', 'alpha', 'charlie']);
+-  r = await f.call('canvas_read', {
+-    scope: 'visible',
+-    ids: ['charlie', 'bravo', 'alpha'],
+-    query: 'TARGET',
+-  });
+-  expect(r.objects.map((o: { id: string }) => o.id)).toEqual(['bravo', 'alpha']);
+-  r = await f.call('canvas_read', { scope: 'selection', ids: ['charlie', 'bravo'] });
+-  expect(r.objects.map((o: { id: string }) => o.id)).toEqual(['charlie']);
+-  expect((await f.call('canvas_read', { ids: [] })).matched).toBe(0);
+-});
+-
+-test('paged reads sort tied z, cache by normalized query, and refresh after remote and history changes', async () => {
+-  const f = await fixture();
+-  const base = {
+-    typeName: 'shape' as const,
+-    type: 'geo' as const,
+-    x: 0,
+-    y: 0,
+-    rot: 0,
+-    props: { geo: 'rectangle', kind: 'table', w: 50, h: 50, cells: [['aBc']] },
+-    z: 1,
+-  };
+-  for (const id of ['C', 'A', 'B']) f.store.put({ ...base, id }, 'remote');
+-  const nativeShapes = f.store.shapes.bind(f.store);
+-  let scans = 0;
+-  f.store.shapes = () => {
+-    scans++;
+-    return nativeShapes();
+-  };
+-  const page = async (offset: number, query: string) =>
+-    await f.call('canvas_read', { offset, limit: 1, query });
+-  expect((await page(0, 'abc')).objects[0].id).toBe('A');
+-  expect((await page(1, 'ABC')).objects[0].id).toBe('B');
+-  expect(scans).toBe(1);
+-  f.store.put({ ...base, id: 'C', z: 0 }, 'remote');
+-  expect((await page(0, 'abc')).objects[0].id).toBe('C');
+-  f.store.remove(['C']);
+-  expect((await page(0, 'abc')).objects[0].id).toBe('A');
+-  f.store.undo();
+-  expect((await page(0, 'abc')).objects[0].id).toBe('C');
+-  expect((await page(2, 'other')).matched).toBe(0);
+-  expect((await page(3, 'abc')).objects).toEqual([]);
+-});
+-
+-test('large dense-viewport pages match a full stable sort after camera and position changes', async () => {
+-  const f = await fixture();
+-  let left = 0;
+-  f.editor.viewportPageBounds = () => ({ x: left, y: 0, w: 800, h: 600 });
+-  const source = Array.from({ length: 2400 }, (_, i) => ({
+-    id: 'rank-' + i.toString().padStart(5, '0'),
+-    typeName: 'shape' as const,
+-    type: 'geo' as const,
+-    x: i % 5 === 0 ? 1000 : 100,
+-    y: 50,
+-    rot: 0,
+-    z: (i * 137) % 31,
+-    props: { geo: 'rectangle', w: 20, h: 30 },
+-  }));
+-  f.store.transact(() => {
+-    for (const shape of source) f.store.put(shape, 'remote');
+-  }, 'remote');
+-  const expected = (offset: number, limit: number) =>
+-    f.store
+-      .shapes()
+-      .filter((s) => s.x <= left + 800 && left <= s.x + 20)
+-      .sort((a, b) => a.z - b.z || a.id.localeCompare(b.id))
+-      .slice(offset, offset + limit)
+-      .map((s) => s.id);
+-  async function check(offset: number, limit: number) {
+-    const r = await f.call('canvas_read', { scope: 'visible', offset, limit });
+-    expect(r.objects.map((s: { id: string }) => s.id)).toEqual(expected(offset, limit));
+-  }
+-  await check(617, 31);
+-  await check(620, 10);
+-  await check(11, 50);
+-  left = 500;
+-  await check(11, 50);
+-  left = 0;
+-  f.store.put({ ...source[0], x: 100, z: -500 }, 'remote');
+-  await check(0, 25);
+-  f.store.put(
+-    { ...source[0], x: 100, z: -500, props: { ...source[0].props, label: 'changed' } },
+-    'remote',
+-  );
+-  const r = await f.call('canvas_read', { limit: 1 });
+-  expect(r.objects[0].text).toBe('changed');
+-  f.editor.selection = new Set(source.map((s) => s.id));
+-  const sel = await f.call('canvas_read', { scope: 'selection', limit: 1 });
+-  expect(sel.selectedCount).toBe(2400);
+-  expect(sel.selectedIds).toEqual(source.slice(0, 96).map((s) => s.id));
+-  expect(sel.objects[0].id).toBe(source[0].id);
+-});
+diff --git a/client/canvas-mcp/index.ts b/client/canvas-mcp/index.ts
+index 11f1182..0fe0e78 100644
+--- a/client/canvas-mcp/index.ts
++++ b/client/canvas-mcp/index.ts
+@@ -1,11 +1,10 @@
+ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
+ import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
+-import { pageBounds, type ShapeRecord } from '@quickdrawjs/core';
++import { pageBounds, type Bounds, type ShapeRecord } from '@quickdrawjs/core';
+ import type { BoardCanvas } from '../canvas';
+ import { createShape, shapeContent, summarize, updateShape } from './records';
+ import { schemas, tools, type ToolName } from './schemas';
+ import { BrowserTransport } from './transport';
+-import { createShapeQuery, selectionSummary } from './read';
+ 
+ export interface CanvasMcpOptions {
+   boardId: string;
+@@ -20,9 +19,12 @@ const compact = (shape: ShapeRecord) => ({
+   x: shape.x,
+   y: shape.y,
+ });
++function intersects(a: Bounds, b: Bounds) {
++  return a.x <= b.x + b.w && b.x <= a.x + a.w && a.y <= b.y + b.h && b.y <= a.y + a.h;
++}
++
+ export async function createCanvasMcp({ boardId, canvas, flush, isActive }: CanvasMcpOptions) {
+   const { store, editor } = canvas;
+-  const queryShapes = createShapeQuery(store);
+   const server = new Server(
+     { name: 'folio-canvas', version: '1.0.0' },
+     { capabilities: { tools: {} } },
+@@ -82,26 +84,40 @@ export async function createCanvasMcp({ boardId, canvas, flush, isActive }: Canv
+           offset = 0,
+           limit = 25,
+         } = schemas.canvas_read.parse(args);
+-        const rect = viewport();
++        const rect = viewport(),
++          selected = Array.from(editor.selection);
++        const wanted = ids ? new Set(ids) : null;
+         if (detailOffset !== undefined && ids?.length !== 1)
+           throw new Error('detailOffset requires exactly one object ID.');
+-        const { matched, page } = queryShapes(
+-          scope,
+-          ids,
+-          query,
+-          editor.selection,
+-          rect,
+-          offset,
+-          limit,
+-        );
++        const needle = query.toLowerCase();
++        const objects = store
++          .shapes()
++          .filter((s) => {
++            if (wanted && !wanted.has(s.id)) return false;
++            if (scope === 'selection' && !editor.selection.has(s.id)) return false;
++            if (scope === 'visible' && !intersects(rect, pageBounds(s))) return false;
++            if (!needle) return true;
++            return [
++              s.id,
++              s.type,
++              s.props.kind,
++              s.props.geo,
++              s.props.text,
++              s.props.label,
++              s.props.attachment?.name,
++              ...(s.props.kind === 'table' ? s.props.cells.flat() : []),
++            ].some((x) => typeof x === 'string' && x.toLowerCase().includes(needle));
++          })
++          .sort((a, b) => a.z - b.z || a.id.localeCompare(b.id));
+         return {
+           boardId,
+           viewport: rect,
+-          ...selectionSummary(editor.selection),
+-          matched,
++          selectedIds: selected.slice(0, 96),
++          selectedCount: selected.length,
++          matched: objects.length,
+           offset,
+-          hasMore: offset + limit < matched,
+-          objects: page.map((s) => ({
++          hasMore: offset + limit < objects.length,
++          objects: objects.slice(offset, offset + limit).map((s) => ({
+             ...inspect(s),
+             ...(ids?.length === 1 ? { content: shapeContent(s, detailOffset ?? 0) } : {}),
+           })),
+@@ -168,7 +184,10 @@ export async function createCanvasMcp({ boardId, canvas, flush, isActive }: Canv
+         const { ids } = schemas.canvas_select.parse(args);
+         ids.forEach(shapeOf);
+         editor.setSelection(ids);
+-        return selectionSummary(editor.selection);
++        return {
++          selectedIds: Array.from(editor.selection).slice(0, 96),
++          selectedCount: editor.selection.size,
++        };
+       }
+       case 'canvas_view': {
+         const { mode, x, y, zoom } = schemas.canvas_view.parse(args);
+diff --git a/client/canvas-mcp/read.ts b/client/canvas-mcp/read.ts
+deleted file mode 100644
+index 0ca3da7..0000000
+--- a/client/canvas-mcp/read.ts
++++ /dev/null
+@@ -1,143 +0,0 @@
+-import { pageBounds, type Bounds, type ShapeRecord } from '@quickdrawjs/core';
+-import quickselect from 'quickselect';
+-import type { BoardStore } from '../canvas/store';
+-
+-const stackingOrder = (a: ShapeRecord, b: ShapeRecord) => a.z - b.z || a.id.localeCompare(b.id);
+-
+-function intersects(a: Bounds, b: Bounds) {
+-  return a.x <= b.x + b.w && b.x <= a.x + a.w && a.y <= b.y + b.h && b.y <= a.y + a.h;
+-}
+-
+-function matches(shape: ShapeRecord, needle: string) {
+-  if (!needle) return true;
+-  const props = shape.props;
+-  const contains = (value: unknown) =>
+-    typeof value === 'string' && value.toLowerCase().includes(needle);
+-  return (
+-    contains(shape.id) ||
+-    contains(shape.type) ||
+-    contains(props.kind) ||
+-    contains(props.geo) ||
+-    contains(props.text) ||
+-    contains(props.label) ||
+-    contains(props.attachment?.name) ||
+-    (props.kind === 'table' && props.cells.some((row: string[]) => row.some(contains)))
+-  );
+-}
+-
+-export function selectionSummary(selection: Set<string>) {
+-  const selectedIds: string[] = [];
+-  for (const id of selection) {
+-    if (selectedIds.length === 96) break;
+-    selectedIds.push(id);
+-  }
+-  return { selectedIds, selectedCount: selection.size };
+-}
+-
+-interface PageSet {
+-  generation: number;
+-  needle: string;
+-  viewport?: Bounds;
+-  matched: number;
+-  start: number;
+-  ids: string[];
+-}
+-
+-/** Select the requested interval in linear time, then sort just the page the model will see. */
+-function firstPage(rows: ShapeRecord[], start: number, end: number) {
+-  if (start >= rows.length) return [];
+-  if (start > 0) quickselect(rows, start, 0, rows.length - 1, stackingOrder);
+-  if (end < rows.length) quickselect(rows, end - 1, start, rows.length - 1, stackingOrder);
+-  return rows.slice(start, end).sort(stackingOrder);
+-}
+-
+-/** The viewport is part of a visible page's identity even when the board itself has not changed. */
+-function sameViewport(a: Bounds | undefined, b: Bounds | undefined) {
+-  return a === b || (!!a && !!b && a.x === b.x && a.y === b.y && a.w === b.w && a.h === b.h);
+-}
+-
+-/** A single ordered result is retained per turn. Its IDs resolve to live records at read time. */
+-export function createShapeQuery(store: BoardStore) {
+-  let lastPageSet: PageSet | undefined;
+-
+-  function readBoardPage(
+-    needle: string,
+-    viewport: Bounds | undefined,
+-    offset: number,
+-    limit: number,
+-  ) {
+-    if (!needle && !viewport && offset >= store.shapeCount)
+-      return { matched: store.shapeCount, page: [] };
+-    const generation = needle || viewport ? store.generation : store.orderGeneration;
+-    const cached =
+-      lastPageSet?.generation === generation &&
+-      lastPageSet.needle === needle &&
+-      sameViewport(lastPageSet.viewport, viewport)
+-        ? lastPageSet
+-        : undefined;
+-    const end = offset + limit;
+-    if (cached && offset >= cached.matched) return { matched: cached.matched, page: [] };
+-    if (
+-      cached &&
+-      offset >= cached.start &&
+-      Math.min(end, cached.matched) <= cached.start + cached.ids.length
+-    ) {
+-      const start = offset - cached.start;
+-      const page = cached.ids.slice(start, start + limit).map((id) => store.get(id) as ShapeRecord);
+-      return { matched: cached.matched, page };
+-    }
+-
+-    const source = viewport ? store.shapesInBounds(viewport) : store.shapes();
+-    const rows =
+-      viewport || needle
+-        ? source.filter(
+-            (shape) =>
+-              (!viewport || intersects(viewport, pageBounds(shape))) && matches(shape, needle),
+-          )
+-        : source;
+-    // A first request for a large query retains only the IDs returned. A second disjoint
+-    // page materializes the order once for subsequent cursors.
+-    const partial = !cached && rows.length > 1024;
+-    const ordered = partial
+-      ? firstPage(rows, offset, Math.min(end, rows.length))
+-      : rows.sort(stackingOrder);
+-    lastPageSet = {
+-      generation,
+-      needle,
+-      viewport,
+-      matched: rows.length,
+-      start: partial ? offset : 0,
+-      ids: ordered.map((shape) => shape.id),
+-    };
+-    return { matched: rows.length, page: partial ? ordered : ordered.slice(offset, end) };
+-  }
+-
+-  return (
+-    scope: 'all' | 'visible' | 'selection',
+-    ids: string[] | undefined,
+-    query: string,
+-    selection: Set<string>,
+-    rect: Bounds,
+-    offset: number,
+-    limit: number,
+-  ) => {
+-    const needle = query.toLowerCase();
+-    if (!ids && scope !== 'selection')
+-      return readBoardPage(needle, scope === 'visible' ? rect : undefined, offset, limit);
+-
+-    // Direct ID lookup preserves the same filter intersection and ordering as a board scan.
+-    const rows: ShapeRecord[] = [];
+-    for (const id of ids ? new Set(ids) : selection) {
+-      if (scope === 'selection' && !selection.has(id)) continue;
+-      const shape = store.get(id);
+-      if (shape?.typeName !== 'shape' || !matches(shape, needle)) continue;
+-      if (scope === 'visible' && !intersects(rect, pageBounds(shape))) continue;
+-      rows.push(shape);
+-    }
+-    const page =
+-      rows.length > 1024
+-        ? firstPage(rows, offset, Math.min(offset + limit, rows.length))
+-        : rows.sort(stackingOrder).slice(offset, offset + limit);
+-    return { matched: rows.length, page };
+-  };
+-}
+diff --git a/client/canvas/editor.ts b/client/canvas/editor.ts
+index c5e82d8..d8b29e5 100644
+--- a/client/canvas/editor.ts
++++ b/client/canvas/editor.ts
+@@ -143,35 +143,19 @@ export class BoardEditor extends CanvasRenderer {
+       return;
+     }
+     this.session = null;
+-    let left = Infinity,
+-      top = Infinity,
+-      right = -Infinity,
+-      bottom = -Infinity;
+-    for (const point of this.trail) {
+-      left = Math.min(left, point.x);
+-      top = Math.min(top, point.y);
+-      right = Math.max(right, point.x);
+-      bottom = Math.max(bottom, point.y);
+-    }
+-    // cutFor permits a radius plus up to 2.5 stroke widths of reach.
+-    // Custom ink already has its width included in shapeBounds. Native ink defaults to 8.
+-    const pad = this.assist === 'partial' ? this.eraserRadius + 20 : 0;
+-    const candidates = this.store.shapesInBounds({
+-      x: left - pad,
+-      y: top - pad,
+-      w: right - left + pad * 2,
+-      h: bottom - top + pad * 2,
+-    });
+     if (this.assist === 'lasso') {
+       const picked = this.trail.length < 3 ? this.hitTest(this.trail[0].x, this.trail[0].y) : null;
+       const ids = picked
+         ? [picked.id]
+-        : candidates.filter((s) => lassoHit(s, this.trail)).map((s) => s.id);
++        : this.store
++            .shapes()
++            .filter((s) => lassoHit(s, this.trail))
++            .map((s) => s.id);
+       this.setTool('select');
+       this.setSelection(ids);
+     } else {
+       this.store.transact(() => {
+-        for (const s of candidates) {
++        for (const s of this.store.shapes()) {
+           const cut = cutFor(s, this.trail, this.eraserRadius);
+           if (cut)
+             this.store.update(s.id, { props: { erasures: [...(s.props.erasures ?? []), cut] } });
+@@ -337,19 +321,10 @@ export class BoardEditor extends CanvasRenderer {
+     this.session = null;
+     this.pointer = -1;
+     this.rulerOrigin = undefined;
+-    const records = [...this.pendingSegments];
+-    if (shape) records.push({ ...shape, props: { ...shape.props, done: true } });
+-    const previous = this.store.generation;
+-    // Concurrent edits can place an object above the tip while a local stroke is in flight.
+-    const canAppend =
+-      records.length > 0 &&
+-      records[0].z > this.store.maxZ() &&
+-      records.every((s) => s.type === records[0].type);
+     this.store.transact(() => {
+-      for (const record of records) this.store.put(record);
++      for (const segment of this.pendingSegments) this.store.put(segment);
++      if (shape) this.store.put({ ...shape, props: { ...shape.props, done: true } });
+     });
+-    if (canAppend && this.store.generation === previous + records.length)
+-      this.appendCommittedInk(previous, records);
+     this.pendingSegments = [];
+     this.store.endBatch();
+     this.requestRender();
+diff --git a/client/canvas/index.ts b/client/canvas/index.ts
+index 9141fd6..77c9439 100644
+--- a/client/canvas/index.ts
++++ b/client/canvas/index.ts
+@@ -59,8 +59,6 @@ export function createBoardCanvas(
+   editor.theme = paperTheme(editor.theme);
+   editor.setTool(options.readonly ? 'hand' : 'select');
+   const stopNavigation = viewerNavigation(editor);
+-  const refreshTextBounds = () => store.fontsChanged();
+-  document.fonts?.addEventListener('loadingdone', refreshTextBounds);
+   const retryImages = () => editor.retryImages();
+   window.addEventListener('online', retryImages);
+   const captureLost = (e: PointerEvent) => editor.onCaptureLost(e);
+@@ -202,10 +200,8 @@ export function createBoardCanvas(
+       editor.disposed = true;
+       window.removeEventListener('online', retryImages);
+       container.removeEventListener('lostpointercapture', captureLost);
+-      document.fonts?.removeEventListener('loadingdone', refreshTextBounds);
+       stopNavigation();
+       editor.destroy();
+-      store.disposeIndex();
+     },
+   };
+ }
+diff --git a/client/canvas/renderer.ts b/client/canvas/renderer.ts
+index 2cc1c97..87038bb 100644
+--- a/client/canvas/renderer.ts
++++ b/client/canvas/renderer.ts
+@@ -3,6 +3,7 @@ import {
+   drawShape,
+   hitShape,
+   localBounds,
++  pageBounds,
+   type Bounds,
+   type Camera,
+   type ShapeRecord,
+@@ -12,31 +13,22 @@ import { imageData, paintCard } from './attachments';
+ import { clipErased, erasedAt, toShape } from './assists';
+ import { inkPath, paintInk } from './ink';
+ import { paintVector, hitVector } from './vector-path';
+-import { ViewportBuffer } from './viewport-buffer';
+-import { shapeBounds as boxOf, documentBounds, paintOrder } from './spatial';
+-import type { BoardStore } from './store';
+ import { DottedPaper } from './paper';
+ import { QuickdrawEditor, type Renderer, type ShapePaintOptions } from './sdk';
+ 
+ export function paperTheme(theme: Theme): Theme {
+   // Records may come from another browser, so CSS colors resolve at render time.
+-  const customColors = new Map<string, Theme['colors'][keyof Theme['colors']]>();
+   const colors = new Proxy(
+     { ...theme.colors },
+     {
+       get(target, key) {
+         if (typeof key !== 'string') return undefined;
+         if (Object.hasOwn(target, key)) return target[key as keyof typeof target];
+-        const cached = customColors.get(key);
+-        if (cached) return cached;
+         if (!/^#[\da-f]{6}$/i.test(key)) return target.black;
+         const rgb = [1, 3, 5].map((i) => parseInt(key.slice(i, i + 2), 16));
+         const tint = (amount: number) =>
+           'rgb(' + rgb.map((n) => Math.round(n + (255 - n) * amount)).join(',') + ')';
+-        const color = { stroke: key, fill: key, note: tint(0.72) };
+-        if (customColors.size >= 1024) customColors.clear();
+-        customColors.set(key, color);
+-        return color;
++        return { stroke: key, fill: key, note: tint(0.72) };
+       },
+     },
+   );
+@@ -52,48 +44,20 @@ function transformed(ctx: CanvasRenderingContext2D, s: ShapeRecord) {
+   ctx.translate(-cx, -cy);
+ }
+ 
++const boundsCache = new WeakMap<ShapeRecord, Bounds>();
++function boxOf(s: ShapeRecord): Bounds {
++  const immutable = !s.props.ink || s.props.done;
++  const previous = immutable && boundsCache.get(s);
++  if (previous) return previous;
++  const b = pageBounds(s);
++  const w = s.props.ink?.width ? s.props.ink.width * 3 : 2;
++  const result = { x: b.x - w, y: b.y - w, w: b.w + 2 * w, h: b.h + 2 * w };
++  if (immutable) boundsCache.set(s, result);
++  return result;
++}
++
+ export class CanvasRenderer extends QuickdrawEditor {
+-  declare store: BoardStore;
+-  private visibleRegion?: {
+-    revision: number;
+-    zoom: number;
+-    region: Bounds;
+-    records: ShapeRecord[];
+-  };
+-  private visibleShapes(cam: Camera, w: number, h: number) {
+-    const x = -cam.x,
+-      y = -cam.y,
+-      width = w / cam.z,
+-      height = h / cam.z;
+-    const previous = this.visibleRegion;
+-    let records: ShapeRecord[];
+-    if (
+-      previous &&
+-      previous.revision === this.store.generation &&
+-      previous.zoom === cam.z &&
+-      previous.region.x <= x &&
+-      previous.region.y <= y &&
+-      x + width <= previous.region.x + previous.region.w &&
+-      y + height <= previous.region.y + previous.region.h &&
+-      previous.region.w <= width * 2 &&
+-      previous.region.h <= height * 2
+-    ) {
+-      records = previous.records;
+-    } else {
+-      // Keep canonical paint order while panning, using a small screen-space margin.
+-      // A changed record invalidates this list before the next paint.
+-      const margin = 48 / cam.z,
+-        region = { x: x - margin, y: y - margin, w: width + margin * 2, h: height + margin * 2 };
+-      records = this.store.shapesInBounds(region).sort(paintOrder);
+-      this.visibleRegion = { revision: this.store.generation, zoom: cam.z, region, records };
+-    }
+-    return records.filter((s) => {
+-      const b = boxOf(s);
+-      return b.x + b.w >= x && b.y + b.h >= y && b.x <= x + width && b.y <= y + height;
+-    });
+-  }
+   private readonly dots = new DottedPaper();
+-  private readonly viewportBuffer = new ViewportBuffer();
+   protected pendingSegments: ShapeRecord[] = [];
+   protected draft: ShapeRecord | undefined;
+   private painters = new Map<string, Renderer>([
+@@ -113,14 +77,12 @@ export class CanvasRenderer extends QuickdrawEditor {
+     return this.sorted.records.slice();
+   }
+   retryImages() {
+-    this.viewportBuffer.invalidate();
+     this.images = new WeakMap();
+     this.requestRender();
+   }
+ 
+   registerRenderer(kind: string, painter: Renderer) {
+     this.painters.set(kind, painter);
+-    this.viewportBuffer.invalidate();
+     this.requestRender();
+   }
+ 
+@@ -135,7 +97,6 @@ export class CanvasRenderer extends QuickdrawEditor {
+     entry.ready = imageData(asset.src)
+       .then((image) => {
+         entry.image = image;
+-        this.viewportBuffer.invalidate();
+         this.requestRender();
+       })
+       .catch(() => {
+@@ -145,7 +106,23 @@ export class CanvasRenderer extends QuickdrawEditor {
+   }
+ 
+   override contentBounds(): Bounds | null {
+-    return this.store.drawingBounds();
++    let bounds: Bounds | null = null;
++    for (const s of this.store.shapes()) {
++      const b = boxOf(s);
++      if (!bounds) {
++        bounds = b;
++        continue;
++      }
++      const x = Math.min(bounds.x, b.x),
++        y = Math.min(bounds.y, b.y);
++      bounds = {
++        x,
++        y,
++        w: Math.max(bounds.x + bounds.w, b.x + b.w) - x,
++        h: Math.max(bounds.y + bounds.h, b.y + b.h) - y,
++      };
++    }
++    return bounds;
+   }
+ 
+   async prepareImages(shapes: ShapeRecord[] = this.store.shapes(), requireDecoded = false) {
+@@ -163,11 +140,7 @@ export class CanvasRenderer extends QuickdrawEditor {
+ 
+   override hitTest(px: number, py: number) {
+     const tolerance = 8 / this.camera.z;
+-    // Quickdraw hitShape allows up to two XL pen widths past pageBounds.
+-    const pad = 20;
+-    const ordered = this.store
+-      .shapesInBounds({ x: px - pad, y: py - pad, w: 2 * pad, h: 2 * pad }, tolerance)
+-      .sort(paintOrder);
++    const ordered = this.shapesSorted();
+     for (let i = ordered.length - 1; i >= 0; i--) {
+       const s = ordered[i];
+       if (s.props.erasures && erasedAt(s, toShape(s, { x: px, y: py }))) continue;
+@@ -271,119 +244,6 @@ export class CanvasRenderer extends QuickdrawEditor {
+     ctx.setTransform(1, 0, 0, 1, 0, 0);
+   }
+ 
+-  // Highlighters blend beneath regular objects. Recompose only their pixel-aligned
+-  // dirty rectangle so that existing text, strokes, images and overlaps keep their order.
+-  private repaintMarker(
+-    ctx: CanvasRenderingContext2D,
+-    cam: Camera,
+-    w: number,
+-    h: number,
+-    dpr: number,
+-    marks: ShapeRecord[],
+-    preview: boolean,
+-  ) {
+-    const scale = cam.z * dpr;
+-    let left = Infinity,
+-      top = Infinity,
+-      right = -Infinity,
+-      bottom = -Infinity;
+-    for (const mark of marks) {
+-      const b = boxOf(mark);
+-      left = Math.min(left, Math.floor((b.x + cam.x) * scale) - 2);
+-      top = Math.min(top, Math.floor((b.y + cam.y) * scale) - 2);
+-      right = Math.max(right, Math.ceil((b.x + b.w + cam.x) * scale) + 2);
+-      bottom = Math.max(bottom, Math.ceil((b.y + b.h + cam.y) * scale) + 2);
+-    }
+-    left = Math.max(0, left);
+-    top = Math.max(0, top);
+-    right = Math.min(w * dpr, right);
+-    bottom = Math.min(h * dpr, bottom);
+-    if (left >= right || top >= bottom) return;
+-    const nearby = this.store
+-      .shapesInBounds({
+-        x: left / scale - cam.x,
+-        y: top / scale - cam.y,
+-        w: (right - left) / scale,
+-        h: (bottom - top) / scale,
+-      })
+-      .sort(paintOrder);
+-    if (preview) {
+-      const firstRegular = nearby.findIndex((s) => s.type !== 'highlight');
+-      nearby.splice(firstRegular < 0 ? nearby.length : firstRegular, 0, ...marks);
+-    }
+-    ctx.save();
+-    ctx.resetTransform();
+-    ctx.beginPath();
+-    ctx.rect(left, top, right - left, bottom - top);
+-    ctx.clip();
+-    this.scene(ctx, cam, w, h, nearby, { dpr });
+-    ctx.restore();
+-  }
+-
+-  protected appendCommittedInk(previous: number, records: ShapeRecord[]) {
+-    this.viewportBuffer.append(previous, this.store.generation, (ctx, cam, width, height) => {
+-      const dpr = ctx.canvas.width / width;
+-      if (records[0].type === 'highlight') {
+-        this.repaintMarker(ctx, cam, width, height, dpr, records, false);
+-        return;
+-      }
+-      const scale = dpr * cam.z;
+-      ctx.setTransform(scale, 0, 0, scale, cam.x * scale, cam.y * scale);
+-      const options = { theme: this.theme, store: this.store, zoom: cam.z, hideText: null };
+-      for (const record of records) this.paint(ctx, record, options);
+-      ctx.resetTransform();
+-    });
+-  }
+-
+-  override destroy() {
+-    this.viewportBuffer.invalidate();
+-    super.destroy();
+-  }
+-
+-  private paintBuffered(
+-    ctx: CanvasRenderingContext2D,
+-    cam: Camera,
+-    w: number,
+-    h: number,
+-    shapes: () => ShapeRecord[],
+-    dpr: number,
+-  ) {
+-    // The raster contains the complete committed scene, including the paper for multiply blending.
+-    if (ctx.canvas !== this.canvas || this.editing || this.session?.type === 'erasing')
+-      return false;
+-    const reused = this.viewportBuffer.draw(
+-      ctx,
+-      cam,
+-      w,
+-      h,
+-      dpr,
+-      (this.store as import('./store').BoardStore).generation,
+-      this.grid + '/' + this.theme.id,
+-      () => shapes().length >= 350,
+-      (surface, expanded, width, height) => {
+-        this.scene(surface, expanded, width, height, this.visibleShapes(expanded, width, height), {
+-          dpr,
+-        });
+-      },
+-      () => {
+-        this.requestRender();
+-      },
+-    );
+-    if (!reused) return false;
+-    if (this.draft?.type === 'highlight') {
+-      this.repaintMarker(ctx, cam, w, h, dpr, [...this.pendingSegments, this.draft], true);
+-      return true;
+-    }
+-    if (this.draft) {
+-      ctx.setTransform(cam.z * dpr, 0, 0, cam.z * dpr, cam.x * cam.z * dpr, cam.y * cam.z * dpr);
+-      const options = { theme: this.theme, store: this.store, zoom: cam.z, hideText: null };
+-      for (const s of this.pendingSegments) this.paint(ctx, s, options);
+-      this.paint(ctx, this.draft, options);
+-      ctx.resetTransform();
+-    }
+-    return true;
+-  }
+-
+   override renderScene(
+     ctx: CanvasRenderingContext2D,
+     cam: Camera,
+@@ -391,15 +251,7 @@ export class CanvasRenderer extends QuickdrawEditor {
+     h: number,
+     opts: { dpr?: number; background?: boolean; hideEditing?: boolean } = {},
+   ) {
+-    let ordered: ShapeRecord[] | undefined;
+-    const candidates = () => (ordered ??= this.visibleShapes(cam, w, h));
+-    if (
+-      opts.hideEditing &&
+-      opts.background !== false &&
+-      this.paintBuffered(ctx, cam, w, h, candidates, opts.dpr ?? 1)
+-    )
+-      return;
+-    const shapes = candidates();
++    const shapes = this.shapesSorted();
+     if (this.draft && opts.hideEditing) {
+       if (this.draft.type === 'highlight') {
+         const index = shapes.findIndex((s) => s.type !== 'highlight');
+@@ -427,7 +279,7 @@ export class CanvasRenderer extends QuickdrawEditor {
+       right = -Infinity,
+       bottom = -Infinity;
+     for (const s of shapes) {
+-      const b = documentBounds(s);
++      const b = boxOf(s);
+       left = Math.min(left, b.x);
+       top = Math.min(top, b.y);
+       right = Math.max(right, b.x + b.w);
+diff --git a/client/canvas/spatial.test.ts b/client/canvas/spatial.test.ts
+deleted file mode 100644
+index 2609160..0000000
+--- a/client/canvas/spatial.test.ts
++++ /dev/null
+@@ -1,126 +0,0 @@
+-import { expect, test } from 'bun:test';
+-import type { Bounds, ShapeRecord } from '@quickdrawjs/core';
+-import { BoardStore } from './store';
+-import { paintOrder, shapeBounds } from './spatial';
+-
+-function geo(id: string, x: number, y: number, z: number): ShapeRecord {
+-  return {
+-    id,
+-    typeName: 'shape',
+-    type: 'geo',
+-    x,
+-    y,
+-    z,
+-    rot: 0,
+-    props: {
+-      geo: 'rectangle',
+-      color: 'black',
+-      size: 'm',
+-      w: 35,
+-      h: 25,
+-      fill: 'solid',
+-      dash: 'solid',
+-    },
+-  };
+-}
+-const overlaps = (a: Bounds, b: Bounds) =>
+-  a.x <= b.x + b.w && a.y <= b.y + b.h && a.x + a.w >= b.x && a.y + a.h >= b.y;
+-
+-test('spatial queries agree with exhaustive intersection after remote loads, changes, deletion, history and snapshot replacement', () => {
+-  const store = new BoardStore();
+-  const initial: Record<string, ShapeRecord> = {};
+-  for (let i = 0; i < 1200; i++) {
+-    const s = geo('s' + i, ((i * 73) % 4100) - 400, ((i * 57) % 2200) - 200, i % 7);
+-    s.rot = (i % 4) * 0.42;
+-    initial[s.id] = s;
+-  }
+-  store.loadSnapshot({ document: { store: initial } });
+-  const verify = () => {
+-    expect(store.shapeCount).toBe(store.shapes().length);
+-    for (let n = 0; n < 12; n++) {
+-      const rect = { x: n * 62 - 100, y: n * 48 - 100, w: 361, h: 292 };
+-      const expected = store
+-        .shapes()
+-        .filter((s) => overlaps(shapeBounds(s), rect))
+-        .map((s) => s.id)
+-        .sort();
+-      expect(
+-        store
+-          .shapesInBounds(rect)
+-          .map((s) => s.id)
+-          .sort(),
+-      ).toEqual(expected);
+-    }
+-  };
+-  verify();
+-  const order = store.orderGeneration;
+-  store.transact(() => {
+-    for (let i = 0; i < 100; i++) store.update('s' + i, { x: i * 2, y: 20 });
+-  });
+-  expect(store.orderGeneration).toBe(order);
+-  verify();
+-  store.remove(['s0', 's0', 's1', 's2']);
+-  verify();
+-  store.undo();
+-  verify();
+-  store.undo();
+-  verify();
+-  store.loadSnapshot({ document: { store: { only: geo('only', -25, -25, -9) } } });
+-  verify();
+-  expect(store.maxZ()).toBe(0);
+-  expect(store.minZ()).toBe(-9);
+-});
+-
+-test('reflowed arrows and intra-transaction moves use fresh bounds; highlights remain below ink', () => {
+-  const store = new BoardStore();
+-  const a = geo('a', 20, 10, 1),
+-    b = geo('b', 110, 10, 3);
+-  const line: ShapeRecord = {
+-    ...geo('line', 50, 20, 4),
+-    type: 'arrow',
+-    props: {
+-      dx: 90,
+-      dy: 0,
+-      size: 'm',
+-      bindings: { start: { id: 'a', u: 0.5, v: 0.5 }, end: { id: 'b', u: 0.5, v: 0.5 } },
+-    },
+-  };
+-  store.transact(() => [a, b, line].forEach((s) => store.put(s)));
+-  expect(store.shapesInBounds({ x: 800, y: 15, w: 5, h: 20 })).toHaveLength(0);
+-  store.transact(() => {
+-    store.update('a', { x: 810 });
+-    expect(
+-      store
+-        .shapesInBounds({ x: 817, y: 20, w: 2, h: 2 })
+-        .map((s) => s.id)
+-        .sort(),
+-    ).toEqual(['a', 'line']);
+-  });
+-  store.undo();
+-  expect(store.shapesInBounds({ x: 817, y: 20, w: 2, h: 2 })).toHaveLength(0);
+-  const highlight: ShapeRecord = {
+-    ...geo('h', 0, 0, 200),
+-    type: 'highlight',
+-    props: { pts: [0, 0, 0.4, 1, 1, 0.6], size: 's' },
+-  };
+-  expect([b, highlight, a].sort(paintOrder).map((s) => s.id)).toEqual(['h', 'a', 'b']);
+-});
+-
+-test('equal-z anchors keep insertion order and distant curved path geometry remains queryable after resizing', () => {
+-  const store = new BoardStore();
+-  store.put(geo('z-first', 0, 0, 20));
+-  store.put(geo('a-second', 0, 0, 20));
+-  expect(store.anchorAt({ x: 20, y: 10 }, 0)?.id).toBe('z-first');
+-  const path = geo('curve', 100, 0, 30);
+-  path.props = {
+-    ...path.props,
+-    kind: 'vector-path',
+-    w: 80,
+-    h: 10,
+-    vectorPath: { w: 40, h: 10, strokeWidth: 2, fill: 'none', d: 'M 0 5 q 20 -65 40 0 t 40 0' },
+-  };
+-  store.put(path);
+-  expect(store.drawingBounds()).toEqual({ x: -2, y: -2, w: 184, h: 29 });
+-  expect(store.shapesInBounds({ x: 169, y: -26, w: 4, h: 2 }).map((s) => s.id)).toContain('curve');
+-  expect(store.shapesInBounds({ x: 215, y: 35, w: 5, h: 2 }).map((s) => s.id)).toContain('curve');
+-});
+diff --git a/client/canvas/spatial.ts b/client/canvas/spatial.ts
+deleted file mode 100644
+index 5b61d8a..0000000
+--- a/client/canvas/spatial.ts
++++ /dev/null
+@@ -1,327 +0,0 @@
+-import RBush, { type BBox } from 'rbush';
+-import { pageBounds, type BoardRecord, type Bounds, type ShapeRecord } from '@quickdrawjs/core';
+-import type { VectorPath } from '../../shared/vector-path';
+-
+-const localPaths = new WeakMap<VectorPath, BBox>();
+-const lengths: Record<string, number> = {
+-  M: 2,
+-  L: 2,
+-  H: 1,
+-  V: 1,
+-  C: 6,
+-  S: 4,
+-  Q: 4,
+-  T: 2,
+-  A: 7,
+-  Z: 0,
+-};
+-
+-/** Conservative control hull in SVG-local coordinates, including reflected controls and rotated arcs. */
+-function pathHull(data: VectorPath) {
+-  const cached = localPaths.get(data);
+-  if (cached) return cached;
+-  const box = { minX: Infinity, minY: Infinity, maxX: -Infinity, maxY: -Infinity };
+-  function include(x: number, y: number) {
+-    box.minX = Math.min(box.minX, x);
+-    box.maxX = Math.max(box.maxX, x);
+-    box.minY = Math.min(box.minY, y);
+-    box.maxY = Math.max(box.maxY, y);
+-  }
+-  let x = 0,
+-    y = 0,
+-    mx = 0,
+-    my = 0,
+-    cx = 0,
+-    cy = 0,
+-    prev = '',
+-    command = '';
+-  let args: number[] = [];
+-  const tokens = data.d.matchAll(/[MLHVQTCSAZ]|[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?/gi);
+-  for (const [value] of tokens) {
+-    if (/^[a-z]$/i.test(value)) {
+-      command = value;
+-      args = [];
+-      if (command.toUpperCase() === 'Z') {
+-        x = mx;
+-        y = my;
+-        prev = 'Z';
+-      }
+-      continue;
+-    }
+-    args.push(Number(value));
+-    const kind = command.toUpperCase(),
+-      relative = kind !== command;
+-    if (args.length !== lengths[kind]) continue;
+-    const ox = relative ? x : 0,
+-      oy = relative ? y : 0;
+-    const px = (i: number) => args[i] + ox,
+-      py = (i: number) => args[i] + oy;
+-    if (kind === 'H') x = px(0);
+-    else if (kind === 'V') y = py(0);
+-    else {
+-      const nextX = px(args.length - 2),
+-        nextY = py(args.length - 1);
+-      if (kind === 'M') {
+-        mx = nextX;
+-        my = nextY;
+-        command = relative ? 'l' : 'L';
+-      }
+-      if (kind === 'C' || kind === 'Q') {
+-        cx = px(0);
+-        cy = py(1);
+-        include(cx, cy);
+-      }
+-      if (kind === 'S' || kind === 'T') {
+-        const reflect = kind === 'T' ? prev === 'T' || prev === 'Q' : prev === 'S' || prev === 'C';
+-        cx = reflect ? 2 * x - cx : x;
+-        cy = reflect ? 2 * y - cy : y;
+-        include(cx, cy);
+-      }
+-      if (kind === 'C' || kind === 'S') {
+-        cx = px(args.length - 4);
+-        cy = py(args.length - 3);
+-        include(cx, cy);
+-      }
+-      if (kind === 'A' && args[0] > 0 && args[1] > 0 && (x !== nextX || y !== nextY)) {
+-        const angle = (args[2] * Math.PI) / 180,
+-          dx = (x - nextX) / 2,
+-          dy = (y - nextY) / 2;
+-        const scale = Math.max(
+-          1,
+-          Math.hypot(
+-            (Math.cos(angle) * dx + Math.sin(angle) * dy) / args[0],
+-            (Math.cos(angle) * dy - Math.sin(angle) * dx) / args[1],
+-          ),
+-        );
+-        // Every point on an ellipse lies within one major diameter of either endpoint.
+-        const diameter = 2 * Math.max(args[0], args[1]) * scale;
+-        include(x - diameter, y - diameter);
+-        include(x + diameter, y + diameter);
+-      }
+-      x = nextX;
+-      y = nextY;
+-    }
+-    include(x, y);
+-    prev = kind;
+-    args = [];
+-  }
+-  localPaths.set(data, box);
+-  return box;
+-}
+-
+-const stableBounds = new WeakMap<ShapeRecord, Bounds>();
+-/** Quickdraw's declared frame, with the same ink margin used by fit and export. */
+-export function documentBounds(shape: ShapeRecord): Bounds {
+-  const stable =
+-    shape.type !== 'text' && shape.type !== 'note' && (!shape.props.ink || shape.props.done);
+-  const cached = stable && stableBounds.get(shape);
+-  if (cached) return cached;
+-  const b = pageBounds(shape),
+-    m = shape.props.ink?.width ? shape.props.ink.width * 3 : 2;
+-  const result = { x: b.x - m, y: b.y - m, w: b.w + 2 * m, h: b.h + 2 * m };
+-  if (stable) stableBounds.set(shape, result);
+-  return result;
+-}
+-const vectorBounds = new WeakMap<ShapeRecord, Bounds>();
+-/** Paint and hit candidates also include transformed SVG geometry outside its declared frame. */
+-export function shapeBounds(shape: ShapeRecord): Bounds {
+-  const base = documentBounds(shape),
+-    p = shape.props;
+-  if (p.kind !== 'vector-path' || !p.vectorPath) return base;
+-  const cached = vectorBounds.get(shape);
+-  if (cached) return cached;
+-  let left = base.x,
+-    top = base.y,
+-    right = base.x + base.w,
+-    bottom = base.y + base.h;
+-  if (p.kind === 'vector-path' && p.vectorPath) {
+-    const data: VectorPath = p.vectorPath,
+-      hull = pathHull(data),
+-      sx = p.w / data.w,
+-      sy = p.h / data.h;
+-    const radius = data.strokeWidth / 2,
+-      cx = p.w / 2,
+-      cy = p.h / 2,
+-      c = Math.cos(shape.rot),
+-      s = Math.sin(shape.rot);
+-    for (const x of [(hull.minX - radius) * sx, (hull.maxX + radius) * sx]) {
+-      for (const y of [(hull.minY - radius) * sy, (hull.maxY + radius) * sy]) {
+-        const px = shape.x + cx + c * (x - cx) - s * (y - cy),
+-          py = shape.y + cy + s * (x - cx) + c * (y - cy);
+-        if (!Number.isFinite(px) || !Number.isFinite(py)) continue;
+-        left = Math.min(left, px);
+-        top = Math.min(top, py);
+-        right = Math.max(right, px);
+-        bottom = Math.max(bottom, py);
+-      }
+-    }
+-  }
+-  const bounds = { x: left, y: top, w: right - left, h: bottom - top };
+-  vectorBounds.set(shape, bounds);
+-  return bounds;
+-}
+-
+-interface Entry extends BBox {
+-  shape: ShapeRecord;
+-}
+-function entry(shape: ShapeRecord): Entry {
+-  const b = shapeBounds(shape);
+-  return { minX: b.x, minY: b.y, maxX: b.x + b.w, maxY: b.y + b.h, shape };
+-}
+-function vectorHitScale(shape: ShapeRecord) {
+-  const p = shape.props;
+-  if (p.kind !== 'vector-path' || !p.vectorPath?.strokeWidth) return 1;
+-  const x = p.w / p.vectorPath.w,
+-    y = p.h / p.vectorPath.h;
+-  return Math.max(1, Math.max(x, y) / Math.max(0.001, Math.min(x, y)));
+-}
+-function fromBox(b: BBox): Bounds {
+-  return { x: b.minX, y: b.minY, w: b.maxX - b.minX, h: b.maxY - b.minY };
+-}
+-
+-/** A full replacement bulk-loads the tree. Large replacements build in bounded
+- * event-loop slices; exact scans remain available during that initial paint. */
+-export class ShapeIndex {
+-  private tree = new RBush<Entry>();
+-  private entries = new Map<string, Entry>();
+-  private dirty = new Set<string>();
+-  private ready = false;
+-  private building?: MapIterator<BoardRecord>;
+-  private timer?: ReturnType<typeof setTimeout>;
+-  private frame?: number;
+-  private coldBounds?: Bounds;
+-  private hitScale = 1;
+-  private includesVectorPaths = false;
+-  constructor(private records: Map<string, BoardRecord>) {}
+-  changed(id: string) {
+-    this.coldBounds = undefined;
+-    if (this.ready || this.entries.has(id)) this.dirty.add(id);
+-  }
+-  fontsChanged() {
+-    this.coldBounds = undefined;
+-    for (const [id, { shape }] of this.entries)
+-      if (shape.type === 'text' || shape.type === 'note') this.changed(id);
+-  }
+-  dispose() {
+-    clearTimeout(this.timer);
+-    if (this.frame !== undefined) cancelAnimationFrame(this.frame);
+-    this.building = undefined;
+-    this.ready = false;
+-    this.entries.clear();
+-    this.tree.clear();
+-    this.dirty.clear();
+-    this.coldBounds = undefined;
+-  }
+-  private add(shape: ShapeRecord) {
+-    const value = entry(shape);
+-    if (shape.props.kind === 'vector-path') this.includesVectorPaths = true;
+-    this.entries.set(shape.id, value);
+-    this.hitScale = Math.max(this.hitScale, vectorHitScale(shape));
+-    return value;
+-  }
+-  private buildSlice() {
+-    if (!this.building) return;
+-    const items: Entry[] = [];
+-    // Chunk size limits both geometry work and RBush's bulk sort in a single task.
+-    for (let n = 0; n < 1024; n++) {
+-      const cursor = this.building.next();
+-      if (cursor.done) {
+-        this.ready = true;
+-        this.building = undefined;
+-        break;
+-      }
+-      const shape = cursor.value;
+-      if (shape.typeName === 'shape' && !this.entries.has(shape.id)) items.push(this.add(shape));
+-    }
+-    if (items.length) this.tree.load(items);
+-    if (this.building) this.timer = setTimeout(() => this.buildSlice(), 0);
+-  }
+-  private sync() {
+-    if (this.building || (this.ready && !this.dirty.size)) return;
+-    if (!this.ready || (this.dirty.size > 256 && this.dirty.size * 3 > this.entries.size)) {
+-      this.tree.clear();
+-      this.entries.clear();
+-      this.hitScale = 1;
+-      this.includesVectorPaths = false;
+-      this.dirty.clear();
+-      this.coldBounds = undefined;
+-      if (this.records.size >= 4096 && typeof requestAnimationFrame === 'function') {
+-        this.ready = false;
+-        this.building = this.records.values();
+-        this.frame = requestAnimationFrame(() => {
+-          this.frame = undefined;
+-          this.timer = setTimeout(() => this.buildSlice(), 0);
+-        });
+-        return;
+-      }
+-      const values = [];
+-      for (const r of this.records.values()) if (r.typeName === 'shape') values.push(this.add(r));
+-      this.tree.load(values);
+-      this.ready = true;
+-    } else {
+-      for (const id of this.dirty) {
+-        const old = this.entries.get(id);
+-        if (old) {
+-          this.tree.remove(old);
+-          this.entries.delete(id);
+-        }
+-        const r = this.records.get(id);
+-        if (r?.typeName === 'shape') this.tree.insert(this.add(r));
+-      }
+-      this.dirty.clear();
+-    }
+-  }
+-  search(b: Bounds, hitTolerance = 0) {
+-    this.sync();
+-    if (!this.ready) {
+-      const found: ShapeRecord[] = [];
+-      for (const s of this.records.values()) {
+-        if (s.typeName !== 'shape') continue;
+-        const pb = shapeBounds(s),
+-          t = hitTolerance ? hitTolerance * vectorHitScale(s) : 0;
+-        if (
+-          pb.x + pb.w >= b.x - t &&
+-          pb.x <= b.x + b.w + t &&
+-          pb.y + pb.h >= b.y - t &&
+-          pb.y <= b.y + b.h + t
+-        )
+-          found.push(s);
+-      }
+-      return found;
+-    }
+-    const t = hitTolerance * this.hitScale;
+-    return this.tree
+-      .search({ minX: b.x - t, minY: b.y - t, maxX: b.x + b.w + t, maxY: b.y + b.h + t })
+-      .map((item) => item.shape);
+-  }
+-  bounds(): Bounds | null {
+-    this.sync();
+-    if (this.ready && !this.includesVectorPaths)
+-      return this.entries.size ? fromBox(this.tree.toJSON()) : null;
+-    if (!this.coldBounds) {
+-      let minX = Infinity,
+-        minY = Infinity,
+-        maxX = -Infinity,
+-        maxY = -Infinity;
+-      for (const s of this.records.values()) {
+-        if (s.typeName !== 'shape') continue;
+-        const b = documentBounds(s);
+-        minX = Math.min(minX, b.x);
+-        minY = Math.min(minY, b.y);
+-        maxX = Math.max(maxX, b.x + b.w);
+-        maxY = Math.max(maxY, b.y + b.h);
+-      }
+-      if (minX === Infinity) return null;
+-      this.coldBounds = fromBox({ minX, minY, maxX, maxY });
+-    }
+-    return { ...this.coldBounds };
+-  }
+-}
+-
+-export function paintOrder(a: ShapeRecord, b: ShapeRecord) {
+-  return (
+-    Number(a.type !== 'highlight') - Number(b.type !== 'highlight') ||
+-    a.z - b.z ||
+-    (a.id < b.id ? -1 : a.id > b.id ? 1 : 0)
+-  );
+-}
+diff --git a/client/canvas/store.ts b/client/canvas/store.ts
+index c19a5c4..610aeb9 100644
+--- a/client/canvas/store.ts
++++ b/client/canvas/store.ts
+@@ -3,10 +3,8 @@ import {
+   Store,
+   type BoardRecord,
+   type DiffSource,
+-  type Bounds,
+   type ShapeRecord,
+ } from '@quickdrawjs/core';
+-import { ShapeIndex } from './spatial';
+ 
+ type Point = { x: number; y: number };
+ type Anchor = { id: string; u: number; v: number };
+@@ -33,54 +31,6 @@ function isNode(shape: ShapeRecord) {
+ 
+ export class BoardStore extends Store {
+   generation = 0;
+-  orderGeneration = 0;
+-  private readonly spatial = new ShapeIndex(this.records);
+-  private count = 0;
+-  private high: number | undefined = 0;
+-  private low: number | undefined = 0;
+-  get shapeCount() {
+-    return this.count;
+-  }
+-  override maxZ() {
+-    return (this.high ??= super.maxZ());
+-  }
+-  override minZ() {
+-    return (this.low ??= super.minZ());
+-  }
+-
+-  shapesInBounds(bounds: Bounds, hitTolerance = 0) {
+-    return this.spatial.search(bounds, hitTolerance);
+-  }
+-  disposeIndex() {
+-    this.spatial.dispose();
+-  }
+-  drawingBounds() {
+-    return this.spatial.bounds();
+-  }
+-  fontsChanged() {
+-    this.spatial.fontsChanged();
+-    this.generation++;
+-  }
+-
+-  private geometryChanged(id: string, before?: BoardRecord, after?: BoardRecord) {
+-    const prev = before?.typeName === 'shape' ? before : undefined;
+-    const next = after?.typeName === 'shape' ? after : undefined;
+-    if (!prev && !next) return;
+-    this.count += Number(!!next) - Number(!!prev);
+-    if (
+-      !prev ||
+-      !next ||
+-      prev.z !== next.z ||
+-      (prev.type === 'highlight') !== (next.type === 'highlight')
+-    )
+-      this.orderGeneration++;
+-    this.spatial.changed(id);
+-    if (prev?.z === next?.z) return;
+-    if (prev && this.high === prev.z && (!next || next.z < prev.z)) this.high = undefined;
+-    if (prev && this.low === prev.z && (!next || next.z > prev.z)) this.low = undefined;
+-    if (next && this.high !== undefined) this.high = Math.max(this.high, next.z);
+-    if (next && this.low !== undefined) this.low = Math.min(this.low, next.z);
+-  }
+   private linksByTarget = new Map<string, Set<string>>();
+ 
+   override shapes() {
+@@ -88,19 +38,10 @@ export class BoardStore extends Store {
+   }
+ 
+   anchorAt(point: Point, tolerance: number): Anchor | undefined {
+-    const pad = Math.SQRT2 * tolerance;
+-    const shapes = this.shapesInBounds({
+-      x: point.x - pad,
+-      y: point.y - pad,
+-      w: 2 * pad,
+-      h: 2 * pad,
+-    })
++    const shapes = this.shapes()
+       .filter(isNode)
+       .sort((a, b) => b.z - a.z);
+-    const ties = new Map<string, Anchor>();
+-    let topZ: number | undefined;
+     for (const s of shapes) {
+-      if (topZ !== undefined && topZ !== s.z) break;
+       const box = anchorFrame(s);
+       const p = rotate(point, box.center, -s.rot);
+       if (
+@@ -112,12 +53,8 @@ export class BoardStore extends Store {
+         continue;
+       const u = Math.min(1, Math.max(0, (p.x - box.x) / Math.max(1, box.w)));
+       const v = Math.min(1, Math.max(0, (p.y - box.y) / Math.max(1, box.h)));
+-      topZ = s.z;
+-      ties.set(s.id, { id: s.id, u, v });
++      return { id: s.id, u, v };
+     }
+-    if (ties.size === 1) return ties.values().next().value;
+-    // Native anchorAt resolves equal-z overlaps in document insertion order.
+-    if (ties.size > 1) for (const id of this.records.keys()) if (ties.has(id)) return ties.get(id);
+   }
+ 
+   private pointOf(anchor?: Anchor) {
+@@ -153,7 +90,6 @@ export class BoardStore extends Store {
+         x: line.x + line.props.dx,
+         y: line.y + line.props.dy,
+       };
+-      this.spatial.changed(line.id);
+       super.put({
+         ...line,
+         x: a.x,
+@@ -178,7 +114,6 @@ export class BoardStore extends Store {
+       return;
+     this.transact(() => {
+       this.generation++;
+-      this.geometryChanged(rec.id, previous, rec);
+       this.track(previous, false);
+       super.put(rec, source);
+       this.track(rec, true);
+@@ -195,11 +130,7 @@ export class BoardStore extends Store {
+         return source === 'remote' || history || r?.typeName !== 'shape' || !r.props.locked;
+       });
+       if (removable.length) this.generation++;
+-      for (const id of new Set(removable)) {
+-        const previous = this.get(id);
+-        this.geometryChanged(id, previous);
+-        this.track(previous, false);
+-      }
++      for (const id of removable) this.track(this.get(id), false);
+       super.remove(removable, source);
+     }, source);
+   }
+diff --git a/client/canvas/viewport-buffer.ts b/client/canvas/viewport-buffer.ts
+deleted file mode 100644
+index cbb6fa0..0000000
+--- a/client/canvas/viewport-buffer.ts
++++ /dev/null
+@@ -1,122 +0,0 @@
+-import type { Camera } from '@quickdrawjs/core';
+-
+-type Painter = (ctx: CanvasRenderingContext2D, cam: Camera, width: number, height: number) => void;
+-interface Raster {
+-  surface: HTMLCanvasElement;
+-  camera: Camera;
+-  dpr: number;
+-  width: number;
+-  height: number;
+-  revision: number;
+-  style: string;
+-}
+-
+-/** One bounded view raster. Exports and final subpixel frames use vector rendering. */
+-export class ViewportBuffer {
+-  private image?: Raster;
+-  private lastZoom?: number;
+-  private settle?: ReturnType<typeof setTimeout>;
+-  private exact = false;
+-
+-  invalidate() {
+-    this.image = undefined;
+-    this.lastZoom = undefined;
+-    this.exact = false;
+-    clearTimeout(this.settle);
+-  }
+-
+-  append(previous: number, revision: number, paint: Painter) {
+-    const image = this.image;
+-    if (!image || image.revision !== previous) return;
+-    const ctx = image.surface.getContext('2d');
+-    if (!ctx) return;
+-    paint(ctx, image.camera, image.surface.width / image.dpr, image.surface.height / image.dpr);
+-    image.revision = revision;
+-  }
+-
+-  draw(
+-    target: CanvasRenderingContext2D,
+-    camera: Camera,
+-    width: number,
+-    height: number,
+-    dpr: number,
+-    revision: number,
+-    style: string,
+-    dense: () => boolean,
+-    paint: Painter,
+-    repaint: () => void,
+-  ): boolean {
+-    const w = Math.round(width * dpr),
+-      h = Math.round(height * dpr);
+-    const previous = this.image;
+-    const sameZoom = this.lastZoom === camera.z;
+-    this.lastZoom = camera.z;
+-    const factor = camera.z * dpr;
+-    if (
+-      previous &&
+-      previous.camera.z === camera.z &&
+-      previous.dpr === dpr &&
+-      previous.width === w &&
+-      previous.height === h &&
+-      previous.revision === revision &&
+-      previous.style === style
+-    ) {
+-      const x = (previous.camera.x - camera.x) * factor,
+-        y = (previous.camera.y - camera.y) * factor;
+-      if (
+-        x >= -1e-6 &&
+-        y >= -1e-6 &&
+-        x + w <= previous.surface.width + 1e-6 &&
+-        y + h <= previous.surface.height + 1e-6
+-      ) {
+-        const aligned = Math.abs(x - Math.round(x)) < 1e-5 && Math.abs(y - Math.round(y)) < 1e-5;
+-        if (aligned || !this.exact) {
+-          target.setTransform(1, 0, 0, 1, 0, 0);
+-          target.drawImage(
+-            previous.surface,
+-            aligned ? Math.round(x) : x,
+-            aligned ? Math.round(y) : y,
+-            w,
+-            h,
+-            0,
+-            0,
+-            w,
+-            h,
+-          );
+-          if (!aligned) {
+-            clearTimeout(this.settle);
+-            this.settle = setTimeout(() => {
+-              this.exact = true;
+-              repaint();
+-            }, 120);
+-          }
+-          return true;
+-        }
+-      }
+-    }
+-    this.exact = false;
+-    // During continuous zoom avoid building a raster at each intermediate scale.
+-    if (!sameZoom || w < 1 || h < 1 || w * h > 6_000_000 || !dense()) return false;
+-    const budget = Math.sqrt(6_000_000 / (w * h));
+-    const slack = Math.max(0, (budget - 1) / 2);
+-    const px = Math.min(
+-      Math.floor(w * slack),
+-      camera.z < 0.25 ? Math.round(w * 0.55) : Math.round(128 * dpr),
+-    );
+-    const py = Math.min(
+-      Math.floor(h * slack),
+-      camera.z < 0.25 ? Math.round(h * 0.55) : Math.round(128 * dpr),
+-    );
+-    const surface = previous?.surface ?? document.createElement('canvas');
+-    if (surface.width !== w + 2 * px) surface.width = w + 2 * px;
+-    if (surface.height !== h + 2 * py) surface.height = h + 2 * py;
+-    const context = surface.getContext('2d');
+-    if (!context) return false;
+-    const expanded = { x: camera.x + px / factor, y: camera.y + py / factor, z: camera.z };
+-    paint(context, expanded, surface.width / dpr, surface.height / dpr);
+-    this.image = { surface, camera: expanded, dpr, width: w, height: h, revision, style };
+-    target.setTransform(1, 0, 0, 1, 0, 0);
+-    target.drawImage(surface, px, py, w, h, 0, 0, w, h);
+-    return true;
+-  }
+-}
+diff --git a/client/main.ts b/client/main.ts
+index 2728bdf..883a6c3 100644
+--- a/client/main.ts
++++ b/client/main.ts
+@@ -136,7 +136,6 @@ function updateTitle(title: string) {
+ 
+ function updateStatus(state: 'saved' | 'saving' | 'offline' | 'conflict') {
+   const node = element('save-state');
+-  if (node.dataset.state === state) return;
+   node.dataset.state = state;
+   node.querySelector('span')!.textContent = {
+     saved: '已同步',
+@@ -191,22 +190,28 @@ function setColor(value: string) {
+ 
+ function syncHeader(ctx: Session) {
+   const { canvas, board } = ctx;
+-  const undo = app.querySelectorAll<HTMLButtonElement>('[data-action="undo"]');
+-  const redo = app.querySelectorAll<HTMLButtonElement>('[data-action="redo"]');
+   const history = () => {
+-    for (const buttons of [undo, redo]) {
+-      const disabled =
+-        canvas.editor.readonly || !(buttons === undo ? canvas.store.canUndo : canvas.store.canRedo);
+-      for (const button of buttons) if (button.disabled !== disabled) button.disabled = disabled;
++    for (const action of ['undo', 'redo'] as const) {
++      const enabled = action === 'undo' ? canvas.store.canUndo : canvas.store.canRedo;
++      for (const node of app.querySelectorAll<HTMLButtonElement>(`[data-action="${action}"]`))
++        node.disabled = canvas.editor.readonly || !enabled;
+     }
+   };
+-  let objectCount = -1;
++  let objectCount = canvas.store.shapes().length;
+   const count = () => {
+-    if (objectCount === canvas.store.shapeCount) return;
+-    objectCount = canvas.store.shapeCount;
+     element('object-count').textContent = objectCount + ' 个对象';
+   };
+-  const observeCount = canvas.store.listen(count);
++  const observeCount = canvas.store.listen((diff) => {
++    const shapeCount = (items: Record<string, { typeName: string }>) =>
++      Object.values(items).reduce((total, item) => total + Number(item.typeName === 'shape'), 0);
++    let delta = shapeCount(diff.added) - shapeCount(diff.removed);
++    for (const [before, after] of Object.values(diff.updated))
++      delta += Number(after.typeName === 'shape') - Number(before.typeName === 'shape');
++    if (delta) {
++      objectCount += delta;
++      count();
++    }
++  });
+   const zoom = () => {
+     element('zoom-value').textContent = Math.round(canvas.editor.camera.z * 100) + '%';
+   };
+@@ -318,10 +323,9 @@ async function mount(board: Board) {
+   registerSampleRenderers(canvas);
+   const objects = mountObjectTools(canvas);
+   const detachPresence = bindPresence(board.id, canvas, board.role);
+-  const detachViewport = rememberViewport(board.id, canvas.editor, () => {
+-    if (isAgentDesignSample(board)) frameAgentDesign(canvas);
+-    else if (canvas.store.shapeCount) canvas.editor.fitContent({ margin: 0.1, maxZoom: 1 });
+-  });
++  if (isAgentDesignSample(board)) frameAgentDesign(canvas);
++  else if (canvas.store.shapes().length) canvas.editor.fitContent({ margin: 0.1, maxZoom: 1 });
++  const detachViewport = rememberViewport(board.id, canvas.editor);
+   session = {
+     board,
+     canvas,
+@@ -451,7 +455,7 @@ async function addFiles(files: Iterable<File>, at?: { x: number; y: number }) {
+ }
+ 
+ function updateSceneControls(canvas: Canvas) {
+-  const count = canvas.store.size === canvas.store.shapeCount ? 0 : scenesOf(canvas.store).length;
++  const count = scenesOf(canvas.store).length;
+   sceneIndex = Math.min(sceneIndex, count - 1);
+   app.querySelector<HTMLButtonElement>('[data-action=previous-scene]')!.disabled =
+     !count || sceneIndex < 1;
+diff --git a/client/net.ts b/client/net.ts
+index 92dadae..b8484b2 100644
+--- a/client/net.ts
++++ b/client/net.ts
+@@ -18,13 +18,12 @@ import {
+   type Outbox,
+ } from './recovered-outbox';
+ import {
+-  applyDelta,
+-  getChanges,
+   boardPath as path,
+   request,
+   RequestError,
+   type Role,
+   type Board,
++  type BoardSummary,
+ } from './api';
+ export * from './api';
+ 
+@@ -36,6 +35,11 @@ interface Callbacks {
+   onRevoked?(): void;
+   onError?(message: string): void;
+ }
++interface Delta extends BoardSummary {
++  put: Record<string, BoardRecord>;
++  remove: string[];
++}
++
+ const uuid = () =>
+   Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) =>
+     b.toString(16).padStart(2, '0'),
+@@ -79,6 +83,7 @@ export class BoardSync {
+   private readonly cacheKey: string;
+   private lease?: DraftLease<Outbox>;
+   private readonly ready: Promise<void>;
++  private cacheTimer?: ReturnType<typeof setTimeout>;
+   private persistTimer?: ReturnType<typeof setTimeout>;
+   private writeChain: Promise<void> = Promise.resolve();
+   private readonly source: EventSource;
+@@ -95,7 +100,7 @@ export class BoardSync {
+     private callbacks: Callbacks = {},
+   ) {
+     this.revision = board.rev;
+-    this.serverItems = board.items;
++    this.serverItems = { ...board.items };
+     this.cacheKey = 'folio:pending:3:' + this.scope + ':' + board.id;
+     try {
+       const saved = sessionStorage.getItem(this.cacheKey);
+@@ -103,10 +108,11 @@ export class BoardSync {
+     } catch {
+       this.callbacks.onError?.('此浏览器无法恢复临时草稿。');
+     }
+-    const items = hasPending(this.box) ? previewJobs(this.serverItems, this.box) : this.serverItems;
+-    if (items !== this.serverItems) apply(items, this.box.staged);
++    const items = previewJobs(this.serverItems, this.box);
++    apply(items, this.box.staged);
+     store.loadSnapshot({ document: { store: items } });
+     this.ready = this.recoverDrafts();
++    this.cacheSnapshot();
+     this.off = store.listen((diff) => this.changed(diff), { source: 'user' });
+     this.source = new EventSource(path(board.id) + '/events');
+     this.source.addEventListener('presence', (event) => {
+@@ -169,20 +175,22 @@ export class BoardSync {
+     const lease = this.lease;
+     if (!lease || !lease.valid()) return Promise.resolve();
+     this.box.savedAt = Date.now();
+-    // DraftLease captures a stable snapshot synchronously before queuing its write.
+-    const snapshot = hasPending(this.box) ? this.box : null;
++    const snapshot = hasPending(this.box) ? structuredClone(this.box) : null;
+     this.writeChain = lease.save(snapshot);
+     return this.writeChain.catch(() => {
+       if (!this.warned) this.callbacks.onError?.('浏览器未能写入离线草稿。');
+       this.warned = true;
+     });
+   }
+-  private cacheSnapshot(delta?: { since: number; ids: Iterable<string> }) {
+-    return cacheBoard(
+-      { ...this.board, rev: this.revision, items: this.serverItems },
+-      this.scope,
+-      delta,
+-    ).catch(() => {});
++  private cacheSnapshot() {
++    if (this.cacheTimer) return;
++    this.cacheTimer = setTimeout(() => {
++      this.cacheTimer = undefined;
++      void cacheBoard(
++        { ...this.board, rev: this.revision, items: this.serverItems },
++        this.scope,
++      ).catch(() => {});
++    }, 220);
+   }
+   private changed(diff: Diff) {
+     if (!this.checkWorkspace()) return;
+@@ -228,26 +236,20 @@ export class BoardSync {
+   }
+ 
+   private async refresh(conflict = false) {
+-    const since = this.revision;
+     let latest: Board;
+     let changed: Set<string>;
+-    let incremental = true;
+     try {
+-      const delta = await getChanges(this.board.id, since);
+-      if (this.disposed) return;
++      const delta = await request<Delta>(path(this.board.id) + '/changes?since=' + this.revision);
+       changed = new Set([...Object.keys(delta.put), ...delta.remove]);
+-      latest = applyDelta({ ...this.board, items: this.serverItems }, delta);
++      const items = { ...this.serverItems, ...delta.put };
++      for (const key of delta.remove) delete items[key];
++      latest = { ...this.board, ...delta, items };
+     } catch (err) {
+       if (!(err instanceof RequestError) || err.status !== 409) throw err;
+       latest = await request<Board>(path(this.board.id));
+-      if (this.disposed) return;
+-      incremental = false;
+-      changed = new Set([...Object.keys(this.serverItems), ...Object.keys(latest.items)]);
++      changed = new Set(Object.keys({ ...this.serverItems, ...latest.items }));
+     }
+-    const metadataChanged =
+-      latest.title !== this.board.title ||
+-      latest.role !== this.board.role ||
+-      latest.updatedAt !== this.board.updatedAt;
++    if (this.disposed) return;
+     this.callbacks.onTitle?.(latest.title);
+     if (latest.role !== this.board.role) {
+       this.callbacks.onRole?.(latest.role);
+@@ -258,7 +260,13 @@ export class BoardSync {
+         for (const recordId of Object.keys(latest.items)) changed.add(recordId);
+       }
+     }
+-    this.board = latest;
++    this.board = {
++      ...this.board,
++      title: latest.title,
++      updatedAt: latest.updatedAt,
++      role: latest.role,
++    };
++    this.cacheSnapshot();
+     this.revision = latest.rev;
+     this.serverItems = latest.items;
+     // Replay every original request unchanged until the server rejects it or confirms its receipt.
+@@ -275,38 +283,21 @@ export class BoardSync {
+       }
+     }
+     const local = this.box.staged;
++    const effective = previewJobs(latest.items, this.box);
++    const staged = rebaseEdits(local, effective, uuid);
++    this.box.staged = staged.result;
++    conflicts += staged.conflicts;
++    apply(effective, staged.result);
+     const full = conflict || Boolean(this.box.replay?.length) || this.reconcileAll;
+     this.reconcileAll = false;
+-    // Only an ambiguous/replayed ACK needs comparison of the entire optimistic document.
+-    // An ordinary peer delta has no active job. Rebase staged edits against just the touched IDs.
+-    let effective = latest.items;
+-    let dirtyIds: Set<string>;
+-    if (full) {
+-      effective = previewJobs(latest.items, this.box);
+-      const staged = rebaseEdits(local, effective, uuid);
+-      this.box.staged = staged.result;
+-      conflicts += staged.conflicts;
+-      apply(effective, staged.result);
+-      dirtyIds = new Set([...this.store.ids(), ...Object.keys(effective)]);
+-    } else if (has(local)) {
+-      const staged = rebaseEdits(local, latest.items, uuid);
+-      this.box.staged = staged.result;
+-      conflicts += staged.conflicts;
+-      dirtyIds = new Set([...changed, ...Object.keys(local), ...Object.keys(staged.result)]);
+-      effective = Object.create(null);
+-      for (const id of dirtyIds) effective[id] = latest.items[id];
+-      apply(effective, staged.result);
+-    } else {
+-      dirtyIds = changed;
+-    }
++    const dirtyIds = full
++      ? new Set([...this.store.ids(), ...Object.keys(effective)])
++      : new Set([...changed, ...Object.keys(local), ...Object.keys(staged.result)]);
+     this.store.transact(() => {
+       for (const id of dirtyIds) {
+         const record = effective[id];
+         if (!record) this.store.remove([id], 'remote');
+-        else if (
+-          this.store.get(id) !== record &&
+-          JSON.stringify(this.store.get(id)) !== JSON.stringify(record)
+-        )
++        else if (JSON.stringify(this.store.get(id)) !== JSON.stringify(record))
+           this.store.put(record, 'remote');
+       }
+     }, 'remote');
+@@ -325,9 +316,7 @@ export class BoardSync {
+         '多人同时修改了同一内容。保留了对方的编辑，可保留的本地形状已另存为副本。',
+       );
+     }
+-    if (!incremental || since !== latest.rev || metadataChanged)
+-      await this.cacheSnapshot(incremental ? { since, ids: changed } : undefined);
+-    if (full || has(local) || hasPending(this.box)) this.persist();
++    this.persist();
+   }
+ 
+   private async drain() {
+@@ -361,19 +350,16 @@ export class BoardSync {
+         continue;
+       }
+       if (this.disposed) return;
++      delete this.box.active;
+       if (ack.duplicate || ack.rev !== this.revision + 1) {
+         this.forceRead = true;
+         this.reconcileAll = true;
+       } else {
+         apply(this.serverItems, job.changes);
+-        const since = this.revision;
+         this.revision = ack.rev;
+-        // Keep the replayable job until the acknowledged base is committed locally.
+-        await this.cacheSnapshot({ since, ids: Object.keys(job.changes) });
+       }
+-      if (this.disposed) return;
+-      delete this.box.active;
+       this.persist();
++      this.cacheSnapshot();
+     }
+     this.backoff = 400;
+     if (!this.disposed) this.callbacks.onStatus?.('saved');
+@@ -390,6 +376,7 @@ export class BoardSync {
+     if (this.disposed) return;
+     if (purge) this.box = { staged: empty() };
+     this.close();
++    clearTimeout(this.cacheTimer);
+     this.store.loadSnapshot({ document: { store: {} } });
+     this.callbacks.onRevoked?.();
+     if (purge)
+@@ -417,7 +404,7 @@ export class BoardSync {
+               this.revision = canonical.rev;
+               this.callbacks.onRole?.('viewer');
+               this.persist();
+-              await this.cacheSnapshot();
++              this.cacheSnapshot();
+               this.callbacks.onStatus?.('saved');
+               return;
+             }
+@@ -425,6 +412,7 @@ export class BoardSync {
+             if (check instanceof RequestError && (check.status === 404 || check.status === 403)) {
+               this.box = { staged: empty() };
+               this.close();
++              clearTimeout(this.cacheTimer);
+               await Promise.all([
+                 forgetBoard(this.board.id, this.scope),
+                 forgetBoardAssets(this.board.id, this.scope).catch(() => {}),
+diff --git a/client/objects.ts b/client/objects.ts
+index 47a90e9..f04778f 100644
+--- a/client/objects.ts
++++ b/client/objects.ts
+@@ -95,11 +95,6 @@ export function mountObjectTools({ editor: raw, store }: { editor: Editor; store
+     return view;
+   }
+   function selection() {
+-    if (editor.selection.size < 2) {
+-      const id = editor.selection.values().next().value;
+-      const record = id && store.get(id);
+-      return record && record.typeName === 'shape' ? [record] : [];
+-    }
+     return store.shapes().filter((s) => editor.selection.has(s.id));
+   }
+   function center() {
+diff --git a/client/offline.ts b/client/offline.ts
+index 45b584c..857246f 100644
+--- a/client/offline.ts
++++ b/client/offline.ts
+@@ -28,18 +28,14 @@ export function currentCacheScope(): string | null {
+ function db(): Promise<IDBDatabase> {
+   if (!connection)
+     connection = new Promise<IDBDatabase>((resolve, reject) => {
+-      const request = indexedDB.open(dbName, 2);
+-      request.onupgradeneeded = (event) => {
++      const request = indexedDB.open(dbName, 1);
++      request.onupgradeneeded = () => {
+         const database = request.result;
+-        if (event.oldVersion === 0) {
+-          database.createObjectStore('boards', { keyPath: ['scope', 'id'] });
+-          database.createObjectStore('lists', { keyPath: 'scope' });
+-          database
+-            .createObjectStore('drafts', { keyPath: ['scope', 'board', 'lane'] })
+-            .createIndex('board', ['scope', 'board']);
+-        }
+-        database.createObjectStore('boardHeaders', { keyPath: ['scope', 'id'] });
+-        database.createObjectStore('boardChanges', { keyPath: ['scope', 'board', 'id'] });
++        database.createObjectStore('boards', { keyPath: ['scope', 'id'] });
++        database.createObjectStore('lists', { keyPath: 'scope' });
++        database
++          .createObjectStore('drafts', { keyPath: ['scope', 'board', 'lane'] })
++          .createIndex('board', ['scope', 'board']);
+       };
+       request.onsuccess = () => {
+         request.result.onversionchange = () => {
+@@ -76,76 +72,22 @@ async function transaction(stores: string[], mode: IDBTransactionMode, scope: st
+   return database.transaction(stores, mode, { durability: 'strict' });
+ }
+ 
+-const boardStores = ['boards', 'boardHeaders', 'boardChanges'];
+-const boardRange = (scope: string, id: string) => IDBKeyRange.bound([scope, id], [scope, id, []]);
+-
+-export async function cachedBoardHeader(
+-  id: string,
+-  scope = currentCacheScope(),
+-): Promise<BoardSummary | undefined> {
+-  const tx = await transaction(['boardHeaders'], 'readonly', scope);
+-  if (!tx || !scope) return;
+-  const row = await read(tx.objectStore('boardHeaders').get([scope, id]));
+-  if (scope === currentCacheScope()) return row?.value;
+-}
+-
+-/** A single transaction reads a consistent base, overlay and revision, including v1 snapshots. */
+ export async function cachedBoard(
+   id: string,
+   scope = currentCacheScope(),
+ ): Promise<Board | undefined> {
+-  const tx = await transaction(boardStores, 'readonly', scope);
++  const tx = await transaction(['boards'], 'readonly', scope);
+   if (!tx || !scope) return;
+-  const [base, header, changes] = await Promise.all([
+-    read(tx.objectStore('boards').get([scope, id])),
+-    read(tx.objectStore('boardHeaders').get([scope, id])),
+-    read(tx.objectStore('boardChanges').getAll(boardRange(scope, id))),
+-  ]);
+-  if (scope !== currentCacheScope() || !base) return;
+-  const board: Board =
+-    base.snapshot instanceof Blob ? JSON.parse(await base.snapshot.text()) : base.value;
+-  if (scope !== currentCacheScope()) return;
+-  for (const { id, value } of changes) {
+-    if (value == null) delete board.items[id];
+-    else board.items[id] = value;
+-  }
+-  return Object.assign(board, header?.value);
++  const row = await read(tx.objectStore('boards').get([scope, id]));
++  if (scope === currentCacheScope()) return row?.value as Board | undefined;
+ }
+-
+-/** Keep the existing full snapshot immutable and store only the latest value of each touched ID.
+- * An overlapping delta is safe to replay. A gap requires a new base and atomically clears the overlay.
+- */
+-export async function cacheBoard(
+-  board: Board,
+-  scope = currentCacheScope(),
+-  source?: Blob | { since: number; ids: Iterable<string> },
+-): Promise<void> {
+-  const tx = await transaction(boardStores, 'readwrite', scope);
++export async function cacheBoard(board: Board, scope = currentCacheScope()): Promise<void> {
++  const tx = await transaction(['boards'], 'readwrite', scope);
+   if (!tx || !scope) return;
+   const done = committed(tx);
+-  const base = tx.objectStore('boards'),
+-    headers = tx.objectStore('boardHeaders'),
+-    changes = tx.objectStore('boardChanges');
+-  const delta = source instanceof Blob ? undefined : source;
+-  const { id, title, rev, updatedAt, role } = board;
+-  const key = [scope, id];
+-  const header = await read(headers.get(key));
+-  // A version-one base may have a newer revision than the tab performing the upgrade.
+-  const prior: BoardSummary | undefined = header?.value ?? (await read(base.get(key)))?.value;
+-  if (!prior || prior.rev <= rev) {
+-    if (prior?.rev !== rev) {
+-      if (prior && delta && delta.since <= prior.rev) {
+-        for (const recordId of delta.ids)
+-          changes.put({ scope, board: id, id: recordId, value: board.items[recordId] ?? null });
+-      } else {
+-        base.put(
+-          source instanceof Blob ? { scope, id, snapshot: source } : { scope, id, value: board },
+-        );
+-        changes.delete(boardRange(scope, id));
+-      }
+-    }
+-    headers.put({ scope, id, value: { id, title, rev, updatedAt, role } });
+-  }
++  const store = tx.objectStore('boards');
++  const prior = await read(store.get([scope, board.id]));
++  if (!prior || prior.value.rev <= board.rev) store.put({ scope, id: board.id, value: board });
+   await done;
+ }
+ export async function cachedBoardList(
+@@ -219,12 +161,10 @@ export async function cachedLibrary(
+   }
+ }
+ export async function forgetBoard(id: string, scope = currentCacheScope()): Promise<void> {
+-  const tx = await transaction([...boardStores, 'lists', 'drafts'], 'readwrite', scope);
++  const tx = await transaction(['boards', 'lists', 'drafts'], 'readwrite', scope);
+   if (!tx || !scope) return;
+   const done = committed(tx);
+   tx.objectStore('boards').delete([scope, id]);
+-  tx.objectStore('boardHeaders').delete([scope, id]);
+-  tx.objectStore('boardChanges').delete(boardRange(scope, id));
+   const lists = tx.objectStore('lists');
+   const drafts = tx.objectStore('drafts');
+   const [list, library, keys] = await Promise.all([
+diff --git a/client/viewport.ts b/client/viewport.ts
+index 88ba242..22f3d5e 100644
+--- a/client/viewport.ts
++++ b/client/viewport.ts
+@@ -8,17 +8,9 @@ interface Viewpoint {
+ }
+ 
+ /** A board's private viewpoint is stored in page coordinates so it survives window resizing. */
+-export function rememberViewport(
+-  boardId: string,
+-  editor: Editor,
+-  initialView: () => void,
+-): () => void {
++export function rememberViewport(boardId: string, editor: Editor): () => void {
+   const scope = currentCacheScope();
+-  if (!scope) {
+-    initialView();
+-    return () => {};
+-  }
+-  let restored = false;
++  if (!scope) return () => {};
+   const key = 'folio.viewport.1:' + scope + ':' + boardId;
+   try {
+     const saved: Viewpoint | null = JSON.parse(localStorage.getItem(key) || 'null');
+@@ -31,7 +23,6 @@ export function rememberViewport(
+       saved.zoom <= 32
+     ) {
+       const { w, h } = editor.viewSize();
+-      restored = true;
+       editor.setCamera({
+         x: w / (2 * saved.zoom) - saved.centerX,
+         y: h / (2 * saved.zoom) - saved.centerY,
+@@ -42,7 +33,6 @@ export function rememberViewport(
+     /* Hardware storage denial leaves the board's initial framing in effect. */
+   }
+ 
+-  if (!restored) initialView();
+   let timer: ReturnType<typeof setTimeout> | undefined;
+   const save = () => {
+     clearTimeout(timer);
+diff --git a/package.json b/package.json
+index b1d4fb3..ba5eb9c 100644
+--- a/package.json
++++ b/package.json
+@@ -22,13 +22,10 @@
+     "hono": "4.13.22",
+     "ipaddr.js": "2.3.0",
+     "pdf-lib": "1.17.1",
+-    "quickselect": "3.0.0",
+-    "rbush": "4.0.1",
+     "zod": "4.6.7"
+   },
+   "devDependencies": {
+     "@types/bun": "1.4.5",
+-    "@types/rbush": "4.0.0",
+     "pdfjs-dist": "6.5.438",
+     "prettier": "3.6.2",
+     "typescript": "5.9.3",
+diff --git a/server/app.test.ts b/server/app.test.ts
+index affc0f0..dc8e74c 100644
+--- a/server/app.test.ts
++++ b/server/app.test.ts
+@@ -2,7 +2,6 @@ import { afterEach, beforeEach, describe, expect, test } from 'bun:test';
+ import { mkdtempSync, rmSync } from 'node:fs';
+ import { tmpdir } from 'node:os';
+ import { join } from 'node:path';
+-import { gunzipSync } from 'node:zlib';
+ import { createApp } from './app';
+ import { copyDatabase } from './backup';
+ import { BoardStore } from './database';
+@@ -167,39 +166,6 @@ describe('board HTTP service', () => {
+     ).toBe(200);
+   });
+ 
+-  test('large snapshots and deltas negotiate gzip and preserve JSON escapes, Unicode and nulls', async () => {
+-    const owner = new Browser();
+-    const title = '图板 "A"\n🪶';
+-    const board = await (await owner.send('/api/boards', 'POST', { title })).json();
+-    const path = '/api/boards/' + board.id;
+-    const key = 'shape:note.~-1';
+-    const record = note(key, '引用 "标注" \u0000/\\\n🪶'.repeat(4000));
+-    expect(
+-      (await owner.send(path + '/ops', 'POST', mutation('large', 0, { [key]: record }))).status,
+-    ).toBe(200);
+-    for (const suffix of ['', '/changes?since=0']) {
+-      const raw = await owner.send(path + suffix, 'GET', undefined, {
+-        'Accept-Encoding': 'gzip;q=0, br',
+-      });
+-      expect(raw.headers.get('content-encoding')).toBeNull();
+-      const expected = await raw.json();
+-      const compressed = await owner.send(path + suffix, 'GET', undefined, {
+-        'Accept-Encoding': 'br, gzip;q=0.5',
+-      });
+-      expect(compressed.headers.get('vary')).toContain('Accept-Encoding');
+-      expect(compressed.headers.get('content-encoding')).toBe('gzip');
+-      const decoded = JSON.parse(gunzipSync(await compressed.arrayBuffer()).toString());
+-      expect(decoded).toEqual(expected);
+-      expect(decoded.title).toBe(title);
+-      expect((decoded.items ?? decoded.put)[key]).toEqual(record);
+-    }
+-    expect(
+-      (
+-        await owner.send(path + '/changes?since=1', 'GET', undefined, { 'Accept-Encoding': 'gzip' })
+-      ).headers.get('content-encoding'),
+-    ).toBeNull();
+-  });
+-
+   test('incremental reads return final values and tombstones at the same revision as board metadata', async () => {
+     const browser = new Browser();
+     const { id } = await (await browser.send('/api/boards', 'POST', {})).json();
+diff --git a/server/app.ts b/server/app.ts
+index ff861bc..e7efa5f 100644
+--- a/server/app.ts
++++ b/server/app.ts
+@@ -1,6 +1,4 @@
+ import { Hono, type Context } from 'hono';
+-import { gzip } from 'node:zlib';
+-import { promisify } from 'node:util';
+ import type { AgentTurn } from '../shared/chat';
+ import { installChatRoutes } from './chat/routes';
+ import { BoardStore } from './database';
+@@ -18,21 +16,6 @@ import {
+ } from './protocol';
+ import { session, type SessionEnv } from './session';
+ 
+-const compress = promisify(gzip);
+-function acceptsGzip(header = '') {
+-  return header.split(',').some((entry) => {
+-    const [encoding, quality] = entry
+-      .trim()
+-      .toLowerCase()
+-      .split(/\s*;\s*/);
+-    return (
+-      encoding === 'gzip' &&
+-      (quality === undefined ||
+-        (/^q=(?:1(?:\.0{0,3})?|0\.\d{1,3})$/.test(quality) && Number(quality.slice(2)) > 0))
+-    );
+-  });
+-}
+-
+ async function boundedBody(request: Request, limit: number): Promise<Uint8Array<ArrayBuffer>> {
+   if (Number(request.headers.get('Content-Length')) > limit)
+     throw new ApiError(413, 'request_too_large');
+@@ -147,24 +130,13 @@ export function createApp(
+       201,
+     );
+   });
+-  const boardDocument = async (c: Context<SessionEnv>, since?: number) => {
+-    const bytes = store.readDocument(c.req.param('id')!, c.get('principal'), since);
+-    c.header('Content-Type', 'application/json');
+-    c.header('Vary', 'Accept-Encoding');
+-    if (bytes.byteLength < 32 * 1024 || !acceptsGzip(c.req.header('Accept-Encoding'))) {
+-      return c.body(bytes);
+-    }
+-    // Compress large snapshots off the JS thread; ordinary incremental updates stay cheap.
+-    c.header('Content-Encoding', 'gzip');
+-    return c.body(await compress(bytes, { level: 1 }));
+-  };
+-  app.get('/api/boards/:id', (c) => boardDocument(c));
++  app.get('/api/boards/:id', (c) => c.json(store.snapshot(c.req.param('id'), c.get('principal'))));
+   app.get('/api/boards/:id/changes', (c) => {
+     const raw = c.req.query('since');
+     const since = Number(raw);
+     if (raw === undefined || !/^\d+$/.test(raw) || !Number.isSafeInteger(since))
+       throw new ApiError(400, 'invalid_revision');
+-    return boardDocument(c, since);
++    return c.json(store.changes(c.req.param('id'), c.get('principal'), since));
+   });
+   app.patch('/api/boards/:id', async (c) => {
+     const body = await jsonBody(c);
+diff --git a/server/database.ts b/server/database.ts
+index 3099bba..bbdba35 100644
+--- a/server/database.ts
++++ b/server/database.ts
+@@ -150,50 +150,39 @@ export class BoardStore {
+       .immediate();
+   }
+ 
+-  // Programmatic consumers receive materialized records; HTTP sends the encoded bytes directly.
+   snapshot(id: string, principal: string): BoardSnapshot {
+-    return JSON.parse(new TextDecoder().decode(this.readDocument(id, principal)));
+-  }
+-
+-  changes(
+-    id: string,
+-    principal: string,
+-    since: number,
+-  ): AccessibleBoard & {
+-    put: BoardSnapshot['items'];
+-    remove: string[];
+-  } {
+-    return JSON.parse(new TextDecoder().decode(this.readDocument(id, principal, since)));
++    return this.db.transaction(() => {
++      const board = this.board(id, principal);
++      const rows = this.db
++        .query<
++          { id: string; body: string },
++          [string]
++        >('SELECT id,body FROM items WHERE board_id=? AND body IS NOT NULL ORDER BY id')
++        .all(id);
++      return {
++        ...board,
++        items: Object.fromEntries(rows.map((row) => [row.id, JSON.parse(row.body)])),
++      };
++    })();
+   }
+ 
+-  /** Read a single revision as UTF-8 for HTTP. Bodies were validated and JSON-encoded
+-   * at commit. Keep them in SQLite's native representation while assembling the map.
+-   */
+-  readDocument(id: string, principal: string, since?: number): Uint8Array<ArrayBuffer> {
++  changes(id: string, principal: string, since: number) {
+     return this.db.transaction(() => {
+       const board = this.board(id, principal);
+-      if (since !== undefined && since > board.rev) {
+-        throw new ApiError(409, 'future_revision', { rev: board.rev });
+-      }
+-      const header = JSON.stringify(board).slice(0, -1);
+-      if (since === undefined) {
+-        return this.db
+-          .query<{ bytes: Uint8Array<ArrayBuffer> }, [string, string]>(
+-            `SELECT CAST(? || ',"items":{' ||
+-               COALESCE(group_concat(json_quote(id) || ':' || body), '') || '}}' AS BLOB) AS bytes
+-             FROM (SELECT id,body FROM items WHERE board_id=? AND body IS NOT NULL ORDER BY id)`,
+-          )
+-          .get(header, id)!.bytes;
++      if (since > board.rev) throw new ApiError(409, 'future_revision', { rev: board.rev });
++      const rows = this.db
++        .query<
++          { id: string; body: string | null },
++          [string, number]
++        >('SELECT id,body FROM items WHERE board_id=? AND rev>? ORDER BY rev,id')
++        .all(id, since);
++      const put: Record<string, unknown> = Object.create(null);
++      const remove: string[] = [];
++      for (const row of rows) {
++        if (row.body === null) remove.push(row.id);
++        else put[row.id] = JSON.parse(row.body);
+       }
+-      return this.db
+-        .query<{ bytes: Uint8Array<ArrayBuffer> }, [string, string, number]>(
+-          `SELECT CAST(? || ',"put":{' ||
+-             COALESCE(group_concat(json_quote(id) || ':' || body) FILTER (WHERE body IS NOT NULL), '') ||
+-             '},"remove":[' || COALESCE(group_concat(json_quote(id)) FILTER (WHERE body IS NULL), '') ||
+-             ']}' AS BLOB) AS bytes
+-           FROM (SELECT id,body FROM items WHERE board_id=? AND rev>? ORDER BY rev,id)`,
+-        )
+-        .get(header, id, since)!.bytes;
++      return { ...board, put, remove };
+     })();
+   }
+ 

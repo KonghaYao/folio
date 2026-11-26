@@ -1,0 +1,9 @@
+{
+  "browser": "158.0.8127.0",
+  "checks": [
+    "Concurrent edits to the same table cell recovered both authors’ values on both devices",
+    "Three labeled diagram nodes and two bound arrows replicated",
+    "Object description and lock survived Delete and synchronized"
+  ],
+  "pageErrors": []
+}

@@ -1,0 +1,195 @@
+{
+  "startedUtc": "2026-11-25T10:52:14.036816+00:00",
+  "completedUtc": "2026-11-25T10:54:02.447633+00:00",
+  "elapsedSeconds": 108.41,
+  "productionBuildSha256": "5d4602dbfefb35e23174842d030d74ed94732a4c7f6990fd4cb1b0605b1b4d73",
+  "appSourceSha256": "104b5b041aea5cddb1f0e3f2420852e82b7cf45a71319f6a5e651fe8325efd92",
+  "sourceAndBuildUnchanged": true,
+  "runtime": "Bun 1.4.5",
+  "selected": 20,
+  "passed": 20,
+  "failed": 0,
+  "fullSuite": true,
+  "checks": [
+    {
+      "scenario": "draw",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 104.32,
+      "evidence": "pen-evidence.json",
+      "evidenceSha256": "848a1481c7f4f15a54ae971b24f2dee614accd41aa5902b8ede894a119107205"
+    },
+    {
+      "scenario": "chat",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 10.46,
+      "evidence": "chat.json",
+      "evidenceSha256": "f9770f1e3fbd5df9101c449d013921d2b7adf7cde6f423e696d4de8be4335f68"
+    },
+    {
+      "scenario": "pen_lab",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 6.07,
+      "evidence": "pressure-tilt.json",
+      "evidenceSha256": "3d7f40416d3e29893508c97a8875a90c6a29be46fc87b78e006e4f89389210cb"
+    },
+    {
+      "scenario": "sharing",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 4.69,
+      "evidence": "collaboration.json",
+      "evidenceSha256": "2323571a0e12ffa803abc0422edee96a0a44e557a9a1f78c4ce47a5f1dfa4ff7"
+    },
+    {
+      "scenario": "scenes_export",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 4.68,
+      "evidence": "scenes-export.json",
+      "evidenceSha256": "c1d29fd933e8fc312614fc24226d2aed79ab058619d77b4609f2477892011e54"
+    },
+    {
+      "scenario": "library",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 2.29,
+      "evidence": "browser-library.json",
+      "evidenceSha256": "b63f441155834c2f67e22ba437626e046785a9616d0f69d10855236d152aea73"
+    },
+    {
+      "scenario": "mobile",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 13.45,
+      "evidence": "touch-devices.json",
+      "evidenceSha256": "7e417a79aa84dad4e07f73cf88d8745100e82a1b512616e4a0c3e379cb9cb1a2"
+    },
+    {
+      "scenario": "device_sync",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 6.11,
+      "evidence": "device-sync.json",
+      "evidenceSha256": "f62899803169acc3923fdcbc65595bd78991392e6de62af52874e0160cf48712"
+    },
+    {
+      "scenario": "trusted_devices",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 5.36,
+      "evidence": "trusted-devices.json",
+      "evidenceSha256": "5dbe92878b9f03446d7304d1e907ec09280787f84fcc1ed5b1288291a53f7819"
+    },
+    {
+      "scenario": "offline",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 2.96,
+      "evidence": "offline-restart.json",
+      "evidenceSha256": "7bf40a69d5e7adf618bc2ac9c9a2fb2c88385986d1a6bddd45a39f61f406da67"
+    },
+    {
+      "scenario": "offline_delta",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 2.01,
+      "evidence": "offline-delta.json",
+      "evidenceSha256": "33e84337c7d252daa5156b77f9d09ee4db44f09afa14fd5233f704c64a42963c"
+    },
+    {
+      "scenario": "offline_conflict",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 3.75,
+      "evidence": "offline-conflict.json",
+      "evidenceSha256": "20e9b5f7121055391343be6a71492beab85d79cefb78b3060dd0a71c9657a975"
+    },
+    {
+      "scenario": "offline_immediate",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 2.65,
+      "evidence": "offline-immediate.json",
+      "evidenceSha256": "6b3e2470b7f8eb42da0e6507816f7f3a65bf69630477aa90ae3d2de6db9695e8"
+    },
+    {
+      "scenario": "offline_images",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 3.89,
+      "evidence": "offline-images.json",
+      "evidenceSha256": "968b80a8502184556721e59ba0ddeef8c45d9b8898b389561fdfe4e46c7bd349"
+    },
+    {
+      "scenario": "objects_sync",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 5.25,
+      "evidence": "objects-sync.json",
+      "evidenceSha256": "9ec07daac65bc8c541cc1ab2acc0e07ab56ded5b29656cc61d126e5effba864d"
+    },
+    {
+      "scenario": "revocation",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 2.84,
+      "evidence": "revocation.json",
+      "evidenceSha256": "bb604547c0c211fec2e63e8a3ad2311939f431b14ce3e9927a5290a254d7f1ac"
+    },
+    {
+      "scenario": "drawing_aids",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 8.65,
+      "evidence": "drawing-aids.json",
+      "evidenceSha256": "01319a7f02c88f6d4b444112e160b663c371dc50a1a0062a0f22dcfe669fc6d8"
+    },
+    {
+      "scenario": "presence",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 4.0,
+      "evidence": "presence-follow.json",
+      "evidenceSha256": "b7f1e7f38bb089df1d87e3a776407da6ea5824121fe7e614ef17cd909c1205de"
+    },
+    {
+      "scenario": "media",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 3.1,
+      "evidence": "media.json",
+      "evidenceSha256": "58119861e03d330aaa43a1d97c7ddff6450ff998565721655f224ff908733fe1"
+    },
+    {
+      "scenario": "reference_ui",
+      "exitCode": 0,
+      "regeneratedEvidence": true,
+      "passed": true,
+      "seconds": 3.04,
+      "evidence": "reference-ui.json",
+      "evidenceSha256": "64e571182ff92325d9b8a0fbd37b0ef386d8f2e572be06ba1adf7007012fff92"
+    }
+  ]
+}

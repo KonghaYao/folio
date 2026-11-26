@@ -1,0 +1,138 @@
+{
+  "chromium": "158.0.8127.0",
+  "viewport": [
+    800,
+    600
+  ],
+  "dpr": 1,
+  "iterations": 30,
+  "rendererSourceSHA256": "a851304129830aa86c30298896bde9cac7271e95a6cb2235a33ea8a6f1c09040",
+  "warmupMs": 650,
+  "units": "synchronous browser-main-thread milliseconds; painting measures Canvas2D command submission",
+  "dataset": "100-unit square grid of editable rectangles, ellipses, polylines and highlighter strokes",
+  "cases": [
+    {
+      "objects": 1000,
+      "loadMs": 3.300000000745058,
+      "firstRenderMs": 7,
+      "sparse": {
+        "zoom": 1,
+        "visibleApprox": 48,
+        "render": {
+          "p50": 0.2,
+          "p95": 0.4
+        }
+      },
+      "dense": {
+        "zoom": 0.14,
+        "visibleApprox": 1000,
+        "render": {
+          "p50": 3.4,
+          "p95": 4.3
+        }
+      },
+      "miss": {
+        "p50": 0.03,
+        "p95": 0.05
+      },
+      "hit": {
+        "p50": 0.03,
+        "p95": 0.04
+      },
+      "moveAndRender": {
+        "p50": 0.2,
+        "p95": 0.4
+      },
+      "moveZ": {
+        "p50": 0.002,
+        "p95": 0.005
+      },
+      "rgbaSHA256": {
+        "sparse": "dc12f779783e85534bfb26363e9fb0ab41deee2b2ad799275ce0a99ab47d5e66",
+        "dense": "1b92ae7f92b14b5a27eab58d9e66dbcc78033509d408339d0b3ac47e3b5a2460"
+      }
+    },
+    {
+      "objects": 10000,
+      "loadMs": 9.199999999254942,
+      "firstRenderMs": 6.800000000745058,
+      "sparse": {
+        "zoom": 1,
+        "visibleApprox": 48,
+        "render": {
+          "p50": 0.3,
+          "p95": 0.6
+        }
+      },
+      "dense": {
+        "zoom": 0.14,
+        "visibleApprox": 2494,
+        "render": {
+          "p50": 8.8,
+          "p95": 10.9
+        }
+      },
+      "miss": {
+        "p50": 0.37,
+        "p95": 0.71
+      },
+      "hit": {
+        "p50": 0.34,
+        "p95": 0.41
+      },
+      "moveAndRender": {
+        "p50": 0.9,
+        "p95": 1.1
+      },
+      "moveZ": {
+        "p50": 0.017,
+        "p95": 0.02
+      },
+      "rgbaSHA256": {
+        "sparse": "a35a18a882c9e12ed834b115a45ce57172e62b1993f0223fa91dcfe6fdad843b",
+        "dense": "723fc437f2050f6e9ef1a40854eefac200365e582ab389daee8ab43f4620c34d"
+      }
+    },
+    {
+      "objects": 50000,
+      "loadMs": 37.5,
+      "firstRenderMs": 22.399999998509884,
+      "sparse": {
+        "zoom": 1,
+        "visibleApprox": 48,
+        "render": {
+          "p50": 1.4,
+          "p95": 1.8
+        }
+      },
+      "dense": {
+        "zoom": 0.14,
+        "visibleApprox": 2494,
+        "render": {
+          "p50": 4.9,
+          "p95": 12.3
+        }
+      },
+      "miss": {
+        "p50": 2.47,
+        "p95": 3.42
+      },
+      "hit": {
+        "p50": 2.36,
+        "p95": 3.34
+      },
+      "moveAndRender": {
+        "p50": 5.1,
+        "p95": 8
+      },
+      "moveZ": {
+        "p50": 0.12,
+        "p95": 0.133
+      },
+      "rgbaSHA256": {
+        "sparse": "37372c82de963fbb952409addcacba6eb740cc5bdaff29a6012e6e4286be12c1",
+        "dense": "417526a7c2e877c294b8c8e0a4fe9af750c5e3b28c0811482420ed7e7e25cef2"
+      }
+    }
+  ]
+}

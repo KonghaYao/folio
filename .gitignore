@@ -1,0 +1,7 @@
+node_modules
+dist
+data
+*.sqlite*
+qa/.venv
+__pycache__
+service/

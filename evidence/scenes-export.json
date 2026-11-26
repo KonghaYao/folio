@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "checks": [
+    "capture and rename two views",
+    "reorder and restore saved scene after reload",
+    "keyboard-driven presentation",
+    "jump to saved camera",
+    "PNG download",
+    "one-page board PDF",
+    "two-page PDF with decoded image on each page",
+    "archive embeds original attachment bytes",
+    "archive import creates independently owned board",
+    "attachment copied into new board",
+    "original and restored PNG pixels identical",
+    "delete and undo a scene",
+    "open canvas find with shortcut and menu",
+    "navigate matches in table cells",
+    "replace one, replace all, undo batch",
+    "offline archive export includes cached original attachment"
+  ],
+  "pageErrors": [],
+  "exportedPdfBytes": {
+    "board": 16342,
+    "scenes": 117596
+  },
+  "pngDimensions": [
+    750,
+    476
+  ],
+  "restoredPngPixelDifference": 0
+}

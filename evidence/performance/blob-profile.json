@@ -1,0 +1,329 @@
+{
+  "records": 12000,
+  "results": {
+    "blob0": {
+      "cold": {
+        "readyMs": 590.7,
+        "fullHttpGetBytes": [
+          3509382
+        ],
+        "boardHeaders.get": {
+          "count": 3,
+          "syncMs": 0.3,
+          "requestMs": 172.6
+        },
+        "boards.get": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 0.1
+        },
+        "boards.put": {
+          "count": 1,
+          "syncMs": 0.3,
+          "requestMs": 2.3
+        },
+        "boardHeaders.put": {
+          "count": 2,
+          "syncMs": 0.2,
+          "requestMs": 19.5
+        }
+      },
+      "warm": {
+        "readyMs": 562.0,
+        "fullHttpGetBytes": [],
+        "boardHeaders.get": {
+          "count": 4,
+          "syncMs": 0.2,
+          "requestMs": 234.9
+        },
+        "boards.get": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 4.2
+        },
+        "boardHeaders.put": {
+          "count": 2,
+          "syncMs": 0.2,
+          "requestMs": 9.2
+        }
+      },
+      "onePeerEdit": {
+        "boardHeaders.get": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 8
+        },
+        "boardChanges.put": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 1
+        },
+        "boardHeaders.put": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 1
+        }
+      },
+      "oneLocalStroke": {
+        "boardHeaders.get": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 0.3
+        },
+        "boardChanges.put": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 0.2
+        },
+        "boardHeaders.put": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 0.2
+        }
+      }
+    },
+    "clone1": {
+      "cold": {
+        "readyMs": 888.1,
+        "fullHttpGetBytes": [
+          3509382
+        ],
+        "boardHeaders.get": {
+          "count": 3,
+          "syncMs": 0.5,
+          "requestMs": 222.5
+        },
+        "boards.get": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 0.2
+        },
+        "boards.put": {
+          "count": 1,
+          "syncMs": 56.7,
+          "requestMs": 64.4
+        },
+        "boardHeaders.put": {
+          "count": 2,
+          "syncMs": 0.2,
+          "requestMs": 8.1
+        }
+      },
+      "warm": {
+        "readyMs": 1002.2,
+        "fullHttpGetBytes": [],
+        "boardHeaders.get": {
+          "count": 4,
+          "syncMs": 0.4,
+          "requestMs": 447.5
+        },
+        "boards.get": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 5.8
+        },
+        "boardHeaders.put": {
+          "count": 2,
+          "syncMs": 0.1,
+          "requestMs": 24.5
+        }
+      },
+      "onePeerEdit": {
+        "boardHeaders.get": {
+          "count": 1,
+          "syncMs": 0.2,
+          "requestMs": 10.6
+        },
+        "boardChanges.put": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 2.9
+        },
+        "boardHeaders.put": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 2.8
+        }
+      },
+      "oneLocalStroke": {
+        "boardHeaders.get": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 0.6
+        },
+        "boardChanges.put": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 0.3
+        },
+        "boardHeaders.put": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 0.3
+        }
+      }
+    },
+    "clone2": {
+      "cold": {
+        "readyMs": 797.1,
+        "fullHttpGetBytes": [
+          3509382
+        ],
+        "boardHeaders.get": {
+          "count": 3,
+          "syncMs": 0.1,
+          "requestMs": 174.5
+        },
+        "boards.get": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 0.2
+        },
+        "boards.put": {
+          "count": 1,
+          "syncMs": 43.5,
+          "requestMs": 54.4
+        },
+        "boardHeaders.put": {
+          "count": 2,
+          "syncMs": 0,
+          "requestMs": 33.1
+        }
+      },
+      "warm": {
+        "readyMs": 491.7,
+        "fullHttpGetBytes": [],
+        "boardHeaders.get": {
+          "count": 4,
+          "syncMs": 0.2,
+          "requestMs": 241.3
+        },
+        "boards.get": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 7.4
+        },
+        "boardHeaders.put": {
+          "count": 2,
+          "syncMs": 0,
+          "requestMs": 7.2
+        }
+      },
+      "onePeerEdit": {
+        "boardHeaders.get": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 12.1
+        },
+        "boardChanges.put": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 1
+        },
+        "boardHeaders.put": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 1
+        }
+      },
+      "oneLocalStroke": {
+        "boardHeaders.get": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 0.3
+        },
+        "boardChanges.put": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 0.2
+        },
+        "boardHeaders.put": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 0.1
+        }
+      }
+    },
+    "blob3": {
+      "cold": {
+        "readyMs": 690.7,
+        "fullHttpGetBytes": [
+          3509382
+        ],
+        "boardHeaders.get": {
+          "count": 3,
+          "syncMs": 0.6,
+          "requestMs": 190.6
+        },
+        "boards.get": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 0.1
+        },
+        "boards.put": {
+          "count": 1,
+          "syncMs": 0.2,
+          "requestMs": 5.8
+        },
+        "boardHeaders.put": {
+          "count": 2,
+          "syncMs": 0.1,
+          "requestMs": 35.2
+        }
+      },
+      "warm": {
+        "readyMs": 908.9,
+        "fullHttpGetBytes": [],
+        "boardHeaders.get": {
+          "count": 4,
+          "syncMs": 0.5,
+          "requestMs": 303.5
+        },
+        "boards.get": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 9.4
+        },
+        "boardHeaders.put": {
+          "count": 2,
+          "syncMs": 0.2,
+          "requestMs": 13.6
+        }
+      },
+      "onePeerEdit": {
+        "boardHeaders.get": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 8.3
+        },
+        "boardChanges.put": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 0.3
+        },
+        "boardHeaders.put": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 0.5
+        }
+      },
+      "oneLocalStroke": {
+        "boardHeaders.get": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 0.2
+        },
+        "boardChanges.put": {
+          "count": 1,
+          "syncMs": 0.1,
+          "requestMs": 0.2
+        },
+        "boardHeaders.put": {
+          "count": 1,
+          "syncMs": 0,
+          "requestMs": 0.1
+        }
+      }
+    }
+  }
+}

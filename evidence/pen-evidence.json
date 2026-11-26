@@ -1,0 +1,2578 @@
+{
+  "browser": "Chromium 158.0.8127.0",
+  "mode": "headless",
+  "transport": "CDP Input.dispatchMouseEvent / pen",
+  "boardId": "ab0a8f40-d2e5-404b-a45b-1a0972f82fc6",
+  "title": "海岸骑行 · 鹈鹕",
+  "screenshot": "pelican-studio.png",
+  "gestures": 196,
+  "persistedInkObjects": 196,
+  "persistedInputSamples": 4975,
+  "recordedPressureRange": [
+    0.7450000047683716,
+    0.9049999713897705
+  ],
+  "recordedTiltXRange": [
+    0,
+    8
+  ],
+  "recordedTiltYRange": [
+    -5,
+    0
+  ],
+  "originalAndReloadedItemsEqual": true,
+  "reloadCropMeanAbsolutePixelDifference": 0.0,
+  "boardSha256": "d37f5599f28fb5b716f76f303a195e58767bda68d892b26eb66737f8217e4aba",
+  "elapsedSeconds": 102.59,
+  "uncaughtBrowserErrors": [],
+  "penLog": [
+    {
+      "gesture": 1,
+      "samplesSent": 44,
+      "widthSetting": 3.3,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 7,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 2,
+      "samplesSent": 54,
+      "widthSetting": 3.3,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 14,
+      "pressureRange": [
+        0.752,
+        0.902
+      ]
+    },
+    {
+      "gesture": 3,
+      "samplesSent": 10,
+      "widthSetting": 2.0,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 21,
+      "pressureRange": [
+        0.76,
+        0.881
+      ]
+    },
+    {
+      "gesture": 4,
+      "samplesSent": 5,
+      "widthSetting": 2.0,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 28,
+      "pressureRange": [
+        0.753,
+        0.905
+      ]
+    },
+    {
+      "gesture": 5,
+      "samplesSent": 8,
+      "widthSetting": 2.0,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 35,
+      "pressureRange": [
+        0.76,
+        0.893
+      ]
+    },
+    {
+      "gesture": 6,
+      "samplesSent": 9,
+      "widthSetting": 3.0,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 42,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 7,
+      "samplesSent": 7,
+      "widthSetting": 3.0,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 49,
+      "pressureRange": [
+        0.748,
+        0.896
+      ]
+    },
+    {
+      "gesture": 8,
+      "samplesSent": 7,
+      "widthSetting": 3.0,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 56,
+      "pressureRange": [
+        0.748,
+        0.896
+      ]
+    },
+    {
+      "gesture": 9,
+      "samplesSent": 97,
+      "widthSetting": 13.2,
+      "color": "#263e36",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 63,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 10,
+      "samplesSent": 97,
+      "widthSetting": 4.1,
+      "color": "#f6ebcf",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 70,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 11,
+      "samplesSent": 97,
+      "widthSetting": 2.5,
+      "color": "#739087",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 77,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 12,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 84,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 13,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 91,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 14,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 98,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 15,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 105,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 16,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 112,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 17,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 119,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 18,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 126,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 19,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 133,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 20,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 140,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 21,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 147,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 22,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 154,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 23,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 161,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 24,
+      "samplesSent": 97,
+      "widthSetting": 15.6,
+      "color": "#263e36",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 168,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 25,
+      "samplesSent": 97,
+      "widthSetting": 6.7,
+      "color": "#f6ebcf",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 175,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 26,
+      "samplesSent": 97,
+      "widthSetting": 13.2,
+      "color": "#263e36",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 182,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 27,
+      "samplesSent": 97,
+      "widthSetting": 4.1,
+      "color": "#f6ebcf",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 189,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 28,
+      "samplesSent": 97,
+      "widthSetting": 2.5,
+      "color": "#739087",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 196,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 29,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 203,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 30,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 210,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 31,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 217,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 32,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 224,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 33,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 231,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 34,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 238,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 35,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 245,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 36,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 252,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 37,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 259,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 38,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 266,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 39,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 273,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 40,
+      "samplesSent": 32,
+      "widthSetting": 1.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 280,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 41,
+      "samplesSent": 97,
+      "widthSetting": 15.6,
+      "color": "#263e36",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 287,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 42,
+      "samplesSent": 97,
+      "widthSetting": 6.7,
+      "color": "#f6ebcf",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 294,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 43,
+      "samplesSent": 77,
+      "widthSetting": 3.8,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 301,
+      "pressureRange": [
+        0.75,
+        0.904
+      ]
+    },
+    {
+      "gesture": 44,
+      "samplesSent": 93,
+      "widthSetting": 17.3,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 308,
+      "pressureRange": [
+        0.758,
+        0.904
+      ]
+    },
+    {
+      "gesture": 45,
+      "samplesSent": 93,
+      "widthSetting": 13.2,
+      "color": "#43877b",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 315,
+      "pressureRange": [
+        0.758,
+        0.904
+      ]
+    },
+    {
+      "gesture": 46,
+      "samplesSent": 74,
+      "widthSetting": 19.0,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 322,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 47,
+      "samplesSent": 74,
+      "widthSetting": 14.8,
+      "color": "#43877b",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 329,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 48,
+      "samplesSent": 34,
+      "widthSetting": 17.3,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 336,
+      "pressureRange": [
+        0.745,
+        0.904
+      ]
+    },
+    {
+      "gesture": 49,
+      "samplesSent": 34,
+      "widthSetting": 13.2,
+      "color": "#43877b",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 343,
+      "pressureRange": [
+        0.745,
+        0.904
+      ]
+    },
+    {
+      "gesture": 50,
+      "samplesSent": 23,
+      "widthSetting": 4.9,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 350,
+      "pressureRange": [
+        0.76,
+        0.899
+      ]
+    },
+    {
+      "gesture": 51,
+      "samplesSent": 28,
+      "widthSetting": 4.9,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 357,
+      "pressureRange": [
+        0.749,
+        0.9
+      ]
+    },
+    {
+      "gesture": 52,
+      "samplesSent": 10,
+      "widthSetting": 7.9,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 5,
+      "pressureRange": [
+        0.76,
+        0.881
+      ]
+    },
+    {
+      "gesture": 53,
+      "samplesSent": 10,
+      "widthSetting": 9.9,
+      "color": "#bc6752",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 12,
+      "pressureRange": [
+        0.76,
+        0.881
+      ]
+    },
+    {
+      "gesture": 54,
+      "samplesSent": 34,
+      "widthSetting": 4.1,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 19,
+      "pressureRange": [
+        0.745,
+        0.904
+      ]
+    },
+    {
+      "gesture": 55,
+      "samplesSent": 23,
+      "widthSetting": 7.6,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 26,
+      "pressureRange": [
+        0.76,
+        0.899
+      ]
+    },
+    {
+      "gesture": 56,
+      "samplesSent": 10,
+      "widthSetting": 9.9,
+      "color": "#bc6752",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 33,
+      "pressureRange": [
+        0.76,
+        0.881
+      ]
+    },
+    {
+      "gesture": 57,
+      "samplesSent": 97,
+      "widthSetting": 5.9,
+      "color": "#263e36",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 40,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 58,
+      "samplesSent": 97,
+      "widthSetting": 2.5,
+      "color": "#739087",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 47,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 59,
+      "samplesSent": 4,
+      "widthSetting": 4.0,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 54,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 60,
+      "samplesSent": 4,
+      "widthSetting": 4.0,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 61,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 61,
+      "samplesSent": 4,
+      "widthSetting": 4.0,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 68,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 62,
+      "samplesSent": 18,
+      "widthSetting": 7.4,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 75,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 63,
+      "samplesSent": 6,
+      "widthSetting": 6.6,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 82,
+      "pressureRange": [
+        0.745,
+        0.898
+      ]
+    },
+    {
+      "gesture": 64,
+      "samplesSent": 6,
+      "widthSetting": 6.6,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 89,
+      "pressureRange": [
+        0.745,
+        0.898
+      ]
+    },
+    {
+      "gesture": 65,
+      "samplesSent": 98,
+      "widthSetting": 9.1,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 96,
+      "pressureRange": [
+        0.749,
+        0.904
+      ]
+    },
+    {
+      "gesture": 66,
+      "samplesSent": 82,
+      "widthSetting": 4.5,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 103,
+      "pressureRange": [
+        0.751,
+        0.903
+      ]
+    },
+    {
+      "gesture": 67,
+      "samplesSent": 132,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 110,
+      "pressureRange": [
+        0.745,
+        0.904
+      ]
+    },
+    {
+      "gesture": 68,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 117,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 69,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 124,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 70,
+      "samplesSent": 98,
+      "widthSetting": 4.6,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 131,
+      "pressureRange": [
+        0.749,
+        0.904
+      ]
+    },
+    {
+      "gesture": 71,
+      "samplesSent": 4,
+      "widthSetting": 2.0,
+      "color": "#bc6752",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 138,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 72,
+      "samplesSent": 3,
+      "widthSetting": 2.0,
+      "color": "#bc6752",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 145,
+      "pressureRange": [
+        0.76,
+        0.902
+      ]
+    },
+    {
+      "gesture": 73,
+      "samplesSent": 14,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 152,
+      "pressureRange": [
+        0.749,
+        0.893
+      ]
+    },
+    {
+      "gesture": 74,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 159,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 75,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 166,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 76,
+      "samplesSent": 30,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 173,
+      "pressureRange": [
+        0.76,
+        0.903
+      ]
+    },
+    {
+      "gesture": 77,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 180,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 78,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 187,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 79,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 194,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 80,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 201,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 81,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 208,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 82,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 215,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 83,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 222,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 84,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 229,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 85,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 236,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 86,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 243,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 87,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 250,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 88,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 257,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 89,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 264,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 90,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 271,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 91,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 278,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 92,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 285,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 93,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 292,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 94,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 299,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 95,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 306,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 96,
+      "samplesSent": 2,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 313,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 97,
+      "samplesSent": 40,
+      "widthSetting": 13.2,
+      "color": "#fffaec",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 320,
+      "pressureRange": [
+        0.752,
+        0.9
+      ]
+    },
+    {
+      "gesture": 98,
+      "samplesSent": 210,
+      "widthSetting": 5.6,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 327,
+      "pressureRange": [
+        0.748,
+        0.904
+      ]
+    },
+    {
+      "gesture": 99,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 334,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 100,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 341,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 101,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 348,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 102,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 355,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 103,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 3,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 104,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 10,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 105,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 17,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 106,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 24,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 107,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 31,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 108,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 38,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 109,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 45,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 110,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 52,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 111,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 59,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 112,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 66,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 113,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 73,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 114,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 80,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 115,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 87,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 116,
+      "samplesSent": 10,
+      "widthSetting": 11.5,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 94,
+      "pressureRange": [
+        0.76,
+        0.881
+      ]
+    },
+    {
+      "gesture": 117,
+      "samplesSent": 84,
+      "widthSetting": 8.8,
+      "color": "#d4dcc4",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 101,
+      "pressureRange": [
+        0.75,
+        0.904
+      ]
+    },
+    {
+      "gesture": 118,
+      "samplesSent": 33,
+      "widthSetting": 3.5,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 108,
+      "pressureRange": [
+        0.752,
+        0.904
+      ]
+    },
+    {
+      "gesture": 119,
+      "samplesSent": 4,
+      "widthSetting": 9.9,
+      "color": "#f6ebcf",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 115,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 120,
+      "samplesSent": 2,
+      "widthSetting": 9.9,
+      "color": "#f6ebcf",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 122,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 121,
+      "samplesSent": 2,
+      "widthSetting": 9.9,
+      "color": "#f6ebcf",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 129,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 122,
+      "samplesSent": 2,
+      "widthSetting": 9.9,
+      "color": "#f6ebcf",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 136,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 123,
+      "samplesSent": 2,
+      "widthSetting": 9.9,
+      "color": "#f6ebcf",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 143,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 124,
+      "samplesSent": 26,
+      "widthSetting": 9.9,
+      "color": "#f6ebcf",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 150,
+      "pressureRange": [
+        0.753,
+        0.896
+      ]
+    },
+    {
+      "gesture": 125,
+      "samplesSent": 76,
+      "widthSetting": 4.0,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 157,
+      "pressureRange": [
+        0.745,
+        0.904
+      ]
+    },
+    {
+      "gesture": 126,
+      "samplesSent": 20,
+      "widthSetting": 2.1,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 164,
+      "pressureRange": [
+        0.745,
+        0.904
+      ]
+    },
+    {
+      "gesture": 127,
+      "samplesSent": 18,
+      "widthSetting": 2.1,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 171,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 128,
+      "samplesSent": 10,
+      "widthSetting": 2.1,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 178,
+      "pressureRange": [
+        0.76,
+        0.881
+      ]
+    },
+    {
+      "gesture": 129,
+      "samplesSent": 9,
+      "widthSetting": 2.1,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 185,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 130,
+      "samplesSent": 7,
+      "widthSetting": 2.1,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 192,
+      "pressureRange": [
+        0.748,
+        0.896
+      ]
+    },
+    {
+      "gesture": 131,
+      "samplesSent": 8,
+      "widthSetting": 2.1,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 199,
+      "pressureRange": [
+        0.76,
+        0.893
+      ]
+    },
+    {
+      "gesture": 132,
+      "samplesSent": 7,
+      "widthSetting": 2.1,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 206,
+      "pressureRange": [
+        0.748,
+        0.896
+      ]
+    },
+    {
+      "gesture": 133,
+      "samplesSent": 2,
+      "widthSetting": 11.5,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 213,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 134,
+      "samplesSent": 4,
+      "widthSetting": 11.5,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 220,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 135,
+      "samplesSent": 8,
+      "widthSetting": 11.5,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 227,
+      "pressureRange": [
+        0.76,
+        0.893
+      ]
+    },
+    {
+      "gesture": 136,
+      "samplesSent": 24,
+      "widthSetting": 11.5,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 234,
+      "pressureRange": [
+        0.76,
+        0.897
+      ]
+    },
+    {
+      "gesture": 137,
+      "samplesSent": 101,
+      "widthSetting": 4.6,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 241,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 138,
+      "samplesSent": 6,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 248,
+      "pressureRange": [
+        0.745,
+        0.898
+      ]
+    },
+    {
+      "gesture": 139,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 255,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 140,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 262,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 141,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 269,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 142,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 276,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 143,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 283,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 144,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 290,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 145,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 297,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 146,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 304,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 147,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 311,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 148,
+      "samplesSent": 2,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 318,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 149,
+      "samplesSent": 8,
+      "widthSetting": 9.1,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 325,
+      "pressureRange": [
+        0.76,
+        0.893
+      ]
+    },
+    {
+      "gesture": 150,
+      "samplesSent": 62,
+      "widthSetting": 6.9,
+      "color": "#dd8050",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 332,
+      "pressureRange": [
+        0.745,
+        0.904
+      ]
+    },
+    {
+      "gesture": 151,
+      "samplesSent": 28,
+      "widthSetting": 3.3,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 339,
+      "pressureRange": [
+        0.749,
+        0.9
+      ]
+    },
+    {
+      "gesture": 152,
+      "samplesSent": 9,
+      "widthSetting": 2.0,
+      "color": "#bc6752",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 346,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 153,
+      "samplesSent": 10,
+      "widthSetting": 2.0,
+      "color": "#bc6752",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 353,
+      "pressureRange": [
+        0.76,
+        0.881
+      ]
+    },
+    {
+      "gesture": 154,
+      "samplesSent": 8,
+      "widthSetting": 2.0,
+      "color": "#bc6752",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 1,
+      "pressureRange": [
+        0.76,
+        0.893
+      ]
+    },
+    {
+      "gesture": 155,
+      "samplesSent": 7,
+      "widthSetting": 2.0,
+      "color": "#bc6752",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 8,
+      "pressureRange": [
+        0.748,
+        0.896
+      ]
+    },
+    {
+      "gesture": 156,
+      "samplesSent": 5,
+      "widthSetting": 2.0,
+      "color": "#bc6752",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 15,
+      "pressureRange": [
+        0.753,
+        0.905
+      ]
+    },
+    {
+      "gesture": 157,
+      "samplesSent": 4,
+      "widthSetting": 2.0,
+      "color": "#bc6752",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 22,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 158,
+      "samplesSent": 2,
+      "widthSetting": 8.9,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 29,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 159,
+      "samplesSent": 4,
+      "widthSetting": 8.9,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 36,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 160,
+      "samplesSent": 4,
+      "widthSetting": 8.9,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 43,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 161,
+      "samplesSent": 6,
+      "widthSetting": 8.9,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 50,
+      "pressureRange": [
+        0.745,
+        0.898
+      ]
+    },
+    {
+      "gesture": 162,
+      "samplesSent": 2,
+      "widthSetting": 8.9,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 57,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 163,
+      "samplesSent": 2,
+      "widthSetting": 8.9,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 64,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 164,
+      "samplesSent": 2,
+      "widthSetting": 8.9,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 71,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 165,
+      "samplesSent": 4,
+      "widthSetting": 8.9,
+      "color": "#f2b958",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 78,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 166,
+      "samplesSent": 102,
+      "widthSetting": 4.6,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 85,
+      "pressureRange": [
+        0.76,
+        0.904
+      ]
+    },
+    {
+      "gesture": 167,
+      "samplesSent": 39,
+      "widthSetting": 2.1,
+      "color": "#fffaec",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 92,
+      "pressureRange": [
+        0.76,
+        0.901
+      ]
+    },
+    {
+      "gesture": 168,
+      "samplesSent": 5,
+      "widthSetting": 3.6,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 99,
+      "pressureRange": [
+        0.753,
+        0.905
+      ]
+    },
+    {
+      "gesture": 169,
+      "samplesSent": 97,
+      "widthSetting": 3.5,
+      "color": "#739087",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 106,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 170,
+      "samplesSent": 97,
+      "widthSetting": 9.1,
+      "color": "#263e36",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 113,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 171,
+      "samplesSent": 97,
+      "widthSetting": 3.3,
+      "color": "#fffaec",
+      "tiltXPeak": 5,
+      "tiltY": -3,
+      "twist": 120,
+      "pressureRange": [
+        0.745,
+        0.903
+      ]
+    },
+    {
+      "gesture": 172,
+      "samplesSent": 6,
+      "widthSetting": 2.8,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 127,
+      "pressureRange": [
+        0.745,
+        0.898
+      ]
+    },
+    {
+      "gesture": 173,
+      "samplesSent": 6,
+      "widthSetting": 2.4,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 134,
+      "pressureRange": [
+        0.745,
+        0.898
+      ]
+    },
+    {
+      "gesture": 174,
+      "samplesSent": 5,
+      "widthSetting": 2.4,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 141,
+      "pressureRange": [
+        0.753,
+        0.905
+      ]
+    },
+    {
+      "gesture": 175,
+      "samplesSent": 20,
+      "widthSetting": 8.2,
+      "color": "#43877b",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 148,
+      "pressureRange": [
+        0.745,
+        0.904
+      ]
+    },
+    {
+      "gesture": 176,
+      "samplesSent": 24,
+      "widthSetting": 3.8,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 155,
+      "pressureRange": [
+        0.76,
+        0.897
+      ]
+    },
+    {
+      "gesture": 177,
+      "samplesSent": 22,
+      "widthSetting": 8.2,
+      "color": "#43877b",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 162,
+      "pressureRange": [
+        0.76,
+        0.901
+      ]
+    },
+    {
+      "gesture": 178,
+      "samplesSent": 34,
+      "widthSetting": 3.3,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 169,
+      "pressureRange": [
+        0.745,
+        0.904
+      ]
+    },
+    {
+      "gesture": 179,
+      "samplesSent": 4,
+      "widthSetting": 7.4,
+      "color": "#43877b",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 176,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 180,
+      "samplesSent": 2,
+      "widthSetting": 7.4,
+      "color": "#43877b",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 183,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 181,
+      "samplesSent": 2,
+      "widthSetting": 7.4,
+      "color": "#43877b",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 190,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 182,
+      "samplesSent": 2,
+      "widthSetting": 7.4,
+      "color": "#43877b",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 197,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 183,
+      "samplesSent": 2,
+      "widthSetting": 7.4,
+      "color": "#43877b",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 204,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 184,
+      "samplesSent": 4,
+      "widthSetting": 7.4,
+      "color": "#43877b",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 211,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 185,
+      "samplesSent": 28,
+      "widthSetting": 3.3,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 218,
+      "pressureRange": [
+        0.749,
+        0.9
+      ]
+    },
+    {
+      "gesture": 186,
+      "samplesSent": 6,
+      "widthSetting": 2.1,
+      "color": "#fffaec",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 225,
+      "pressureRange": [
+        0.745,
+        0.898
+      ]
+    },
+    {
+      "gesture": 187,
+      "samplesSent": 6,
+      "widthSetting": 2.1,
+      "color": "#fffaec",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 232,
+      "pressureRange": [
+        0.745,
+        0.898
+      ]
+    },
+    {
+      "gesture": 188,
+      "samplesSent": 34,
+      "widthSetting": 10.7,
+      "color": "#f6ebcf",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 239,
+      "pressureRange": [
+        0.745,
+        0.904
+      ]
+    },
+    {
+      "gesture": 189,
+      "samplesSent": 10,
+      "widthSetting": 10.7,
+      "color": "#f6ebcf",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 246,
+      "pressureRange": [
+        0.76,
+        0.881
+      ]
+    },
+    {
+      "gesture": 190,
+      "samplesSent": 2,
+      "widthSetting": 10.7,
+      "color": "#f6ebcf",
+      "tiltXPeak": 0,
+      "tiltY": 0,
+      "twist": 253,
+      "pressureRange": [
+        0.76,
+        0.772
+      ]
+    },
+    {
+      "gesture": 191,
+      "samplesSent": 93,
+      "widthSetting": 4.4,
+      "color": "#263e36",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 260,
+      "pressureRange": [
+        0.758,
+        0.904
+      ]
+    },
+    {
+      "gesture": 192,
+      "samplesSent": 14,
+      "widthSetting": 2.2,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 267,
+      "pressureRange": [
+        0.749,
+        0.893
+      ]
+    },
+    {
+      "gesture": 193,
+      "samplesSent": 12,
+      "widthSetting": 2.2,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 274,
+      "pressureRange": [
+        0.753,
+        0.879
+      ]
+    },
+    {
+      "gesture": 194,
+      "samplesSent": 6,
+      "widthSetting": 2.2,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 281,
+      "pressureRange": [
+        0.745,
+        0.898
+      ]
+    },
+    {
+      "gesture": 195,
+      "samplesSent": 9,
+      "widthSetting": 2.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 288,
+      "pressureRange": [
+        0.76,
+        0.887
+      ]
+    },
+    {
+      "gesture": 196,
+      "samplesSent": 5,
+      "widthSetting": 2.7,
+      "color": "#739087",
+      "tiltXPeak": 8,
+      "tiltY": -5,
+      "twist": 295,
+      "pressureRange": [
+        0.753,
+        0.905
+      ]
+    }
+  ]
+}

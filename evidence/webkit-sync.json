@@ -1,0 +1,14 @@
+{
+  "webkit": "26.5",
+  "chromium": "158.0.8127.0",
+  "implementation": "Linux Playwright WPE WebKit",
+  "tabletCssViewport": [
+    1000,
+    716
+  ],
+  "dpr": 2,
+  "crossEngineTwoWayEdits": true,
+  "itemsAfterWebKitReload": 2,
+  "visibleInkPixels": 250,
+  "pageErrors": []
+}

@@ -1,0 +1,151 @@
+{
+  "before": {
+    "records": 50000,
+    "itemBodyBytes": 23040686,
+    "snapshotWireBytes": 24140828,
+    "restoredFromLiveBackup": true,
+    "coldTwoReadersMs": [
+      1246.64,
+      1241.87
+    ],
+    "idleRssMiB": 36.5,
+    "coldPeakRssMiB": 355.8,
+    "snapshot": {
+      "medianMs": 441.0,
+      "samplesMs": [
+        827.68,
+        445.77,
+        310.74,
+        334.15,
+        441.0,
+        639.13,
+        322.36
+      ]
+    },
+    "fullDelta": {
+      "medianMs": 496.8,
+      "samplesMs": [
+        322.23,
+        389.82,
+        496.8,
+        565.03,
+        517.53,
+        714.52,
+        462.64
+      ]
+    },
+    "twoRecordDelta": {
+      "medianMs": 0.4,
+      "samplesMs": [
+        2.39,
+        0.4,
+        0.33,
+        0.38,
+        0.41,
+        0.35,
+        0.4
+      ]
+    },
+    "negotiatedSnapshot": {
+      "encoding": "identity",
+      "wireBytes": 24140828,
+      "uncompressedBytes": 24140828
+    },
+    "update1024": {
+      "medianMs": 12.13,
+      "samplesMs": [
+        20.01,
+        12.13,
+        10.86,
+        12.5,
+        11.89,
+        16.01,
+        11.41
+      ]
+    }
+  },
+  "after": {
+    "records": 50000,
+    "itemBodyBytes": 23040686,
+    "snapshotWireBytes": 24140828,
+    "restoredFromLiveBackup": true,
+    "coldTwoReadersMs": [
+      436.72,
+      452.79
+    ],
+    "idleRssMiB": 40.4,
+    "coldPeakRssMiB": 188.8,
+    "snapshot": {
+      "medianMs": 64.53,
+      "samplesMs": [
+        64.53,
+        71.29,
+        54.51,
+        60.34,
+        73.62,
+        82.48,
+        52.12
+      ]
+    },
+    "fullDelta": {
+      "medianMs": 68.6,
+      "samplesMs": [
+        80.8,
+        65.67,
+        68.6,
+        66.63,
+        70.75,
+        58.86,
+        70.88
+      ]
+    },
+    "twoRecordDelta": {
+      "medianMs": 0.42,
+      "samplesMs": [
+        1.25,
+        0.7,
+        0.42,
+        0.42,
+        0.36,
+        0.42,
+        0.38
+      ]
+    },
+    "negotiatedSnapshot": {
+      "encoding": "gzip",
+      "wireBytes": 1220844,
+      "uncompressedBytes": 24140828
+    },
+    "update1024": {
+      "medianMs": 13.9,
+      "samplesMs": [
+        15.48,
+        11.45,
+        10.65,
+        13.9,
+        16.17,
+        13.06,
+        15.9
+      ]
+    },
+    "boundary": {
+      "acceptedBodyBytes": 33554432,
+      "firstRejectedBodyBytes": 33554433,
+      "recordCountAtByteLimit": 50006,
+      "acceptedOpBytes": 4194304,
+      "acceptedOpCount": 4096,
+      "atomicRollback": true
+    }
+  },
+  "compactBoundary": {
+    "records": 292724,
+    "nextRecordRejected": true,
+    "itemBodyBytes": 33554378,
+    "nextRecordBodyBytes": 116,
+    "coldViewerLoadMs": 305.82,
+    "coldServerPeakRssMiB": 196.1,
+    "wireBytes": 5256684,
+    "uncompressedBytes": 38238096,
+    "reloadVerified": true
+  }
+}

@@ -1,0 +1,1210 @@
+{
+  "engine": "Chromium 158.0.8127.0",
+  "viewportCss": [
+    1000,
+    716
+  ],
+  "deviceScaleFactor": 2,
+  "sourceCropOriginalPixels": [
+    24,
+    56,
+    2024,
+    1488
+  ],
+  "sourceOriginalSize": [
+    2048,
+    1548
+  ],
+  "exclusions": [
+    "Operating-system status bar, home indicator and display bezel",
+    "Document artwork excluded from control masks; measured separately by the editable example scenario"
+  ],
+  "userActions": [
+    "Opened Agent Design through board menu",
+    "Hid and restored the drawing tray",
+    "Opened and closed board information"
+  ],
+  "persistedSampleObjectKinds": {
+    "geo": 33,
+    "line": 33,
+    "arrow": 12,
+    "text": 47
+  },
+  "weights": {
+    "geometry": 0.3,
+    "control_ink": 0.5,
+    "swatches": 0.15,
+    "paper": 0.05
+  },
+  "regions": {
+    "back": {
+      "targetCss": [
+        9,
+        5.5,
+        41.5,
+        41.5
+      ],
+      "normalizedTargetXYWH": [
+        0.009,
+        0.00768,
+        0.0415,
+        0.05796
+      ],
+      "browserCss": [
+        9,
+        5.5,
+        41.5,
+        41.5
+      ],
+      "maxCoordinateDeltaCss": 0,
+      "intersectionOverUnion": 1.0
+    },
+    "creation": {
+      "targetCss": [
+        341,
+        5.5,
+        317.5,
+        41.5
+      ],
+      "normalizedTargetXYWH": [
+        0.341,
+        0.00768,
+        0.3175,
+        0.05796
+      ],
+      "browserCss": [
+        341.25,
+        5.5,
+        317.5,
+        41.5
+      ],
+      "maxCoordinateDeltaCss": 0.25,
+      "intersectionOverUnion": 0.9984
+    },
+    "overview": {
+      "targetCss": [
+        745,
+        5.5,
+        41.5,
+        41.5
+      ],
+      "normalizedTargetXYWH": [
+        0.745,
+        0.00768,
+        0.0415,
+        0.05796
+      ],
+      "browserCss": [
+        745,
+        5.5,
+        41.5,
+        41.5
+      ],
+      "maxCoordinateDeltaCss": 0,
+      "intersectionOverUnion": 1.0
+    },
+    "actions": {
+      "targetCss": [
+        796.5,
+        5.5,
+        143,
+        41.5
+      ],
+      "normalizedTargetXYWH": [
+        0.7965,
+        0.00768,
+        0.143,
+        0.05796
+      ],
+      "browserCss": [
+        796.5,
+        5.5,
+        143,
+        41.5
+      ],
+      "maxCoordinateDeltaCss": 0.0,
+      "intersectionOverUnion": 1.0
+    },
+    "compose": {
+      "targetCss": [
+        949.5,
+        5.5,
+        41.5,
+        41.5
+      ],
+      "normalizedTargetXYWH": [
+        0.9495,
+        0.00768,
+        0.0415,
+        0.05796
+      ],
+      "browserCss": [
+        949.5,
+        5.5,
+        41.5,
+        41.5
+      ],
+      "maxCoordinateDeltaCss": 0.0,
+      "intersectionOverUnion": 1.0
+    },
+    "pen_tray": {
+      "targetCss": [
+        18.5,
+        76.5,
+        93,
+        549
+      ],
+      "normalizedTargetXYWH": [
+        0.0185,
+        0.10684,
+        0.093,
+        0.76676
+      ],
+      "browserCss": [
+        18.5,
+        76.5,
+        93,
+        549
+      ],
+      "maxCoordinateDeltaCss": 0.0,
+      "intersectionOverUnion": 1.0
+    },
+    "scene_controls": {
+      "targetCss": [
+        18.5,
+        665.5,
+        260,
+        42
+      ],
+      "normalizedTargetXYWH": [
+        0.0185,
+        0.92947,
+        0.26,
+        0.05866
+      ],
+      "browserCss": [
+        18.5,
+        665.5,
+        260,
+        42
+      ],
+      "maxCoordinateDeltaCss": 0.0,
+      "intersectionOverUnion": 1.0
+    },
+    "view_controls": {
+      "targetCss": [
+        855,
+        665.5,
+        127,
+        42
+      ],
+      "normalizedTargetXYWH": [
+        0.855,
+        0.92947,
+        0.127,
+        0.05866
+      ],
+      "browserCss": [
+        855,
+        665.5,
+        127,
+        42
+      ],
+      "maxCoordinateDeltaCss": 0,
+      "intersectionOverUnion": 1.0
+    }
+  },
+  "swatches": {
+    "yellow": {
+      "targetRgb": [
+        254,
+        208,
+        47
+      ],
+      "browserRgb": [
+        255,
+        208,
+        45
+      ],
+      "maxRgbDelta": 2.0,
+      "diameterCssPx": 27.0,
+      "agreement": 0.9922
+    },
+    "black": {
+      "targetRgb": [
+        0,
+        0,
+        0
+      ],
+      "browserRgb": [
+        0,
+        0,
+        0
+      ],
+      "maxRgbDelta": 0.0,
+      "diameterCssPx": 27.0,
+      "agreement": 1.0
+    },
+    "red": {
+      "targetRgb": [
+        252,
+        48,
+        66
+      ],
+      "browserRgb": [
+        255,
+        48,
+        71
+      ],
+      "maxRgbDelta": 5.0,
+      "diameterCssPx": 27.0,
+      "agreement": 0.9804
+    },
+    "blue": {
+      "targetRgb": [
+        22,
+        126,
+        251
+      ],
+      "browserRgb": [
+        22,
+        131,
+        255
+      ],
+      "maxRgbDelta": 5.0,
+      "diameterCssPx": 27.0,
+      "agreement": 0.9804
+    },
+    "green": {
+      "targetRgb": [
+        83,
+        215,
+        105
+      ],
+      "browserRgb": [
+        80,
+        214,
+        99
+      ],
+      "maxRgbDelta": 6.0,
+      "diameterCssPx": 27.0,
+      "agreement": 0.9765
+    }
+  },
+  "paper": {
+    "sampleCss": [
+      145,
+      205,
+      450,
+      525
+    ],
+    "reference": {
+      "pitchXphysicalPx": 11.576,
+      "pitchYphysicalPx": 11.576,
+      "meanLuminance": 252.945,
+      "inkPercentile": 229.0
+    },
+    "browser": {
+      "pitchXphysicalPx": 11.574,
+      "pitchYphysicalPx": 11.574,
+      "meanLuminance": 252.974,
+      "inkPercentile": 229.0,
+      "pureWhiteFraction": 0.8119
+    },
+    "matched": true
+  },
+  "coordinateIoUMean": 0.9998,
+  "swatchRgbAgreementMean": 0.9859,
+  "referencePixelsSupplied": true,
+  "controlAppearanceMeasured": true,
+  "pageErrors": [],
+  "referenceSha256": "fdf1a3ed48c6f487e22509e41b4e3f7f36391b37ba658e3d77053afbc6a24055",
+  "referenceKind": "user-provided image",
+  "regionForegroundMasks": {
+    "navigation": {
+      "meanF1": 0.9682,
+      "controls": [
+        {
+          "control": "back-chevron",
+          "sourceRoi": [
+            52,
+            80,
+            116,
+            136
+          ],
+          "precision": 1.0,
+          "recall": 0.9639,
+          "f1": 0.9816,
+          "rawRgbAgreementOnForegroundUnion": 0.2851,
+          "sourceForegroundPx": 166,
+          "browserForegroundPx": 104,
+          "sourceInkBoundsInRoi": [
+            20,
+            13,
+            37,
+            42
+          ],
+          "browserInkBoundsInRoi": [
+            24,
+            14,
+            39,
+            42
+          ]
+        },
+        {
+          "control": "board-title",
+          "sourceRoi": [
+            139,
+            84,
+            347,
+            137
+          ],
+          "precision": 0.9709,
+          "recall": 0.9703,
+          "f1": 0.9706,
+          "rawRgbAgreementOnForegroundUnion": 0.4425,
+          "sourceForegroundPx": 1953,
+          "browserForegroundPx": 2028,
+          "sourceInkBoundsInRoi": [
+            8,
+            11,
+            203,
+            41
+          ],
+          "browserInkBoundsInRoi": [
+            7,
+            9,
+            204,
+            39
+          ]
+        },
+        {
+          "control": "title-menu",
+          "sourceRoi": [
+            351,
+            86,
+            394,
+            133
+          ],
+          "precision": 1.0,
+          "recall": 0.9091,
+          "f1": 0.9524,
+          "rawRgbAgreementOnForegroundUnion": 0.8503,
+          "sourceForegroundPx": 110,
+          "browserForegroundPx": 52,
+          "sourceInkBoundsInRoi": [
+            14,
+            17,
+            33,
+            28
+          ],
+          "browserInkBoundsInRoi": [
+            18,
+            20,
+            30,
+            27
+          ]
+        }
+      ]
+    },
+    "creation": {
+      "meanF1": 0.9962,
+      "controls": [
+        {
+          "control": "ink",
+          "sourceRoi": [
+            722,
+            81,
+            782,
+            136
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "rawRgbAgreementOnForegroundUnion": 0.7408,
+          "sourceForegroundPx": 918,
+          "browserForegroundPx": 910,
+          "sourceInkBoundsInRoi": [
+            9,
+            7,
+            49,
+            47
+          ],
+          "browserInkBoundsInRoi": [
+            10,
+            7,
+            51,
+            47
+          ]
+        },
+        {
+          "control": "text",
+          "sourceRoi": [
+            831,
+            80,
+            890,
+            134
+          ],
+          "precision": 0.9934,
+          "recall": 1.0,
+          "f1": 0.9967,
+          "rawRgbAgreementOnForegroundUnion": 0.5849,
+          "sourceForegroundPx": 529,
+          "browserForegroundPx": 602,
+          "sourceInkBoundsInRoi": [
+            10,
+            12,
+            49,
+            43
+          ],
+          "browserInkBoundsInRoi": [
+            10,
+            11,
+            49,
+            43
+          ]
+        },
+        {
+          "control": "shapes",
+          "sourceRoi": [
+            939,
+            78,
+            1000,
+            136
+          ],
+          "precision": 1.0,
+          "recall": 0.9905,
+          "f1": 0.9952,
+          "rawRgbAgreementOnForegroundUnion": 0.476,
+          "sourceForegroundPx": 423,
+          "browserForegroundPx": 415,
+          "sourceInkBoundsInRoi": [
+            14,
+            12,
+            51,
+            48
+          ],
+          "browserInkBoundsInRoi": [
+            12,
+            13,
+            49,
+            49
+          ]
+        },
+        {
+          "control": "note",
+          "sourceRoi": [
+            1049,
+            79,
+            1110,
+            135
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "rawRgbAgreementOnForegroundUnion": 0.6481,
+          "sourceForegroundPx": 556,
+          "browserForegroundPx": 644,
+          "sourceInkBoundsInRoi": [
+            14,
+            13,
+            47,
+            44
+          ],
+          "browserInkBoundsInRoi": [
+            13,
+            14,
+            48,
+            46
+          ]
+        },
+        {
+          "control": "table",
+          "sourceRoi": [
+            1155,
+            77,
+            1220,
+            136
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "rawRgbAgreementOnForegroundUnion": 0.6765,
+          "sourceForegroundPx": 629,
+          "browserForegroundPx": 582,
+          "sourceInkBoundsInRoi": [
+            15,
+            15,
+            52,
+            46
+          ],
+          "browserInkBoundsInRoi": [
+            15,
+            16,
+            52,
+            45
+          ]
+        },
+        {
+          "control": "attachment",
+          "sourceRoi": [
+            1261,
+            76,
+            1327,
+            140
+          ],
+          "precision": 0.971,
+          "recall": 1.0,
+          "f1": 0.9853,
+          "rawRgbAgreementOnForegroundUnion": 0.5065,
+          "sourceForegroundPx": 411,
+          "browserForegroundPx": 517,
+          "sourceInkBoundsInRoi": [
+            18,
+            15,
+            50,
+            51
+          ],
+          "browserInkBoundsInRoi": [
+            18,
+            14,
+            53,
+            53
+          ]
+        }
+      ]
+    },
+    "commands": {
+      "meanF1": 0.9949,
+      "controls": [
+        {
+          "control": "overview",
+          "sourceRoi": [
+            1523,
+            76,
+            1586,
+            139
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "rawRgbAgreementOnForegroundUnion": 0.5226,
+          "sourceForegroundPx": 399,
+          "browserForegroundPx": 387,
+          "sourceInkBoundsInRoi": [
+            18,
+            12,
+            47,
+            51
+          ],
+          "browserInkBoundsInRoi": [
+            18,
+            15,
+            46,
+            52
+          ]
+        },
+        {
+          "control": "undo",
+          "sourceRoi": [
+            1629,
+            77,
+            1689,
+            137
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "rawRgbAgreementOnForegroundUnion": 0.8715,
+          "sourceForegroundPx": 218,
+          "browserForegroundPx": 223,
+          "sourceInkBoundsInRoi": [
+            14,
+            16,
+            47,
+            46
+          ],
+          "browserInkBoundsInRoi": [
+            13,
+            17,
+            46,
+            47
+          ]
+        },
+        {
+          "control": "share",
+          "sourceRoi": [
+            1729,
+            75,
+            1789,
+            140
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "rawRgbAgreementOnForegroundUnion": 0.612,
+          "sourceForegroundPx": 365,
+          "browserForegroundPx": 369,
+          "sourceInkBoundsInRoi": [
+            14,
+            13,
+            44,
+            49
+          ],
+          "browserInkBoundsInRoi": [
+            14,
+            14,
+            42,
+            49
+          ]
+        },
+        {
+          "control": "more",
+          "sourceRoi": [
+            1829,
+            89,
+            1888,
+            126
+          ],
+          "precision": 1.0,
+          "recall": 0.9808,
+          "f1": 0.9903,
+          "rawRgbAgreementOnForegroundUnion": 0.4882,
+          "sourceForegroundPx": 104,
+          "browserForegroundPx": 82,
+          "sourceInkBoundsInRoi": [
+            15,
+            15,
+            44,
+            22
+          ],
+          "browserInkBoundsInRoi": [
+            14,
+            16,
+            41,
+            22
+          ]
+        },
+        {
+          "control": "compose",
+          "sourceRoi": [
+            1936,
+            75,
+            1998,
+            141
+          ],
+          "precision": 0.9714,
+          "recall": 0.9973,
+          "f1": 0.9842,
+          "rawRgbAgreementOnForegroundUnion": 0.4737,
+          "sourceForegroundPx": 372,
+          "browserForegroundPx": 420,
+          "sourceInkBoundsInRoi": [
+            15,
+            16,
+            47,
+            48
+          ],
+          "browserInkBoundsInRoi": [
+            13,
+            17,
+            47,
+            50
+          ]
+        }
+      ]
+    },
+    "tray-actions": {
+      "meanF1": 1.0,
+      "controls": [
+        {
+          "control": "tray-undo",
+          "sourceRoi": [
+            84,
+            278,
+            148,
+            344
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "rawRgbAgreementOnForegroundUnion": 0.9909,
+          "sourceForegroundPx": 2279,
+          "browserForegroundPx": 2236,
+          "sourceInkBoundsInRoi": [
+            6,
+            6,
+            60,
+            60
+          ],
+          "browserInkBoundsInRoi": [
+            6,
+            6,
+            60,
+            60
+          ]
+        },
+        {
+          "control": "tray-redo",
+          "sourceRoi": [
+            157,
+            278,
+            223,
+            344
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "rawRgbAgreementOnForegroundUnion": 0.9904,
+          "sourceForegroundPx": 2280,
+          "browserForegroundPx": 2236,
+          "sourceInkBoundsInRoi": [
+            6,
+            6,
+            60,
+            60
+          ],
+          "browserInkBoundsInRoi": [
+            7,
+            6,
+            61,
+            60
+          ]
+        },
+        {
+          "control": "tray-options",
+          "sourceRoi": [
+            118,
+            1205,
+            190,
+            1273
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "rawRgbAgreementOnForegroundUnion": 0.9716,
+          "sourceForegroundPx": 2277,
+          "browserForegroundPx": 2236,
+          "sourceInkBoundsInRoi": [
+            9,
+            7,
+            63,
+            61
+          ],
+          "browserInkBoundsInRoi": [
+            9,
+            7,
+            63,
+            61
+          ]
+        }
+      ]
+    },
+    "drawing-instruments": {
+      "meanF1": 0.9239,
+      "controls": [
+        {
+          "control": "first-instrument",
+          "sourceRoi": [
+            61,
+            367,
+            220,
+            417
+          ],
+          "precision": 0.6655,
+          "recall": 0.6528,
+          "f1": 0.6591,
+          "rawRgbAgreementOnForegroundUnion": 0.9419,
+          "sourceForegroundPx": 1725,
+          "browserForegroundPx": 1121,
+          "sourceInkBoundsInRoi": [
+            1,
+            10,
+            123,
+            43
+          ],
+          "browserInkBoundsInRoi": [
+            1,
+            0,
+            116,
+            50
+          ]
+        },
+        {
+          "control": "pen",
+          "sourceRoi": [
+            61,
+            446,
+            222,
+            503
+          ],
+          "precision": 0.9768,
+          "recall": 0.9759,
+          "f1": 0.9763,
+          "rawRgbAgreementOnForegroundUnion": 0.9293,
+          "sourceForegroundPx": 2486,
+          "browserForegroundPx": 2155,
+          "sourceInkBoundsInRoi": [
+            1,
+            10,
+            154,
+            48
+          ],
+          "browserInkBoundsInRoi": [
+            1,
+            0,
+            155,
+            57
+          ]
+        },
+        {
+          "control": "technical-pen",
+          "sourceRoi": [
+            61,
+            532,
+            220,
+            586
+          ],
+          "precision": 0.9776,
+          "recall": 0.9943,
+          "f1": 0.9859,
+          "rawRgbAgreementOnForegroundUnion": 0.9421,
+          "sourceForegroundPx": 2117,
+          "browserForegroundPx": 1834,
+          "sourceInkBoundsInRoi": [
+            1,
+            8,
+            122,
+            47
+          ],
+          "browserInkBoundsInRoi": [
+            1,
+            0,
+            122,
+            54
+          ]
+        },
+        {
+          "control": "highlighter",
+          "sourceRoi": [
+            61,
+            613,
+            219,
+            671
+          ],
+          "precision": 0.9764,
+          "recall": 0.94,
+          "f1": 0.9579,
+          "rawRgbAgreementOnForegroundUnion": 0.946,
+          "sourceForegroundPx": 2501,
+          "browserForegroundPx": 2078,
+          "sourceInkBoundsInRoi": [
+            1,
+            12,
+            124,
+            51
+          ],
+          "browserInkBoundsInRoi": [
+            1,
+            0,
+            124,
+            58
+          ]
+        },
+        {
+          "control": "eraser",
+          "sourceRoi": [
+            61,
+            700,
+            219,
+            756
+          ],
+          "precision": 0.9824,
+          "recall": 1.0,
+          "f1": 0.9911,
+          "rawRgbAgreementOnForegroundUnion": 0.9681,
+          "sourceForegroundPx": 2895,
+          "browserForegroundPx": 2781,
+          "sourceInkBoundsInRoi": [
+            1,
+            10,
+            124,
+            48
+          ],
+          "browserInkBoundsInRoi": [
+            1,
+            0,
+            123,
+            56
+          ]
+        },
+        {
+          "control": "lasso",
+          "sourceRoi": [
+            61,
+            784,
+            219,
+            845
+          ],
+          "precision": 0.9639,
+          "recall": 0.9984,
+          "f1": 0.9809,
+          "rawRgbAgreementOnForegroundUnion": 0.9431,
+          "sourceForegroundPx": 1920,
+          "browserForegroundPx": 1718,
+          "sourceInkBoundsInRoi": [
+            1,
+            12,
+            123,
+            47
+          ],
+          "browserInkBoundsInRoi": [
+            1,
+            0,
+            122,
+            61
+          ]
+        },
+        {
+          "control": "ruler",
+          "sourceRoi": [
+            61,
+            860,
+            219,
+            931
+          ],
+          "precision": 0.8903,
+          "recall": 0.9441,
+          "f1": 0.9164,
+          "rawRgbAgreementOnForegroundUnion": 0.9025,
+          "sourceForegroundPx": 984,
+          "browserForegroundPx": 957,
+          "sourceInkBoundsInRoi": [
+            1,
+            8,
+            123,
+            46
+          ],
+          "browserInkBoundsInRoi": [
+            1,
+            0,
+            124,
+            71
+          ]
+        }
+      ]
+    },
+    "bottom-navigation": {
+      "meanF1": 0.9836,
+      "controls": [
+        {
+          "control": "zoom",
+          "sourceRoi": [
+            90,
+            1407,
+            179,
+            1455
+          ],
+          "precision": 0.9971,
+          "recall": 0.9939,
+          "f1": 0.9955,
+          "rawRgbAgreementOnForegroundUnion": 0.5101,
+          "sourceForegroundPx": 660,
+          "browserForegroundPx": 688,
+          "sourceInkBoundsInRoi": [
+            11,
+            12,
+            77,
+            35
+          ],
+          "browserInkBoundsInRoi": [
+            14,
+            11,
+            76,
+            33
+          ]
+        },
+        {
+          "control": "previous",
+          "sourceRoi": [
+            224,
+            1401,
+            272,
+            1457
+          ],
+          "precision": 1.0,
+          "recall": 0.9688,
+          "f1": 0.9841,
+          "rawRgbAgreementOnForegroundUnion": 0.9045,
+          "sourceForegroundPx": 160,
+          "browserForegroundPx": 122,
+          "sourceInkBoundsInRoi": [
+            14,
+            14,
+            32,
+            45
+          ],
+          "browserInkBoundsInRoi": [
+            14,
+            15,
+            29,
+            43
+          ]
+        },
+        {
+          "control": "scenes",
+          "sourceRoi": [
+            304,
+            1402,
+            364,
+            1459
+          ],
+          "precision": 0.9938,
+          "recall": 0.9946,
+          "f1": 0.9942,
+          "rawRgbAgreementOnForegroundUnion": 0.5023,
+          "sourceForegroundPx": 370,
+          "browserForegroundPx": 324,
+          "sourceInkBoundsInRoi": [
+            12,
+            15,
+            49,
+            42
+          ],
+          "browserInkBoundsInRoi": [
+            14,
+            15,
+            49,
+            42
+          ]
+        },
+        {
+          "control": "next",
+          "sourceRoi": [
+            400,
+            1402,
+            447,
+            1459
+          ],
+          "precision": 1.0,
+          "recall": 0.8954,
+          "f1": 0.9448,
+          "rawRgbAgreementOnForegroundUnion": 0.8029,
+          "sourceForegroundPx": 153,
+          "browserForegroundPx": 123,
+          "sourceInkBoundsInRoi": [
+            14,
+            13,
+            32,
+            44
+          ],
+          "browserInkBoundsInRoi": [
+            19,
+            14,
+            34,
+            42
+          ]
+        },
+        {
+          "control": "favorite",
+          "sourceRoi": [
+            480,
+            1400,
+            558,
+            1460
+          ],
+          "precision": 1.0,
+          "recall": 0.9989,
+          "f1": 0.9995,
+          "rawRgbAgreementOnForegroundUnion": 0.5697,
+          "sourceForegroundPx": 924,
+          "browserForegroundPx": 922,
+          "sourceInkBoundsInRoi": [
+            11,
+            9,
+            66,
+            52
+          ],
+          "browserInkBoundsInRoi": [
+            13,
+            8,
+            67,
+            50
+          ]
+        }
+      ]
+    },
+    "bottom-view": {
+      "meanF1": 0.9857,
+      "controls": [
+        {
+          "control": "connections",
+          "sourceRoi": [
+            1775,
+            1400,
+            1847,
+            1464
+          ],
+          "precision": 0.9687,
+          "recall": 0.9739,
+          "f1": 0.9713,
+          "rawRgbAgreementOnForegroundUnion": 0.596,
+          "sourceForegroundPx": 460,
+          "browserForegroundPx": 543,
+          "sourceInkBoundsInRoi": [
+            17,
+            13,
+            58,
+            48
+          ],
+          "browserInkBoundsInRoi": [
+            19,
+            13,
+            59,
+            47
+          ]
+        },
+        {
+          "control": "board-grid",
+          "sourceRoi": [
+            1881,
+            1401,
+            1940,
+            1464
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "rawRgbAgreementOnForegroundUnion": 0.668,
+          "sourceForegroundPx": 614,
+          "browserForegroundPx": 532,
+          "sourceInkBoundsInRoi": [
+            9,
+            11,
+            47,
+            48
+          ],
+          "browserInkBoundsInRoi": [
+            9,
+            11,
+            45,
+            47
+          ]
+        }
+      ]
+    }
+  },
+  "meanSectionForegroundF1": 0.9789,
+  "referenceAppearanceMethod": "Mean symmetric silhouette precision/recall F1 per control, then per functional section. Fixed 1.5 CSS px tolerance (3 physical px), absolute registration. White background outside ink masks never contributes true negatives.",
+  "referencePaperMeasured": {
+    "pitchXphysicalPx": 11.574,
+    "pitchYphysicalPx": 11.574,
+    "meanLuminance": 252.941,
+    "inkPercentile": 229.0,
+    "pureWhiteFraction": 0.8097
+  },
+  "uiAgreement": 0.9873,
+  "minimumUiAgreement": 0.95,
+  "majorSectionsMatched": true,
+  "allRequiredChecksPassed": true
+}

@@ -1,0 +1,122 @@
+.qd-root {
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  outline: 0;
+  background: #ffffff;
+}
+.qd-canvas,
+.qd-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.qd-overlay {
+  pointer-events: none;
+}
+.qd-text-edit {
+  position: absolute;
+  z-index: 5;
+  background: transparent;
+  border: 0;
+  outline: 1.5px dashed #779c89;
+  outline-offset: 3px;
+  border-radius: 2px;
+  resize: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
+  caret-color: currentColor;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.folio-asset-dialog {
+  border: 1px solid #d8ded8;
+  border-radius: 12px;
+  background: #fefefb;
+  color: #293b31;
+  padding: 24px;
+  max-width: 85vw;
+}
+.folio-asset-dialog::backdrop {
+  background: #19221d75;
+}
+.folio-asset-dialog h2 {
+  font: 600 18px system-ui;
+  margin: 0 0 16px;
+}
+.folio-asset-dialog img,
+.folio-asset-dialog video {
+  max-width: 78vw;
+  max-height: 65vh;
+  display: block;
+}
+.folio-asset-dialog iframe {
+  width: 70vw;
+  height: 65vh;
+  border: 0;
+}
+.folio-asset-dialog div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 14px;
+}
+.folio-asset-dialog a {
+  color: #28644a;
+}
+.folio-asset-dialog button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.4em 0.8em;
+}
+.folio-drawing-options {
+  width: min(360px, 85vw);
+}
+.folio-drawing-options section {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.folio-drawing-options label,
+.folio-drawing-options small {
+  display: block;
+  margin: 10px 0;
+}
+.folio-drawing-options input[type='number'] {
+  width: 5em;
+}
+.folio-drawing-options button {
+  border: 1px solid #bfcfc4;
+  border-radius: 5px;
+  background: white;
+  color: #294638;
+}
+.folio-drawing-options button[aria-pressed='true'],
+.folio-drawing-options footer button {
+  background: #e3eee5;
+}
+.folio-drawing-options footer {
+  text-align: right;
+}
+.folio-pdf-reader canvas {
+  display: block;
+  background: white;
+  box-shadow: 0 0 0 1px #ddd;
+  max-width: 78vw;
+  max-height: 62vh;
+}
+.folio-pdf-reader nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}

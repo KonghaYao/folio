@@ -1,0 +1,1691 @@
+{
+  "id": "dd03eaa6-047c-49c4-8cd0-a853e6454f02",
+  "title": "未命名画板",
+  "rev": 4,
+  "updatedAt": 1795602579993,
+  "role": "owner",
+  "items": {
+    "shape:mwvzdw1716npxd": {
+      "id": "shape:mwvzdw1716npxd",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 755,
+      "y": 130,
+      "z": 1,
+      "rot": 0,
+      "props": {
+        "color": "#f2b957",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "geo": "ellipse",
+        "w": 118,
+        "h": 118,
+        "label": "",
+        "fill": "solid",
+        "faceColor": "#f2b957"
+      }
+    },
+    "shape:mwvzdw1717p4zr": {
+      "id": "shape:mwvzdw1717p4zr",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 145,
+      "y": 805,
+      "z": 2,
+      "rot": 0,
+      "props": {
+        "color": "#8aa3a0",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 800,
+        "h": 20,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 0 12 Q 200 0 400 11 Q 600 22 800 9",
+          "w": 800,
+          "h": 20,
+          "fill": "none",
+          "strokeWidth": 3
+        }
+      }
+    },
+    "shape:mwvzdw1718hfzp": {
+      "id": "shape:mwvzdw1718hfzp",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 215,
+      "y": 600,
+      "z": 3,
+      "rot": 0,
+      "props": {
+        "color": "#254c51",
+        "size": "l",
+        "font": "sans",
+        "dash": "solid",
+        "geo": "ellipse",
+        "w": 250,
+        "h": 250,
+        "label": "",
+        "fill": "none"
+      }
+    },
+    "shape:mwvzdw17192i8s": {
+      "id": "shape:mwvzdw17192i8s",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 645,
+      "y": 600,
+      "z": 4,
+      "rot": 0,
+      "props": {
+        "color": "#254c51",
+        "size": "l",
+        "font": "sans",
+        "dash": "solid",
+        "geo": "ellipse",
+        "w": 250,
+        "h": 250,
+        "label": "",
+        "fill": "none"
+      }
+    },
+    "shape:mwvzdw171agwag": {
+      "id": "shape:mwvzdw171agwag",
+      "typeName": "shape",
+      "type": "line",
+      "x": 340,
+      "y": 725,
+      "z": 5,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 114,
+        "dy": 0,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw171bbrgh": {
+      "id": "shape:mwvzdw171bbrgh",
+      "typeName": "shape",
+      "type": "line",
+      "x": 340,
+      "y": 725,
+      "z": 6,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 80.61017305526639,
+        "dy": 80.61017305526639,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw171cofi2": {
+      "id": "shape:mwvzdw171cofi2",
+      "typeName": "shape",
+      "type": "line",
+      "x": 340,
+      "y": 725,
+      "z": 7,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 0,
+        "dy": 114,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw171d8hym": {
+      "id": "shape:mwvzdw171d8hym",
+      "typeName": "shape",
+      "type": "line",
+      "x": 340,
+      "y": 725,
+      "z": 8,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": -80.61017305526639,
+        "dy": 80.61017305526639,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw171e21ev": {
+      "id": "shape:mwvzdw171e21ev",
+      "typeName": "shape",
+      "type": "line",
+      "x": 340,
+      "y": 725,
+      "z": 9,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": -114,
+        "dy": 0,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw171f6ent": {
+      "id": "shape:mwvzdw171f6ent",
+      "typeName": "shape",
+      "type": "line",
+      "x": 340,
+      "y": 725,
+      "z": 10,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": -80.61017305526644,
+        "dy": -80.61017305526639,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw171g8ttu": {
+      "id": "shape:mwvzdw171g8ttu",
+      "typeName": "shape",
+      "type": "line",
+      "x": 340,
+      "y": 725,
+      "z": 11,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 0,
+        "dy": -114,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw171hjsrt": {
+      "id": "shape:mwvzdw171hjsrt",
+      "typeName": "shape",
+      "type": "line",
+      "x": 340,
+      "y": 725,
+      "z": 12,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 80.61017305526639,
+        "dy": -80.61017305526639,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw171ivymc": {
+      "id": "shape:mwvzdw171ivymc",
+      "typeName": "shape",
+      "type": "line",
+      "x": 770,
+      "y": 725,
+      "z": 13,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 114,
+        "dy": 0,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw171ji0yh": {
+      "id": "shape:mwvzdw171ji0yh",
+      "typeName": "shape",
+      "type": "line",
+      "x": 770,
+      "y": 725,
+      "z": 14,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 80.61017305526639,
+        "dy": 80.61017305526639,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw181k7v0j": {
+      "id": "shape:mwvzdw181k7v0j",
+      "typeName": "shape",
+      "type": "line",
+      "x": 770,
+      "y": 725,
+      "z": 15,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 0,
+        "dy": 114,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw181ln4l3": {
+      "id": "shape:mwvzdw181ln4l3",
+      "typeName": "shape",
+      "type": "line",
+      "x": 770,
+      "y": 725,
+      "z": 16,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": -80.61017305526639,
+        "dy": 80.61017305526639,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw181my89s": {
+      "id": "shape:mwvzdw181my89s",
+      "typeName": "shape",
+      "type": "line",
+      "x": 770,
+      "y": 725,
+      "z": 17,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": -114,
+        "dy": 0,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw181nehsk": {
+      "id": "shape:mwvzdw181nehsk",
+      "typeName": "shape",
+      "type": "line",
+      "x": 770,
+      "y": 725,
+      "z": 18,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": -80.61017305526639,
+        "dy": -80.61017305526639,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw181oy7w5": {
+      "id": "shape:mwvzdw181oy7w5",
+      "typeName": "shape",
+      "type": "line",
+      "x": 770,
+      "y": 725,
+      "z": 19,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 0,
+        "dy": -114,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw181pl67x": {
+      "id": "shape:mwvzdw181pl67x",
+      "typeName": "shape",
+      "type": "line",
+      "x": 770,
+      "y": 725,
+      "z": 20,
+      "rot": 0,
+      "props": {
+        "color": "#7e9c98",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 80.61017305526639,
+        "dy": -80.61017305526639,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw181qr8pt": {
+      "id": "shape:mwvzdw181qr8pt",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 330,
+      "y": 505,
+      "z": 21,
+      "rot": 0,
+      "props": {
+        "color": "#d96b48",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 465,
+        "h": 237,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 10 220 L 120 15 L 235 220 L 10 220 M 120 15 L 450 220 L 235 220 M 120 15 L 55 15 M 450 220 L 385 70",
+          "w": 465,
+          "h": 237,
+          "fill": "none",
+          "strokeWidth": 8
+        }
+      }
+    },
+    "shape:mwvzdw181r9bqd": {
+      "id": "shape:mwvzdw181r9bqd",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 537,
+      "y": 682,
+      "z": 22,
+      "rot": 0,
+      "props": {
+        "color": "#254c51",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "geo": "ellipse",
+        "w": 26,
+        "h": 26,
+        "label": "",
+        "fill": "solid",
+        "faceColor": "#f2b957"
+      }
+    },
+    "shape:mwvzdw181swofo": {
+      "id": "shape:mwvzdw181swofo",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 418,
+      "y": 493,
+      "z": 23,
+      "rot": 0,
+      "props": {
+        "color": "#254c51",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 90,
+        "h": 25,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 0 12 Q 45 0 90 12",
+          "w": 90,
+          "h": 25,
+          "fill": "none",
+          "strokeWidth": 8
+        }
+      }
+    },
+    "shape:mwvzdw181tp39w": {
+      "id": "shape:mwvzdw181tp39w",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 700,
+      "y": 566,
+      "z": 24,
+      "rot": 0,
+      "props": {
+        "color": "#254c51",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 90,
+        "h": 24,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 0 20 L 28 0 L 90 0",
+          "w": 90,
+          "h": 24,
+          "fill": "none",
+          "strokeWidth": 8
+        }
+      }
+    },
+    "shape:mwvzdw181u6o8z": {
+      "id": "shape:mwvzdw181u6o8z",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 318,
+      "y": 418,
+      "z": 25,
+      "rot": 0,
+      "props": {
+        "color": "#285d61",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 175,
+        "h": 112,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 165 22 Q 104 30 0 78 Q 62 92 125 112 Q 112 68 165 22 Z",
+          "w": 175,
+          "h": 112,
+          "fill": "#285d61",
+          "strokeWidth": 4
+        }
+      }
+    },
+    "shape:mwvzdw181vxyp3": {
+      "id": "shape:mwvzdw181vxyp3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 390,
+      "y": 380,
+      "z": 26,
+      "rot": 0,
+      "props": {
+        "color": "#285d61",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 305,
+        "h": 205,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 26 100 Q 34 18 146 12 Q 264 10 291 84 Q 310 147 234 182 Q 122 218 45 159 Q 10 136 26 100 Z",
+          "w": 305,
+          "h": 205,
+          "fill": "#4c9890",
+          "strokeWidth": 5
+        }
+      }
+    },
+    "shape:mwvzdw181wk6jc": {
+      "id": "shape:mwvzdw181wk6jc",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 418,
+      "y": 415,
+      "z": 27,
+      "rot": 0,
+      "props": {
+        "color": "#285d61",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 225,
+        "h": 128,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 18 70 Q 82 0 176 22 Q 220 34 202 75 Q 164 115 78 116 Q 34 110 18 70 Z",
+          "w": 225,
+          "h": 128,
+          "fill": "#317a79",
+          "strokeWidth": 4
+        }
+      }
+    },
+    "shape:mwvzdw181x14mw": {
+      "id": "shape:mwvzdw181x14mw",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 452,
+      "y": 447,
+      "z": 28,
+      "rot": 0,
+      "props": {
+        "color": "#bfe0c8",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 150,
+        "h": 60,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 0 28 Q 52 0 138 8 M 16 47 Q 72 20 146 22 M 40 59 Q 90 38 140 37",
+          "w": 150,
+          "h": 60,
+          "fill": "none",
+          "strokeWidth": 4
+        }
+      }
+    },
+    "shape:mwvzdw181y3olq": {
+      "id": "shape:mwvzdw181y3olq",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 596,
+      "y": 266,
+      "z": 29,
+      "rot": 0,
+      "props": {
+        "color": "#285d61",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 142,
+        "h": 208,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 15 193 Q 32 111 54 37 Q 74 0 119 10 Q 145 22 127 60 Q 91 107 87 191 Z",
+          "w": 142,
+          "h": 208,
+          "fill": "#4c9890",
+          "strokeWidth": 5
+        }
+      }
+    },
+    "shape:mwvzdw181zm0l1": {
+      "id": "shape:mwvzdw181zm0l1",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 657,
+      "y": 207,
+      "z": 30,
+      "rot": 0,
+      "props": {
+        "color": "#285d61",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "geo": "ellipse",
+        "w": 132,
+        "h": 116,
+        "label": "",
+        "fill": "solid",
+        "faceColor": "#4c9890"
+      }
+    },
+    "shape:mwvzdw1820is6x": {
+      "id": "shape:mwvzdw1820is6x",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 678,
+      "y": 187,
+      "z": 31,
+      "rot": 0,
+      "props": {
+        "color": "#285d61",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 75,
+        "h": 40,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 10 35 Q 15 2 38 24 Q 47 0 63 23 Q 74 8 70 37 Z",
+          "w": 75,
+          "h": 40,
+          "fill": "#4c9890",
+          "strokeWidth": 4
+        }
+      }
+    },
+    "shape:mwvzdw182139ha": {
+      "id": "shape:mwvzdw182139ha",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 745,
+      "y": 258,
+      "z": 32,
+      "rot": 0,
+      "props": {
+        "color": "#b9563d",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 193,
+        "h": 130,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 0 15 Q 90 0 190 23 Q 124 36 44 49 Z",
+          "w": 193,
+          "h": 130,
+          "fill": "#f2b957",
+          "strokeWidth": 5
+        }
+      }
+    },
+    "shape:mwvzdw1822w65k": {
+      "id": "shape:mwvzdw1822w65k",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 756,
+      "y": 285,
+      "z": 33,
+      "rot": 0,
+      "props": {
+        "color": "#b9563d",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 174,
+        "h": 151,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 8 4 Q 77 31 171 5 Q 155 118 75 141 Q 36 139 28 85 Z",
+          "w": 174,
+          "h": 151,
+          "fill": "#e87958",
+          "strokeWidth": 5
+        }
+      }
+    },
+    "shape:mwvzdw1823rp47": {
+      "id": "shape:mwvzdw1823rp47",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 696,
+      "y": 244,
+      "z": 34,
+      "rot": 0,
+      "props": {
+        "color": "#19383d",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "geo": "ellipse",
+        "w": 15,
+        "h": 15,
+        "label": "",
+        "fill": "solid",
+        "faceColor": "#19383d"
+      }
+    },
+    "shape:mwvzdw1824k5j3": {
+      "id": "shape:mwvzdw1824k5j3",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 700,
+      "y": 247,
+      "z": 35,
+      "rot": 0,
+      "props": {
+        "color": "#fff2d2",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "geo": "ellipse",
+        "w": 4,
+        "h": 4,
+        "label": "",
+        "fill": "solid",
+        "faceColor": "#fff2d2"
+      }
+    },
+    "shape:mwvzdw1825ev6z": {
+      "id": "shape:mwvzdw1825ev6z",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 520,
+      "y": 517,
+      "z": 36,
+      "rot": 0,
+      "props": {
+        "color": "#b9563d",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 112,
+        "h": 178,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 8 10 Q 34 40 45 78 L 34 150 Q 36 164 54 166 L 78 169 Q 82 176 66 179 L 24 176 Q 8 170 15 146 L 20 82 Q 2 43 8 10 Z",
+          "w": 112,
+          "h": 178,
+          "fill": "#f2b957",
+          "strokeWidth": 4
+        }
+      }
+    },
+    "shape:mwvzdw1826tkya": {
+      "id": "shape:mwvzdw1826tkya",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 595,
+      "y": 516,
+      "z": 37,
+      "rot": 0,
+      "props": {
+        "color": "#b9563d",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 94,
+        "h": 185,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 15 10 Q 38 50 57 95 L 49 151 Q 57 163 78 164 L 90 170 Q 87 178 67 178 L 38 174 Q 23 167 31 145 L 32 104 Q 3 55 15 10 Z",
+          "w": 94,
+          "h": 185,
+          "fill": "#f2b957",
+          "strokeWidth": 4
+        }
+      }
+    },
+    "shape:mwvzdw1827hcag": {
+      "id": "shape:mwvzdw1827hcag",
+      "typeName": "shape",
+      "type": "line",
+      "x": 550,
+      "y": 695,
+      "z": 38,
+      "rot": 0,
+      "props": {
+        "color": "#254c51",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 86,
+        "dy": -13,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw18282v2h": {
+      "id": "shape:mwvzdw18282v2h",
+      "typeName": "shape",
+      "type": "line",
+      "x": 605,
+      "y": 683,
+      "z": 39,
+      "rot": 0,
+      "props": {
+        "color": "#254c51",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 46,
+        "dy": 0,
+        "bend": 0
+      }
+    },
+    "shape:mwvzdw1829mnl6": {
+      "id": "shape:mwvzdw1829mnl6",
+      "typeName": "shape",
+      "type": "text",
+      "x": 126,
+      "y": 135,
+      "z": 40,
+      "rot": 0,
+      "props": {
+        "color": "#254c51",
+        "size": "l",
+        "font": "sans",
+        "dash": "solid",
+        "text": "风里的骑手",
+        "autosize": true,
+        "scale": 1
+      }
+    },
+    "shape:mwvzdw182apjig": {
+      "id": "shape:mwvzdw182apjig",
+      "typeName": "shape",
+      "type": "text",
+      "x": 130,
+      "y": 186,
+      "z": 41,
+      "rot": 0,
+      "props": {
+        "color": "#708a85",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "text": "PELican  /  sunny day ride",
+        "autosize": true,
+        "scale": 1
+      }
+    },
+    "shape:mwvzdw182bh3yf": {
+      "id": "shape:mwvzdw182bh3yf",
+      "typeName": "shape",
+      "type": "draw",
+      "x": 449,
+      "y": 451,
+      "z": 42,
+      "rot": 0,
+      "props": {
+        "color": "#e2f0d8",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "pts": [
+          0,
+          8,
+          0.45,
+          20,
+          1,
+          0.7,
+          46,
+          0,
+          0.65,
+          73,
+          5,
+          0.45
+        ],
+        "isPen": true,
+        "done": true,
+        "ink": {
+          "version": 1,
+          "brush": "pen",
+          "color": "#e2f0d8",
+          "width": 4,
+          "samples": [
+            [
+              0,
+              8,
+              0.45,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              1,
+              0.7,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              46,
+              0,
+              0.65,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              73,
+              5,
+              0.45,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "shape:mwvzdw182caoo6": {
+      "id": "shape:mwvzdw182caoo6",
+      "typeName": "shape",
+      "type": "draw",
+      "x": 782,
+      "y": 326,
+      "z": 43,
+      "rot": 0,
+      "props": {
+        "color": "#ffd99a",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "pts": [
+          0,
+          0,
+          0.4,
+          20,
+          22,
+          0.65,
+          38,
+          45,
+          0.75,
+          52,
+          70,
+          0.5
+        ],
+        "isPen": true,
+        "done": true,
+        "ink": {
+          "version": 1,
+          "brush": "pen",
+          "color": "#ffd99a",
+          "width": 4,
+          "samples": [
+            [
+              0,
+              0,
+              0.4,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              20,
+              22,
+              0.65,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              38,
+              45,
+              0.75,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              52,
+              70,
+              0.5,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "shape:mwvzdw182dopl2": {
+      "id": "shape:mwvzdw182dopl2",
+      "typeName": "shape",
+      "type": "draw",
+      "x": 342,
+      "y": 720,
+      "z": 44,
+      "rot": 0,
+      "props": {
+        "color": "#f3c66c",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "pts": [
+          0,
+          0,
+          0.5,
+          14,
+          -6,
+          0.75,
+          29,
+          -10,
+          0.45
+        ],
+        "isPen": true,
+        "done": true,
+        "ink": {
+          "version": 1,
+          "brush": "pencil",
+          "color": "#f3c66c",
+          "width": 3,
+          "samples": [
+            [
+              0,
+              0,
+              0.5,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              14,
+              -6,
+              0.75,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              29,
+              -10,
+              0.45,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "shape:mwvzdw182e612v": {
+      "id": "shape:mwvzdw182e612v",
+      "typeName": "shape",
+      "type": "draw",
+      "x": 773,
+      "y": 720,
+      "z": 45,
+      "rot": 0,
+      "props": {
+        "color": "#f3c66c",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "pts": [
+          0,
+          0,
+          0.5,
+          14,
+          -6,
+          0.75,
+          29,
+          -10,
+          0.45
+        ],
+        "isPen": true,
+        "done": true,
+        "ink": {
+          "version": 1,
+          "brush": "pencil",
+          "color": "#f3c66c",
+          "width": 3,
+          "samples": [
+            [
+              0,
+              0,
+              0.5,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              14,
+              -6,
+              0.75,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              29,
+              -10,
+              0.45,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "shape:mwvzexv82fsq22": {
+      "id": "shape:mwvzexv82fsq22",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 229,
+      "y": 614,
+      "z": 46,
+      "rot": 0,
+      "props": {
+        "color": "#d9a65e",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "geo": "ellipse",
+        "w": 222,
+        "h": 222,
+        "label": "",
+        "fill": "none"
+      }
+    },
+    "shape:mwvzexv82g6eow": {
+      "id": "shape:mwvzexv82g6eow",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 659,
+      "y": 614,
+      "z": 47,
+      "rot": 0,
+      "props": {
+        "color": "#d9a65e",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "geo": "ellipse",
+        "w": 222,
+        "h": 222,
+        "label": "",
+        "fill": "none"
+      }
+    },
+    "shape:mwvzexv82hc0uq": {
+      "id": "shape:mwvzexv82hc0uq",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 331,
+      "y": 716,
+      "z": 48,
+      "rot": 0,
+      "props": {
+        "color": "#d96b48",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "geo": "ellipse",
+        "w": 18,
+        "h": 18,
+        "label": "",
+        "fill": "solid",
+        "faceColor": "#f2b957"
+      }
+    },
+    "shape:mwvzexv82i8kxh": {
+      "id": "shape:mwvzexv82i8kxh",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 761,
+      "y": 716,
+      "z": 49,
+      "rot": 0,
+      "props": {
+        "color": "#d96b48",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "geo": "ellipse",
+        "w": 18,
+        "h": 18,
+        "label": "",
+        "fill": "solid",
+        "faceColor": "#f2b957"
+      }
+    },
+    "shape:mwvzexv82j3rlq": {
+      "id": "shape:mwvzexv82j3rlq",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 340,
+      "y": 690,
+      "z": 50,
+      "rot": 0,
+      "props": {
+        "color": "#d96b48",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 214,
+        "h": 43,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 0 0 L 210 14 M 0 30 L 210 24",
+          "w": 214,
+          "h": 43,
+          "fill": "none",
+          "strokeWidth": 3
+        }
+      }
+    },
+    "shape:mwvzexv82k4njt": {
+      "id": "shape:mwvzexv82k4njt",
+      "typeName": "shape",
+      "type": "line",
+      "x": 630,
+      "y": 681,
+      "z": 51,
+      "rot": 0,
+      "props": {
+        "color": "#254c51",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 0,
+        "dy": 18,
+        "bend": 0
+      }
+    },
+    "shape:mwvzexv82lneus": {
+      "id": "shape:mwvzexv82lneus",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 170,
+      "y": 318,
+      "z": 52,
+      "rot": 0,
+      "props": {
+        "color": "#82aaa1",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 176,
+        "h": 52,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 0 29 Q 54 0 112 21 Q 141 31 176 9 M 20 49 Q 70 24 122 42",
+          "w": 176,
+          "h": 52,
+          "fill": "none",
+          "strokeWidth": 4
+        }
+      }
+    },
+    "shape:mwvzexv82m3l08": {
+      "id": "shape:mwvzexv82m3l08",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 821,
+      "y": 476,
+      "z": 53,
+      "rot": 0,
+      "props": {
+        "color": "#82aaa1",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 155,
+        "h": 48,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 0 30 Q 66 0 155 16 M 22 47 Q 76 26 142 36",
+          "w": 155,
+          "h": 48,
+          "fill": "none",
+          "strokeWidth": 4
+        }
+      }
+    },
+    "shape:mwvzexv82nfq7k": {
+      "id": "shape:mwvzexv82nfq7k",
+      "typeName": "shape",
+      "type": "draw",
+      "x": 348,
+      "y": 465,
+      "z": 54,
+      "rot": 0,
+      "props": {
+        "color": "#f2c56d",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "pts": [
+          0,
+          0,
+          0.45,
+          23,
+          13,
+          0.7,
+          48,
+          22,
+          0.55
+        ],
+        "isPen": true,
+        "done": true,
+        "ink": {
+          "version": 1,
+          "brush": "pen",
+          "color": "#f2c56d",
+          "width": 4,
+          "samples": [
+            [
+              0,
+              0,
+              0.45,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              23,
+              13,
+              0.7,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              48,
+              22,
+              0.55,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "shape:mwvzexv92odeia": {
+      "id": "shape:mwvzexv92odeia",
+      "typeName": "shape",
+      "type": "draw",
+      "x": 364,
+      "y": 492,
+      "z": 55,
+      "rot": 0,
+      "props": {
+        "color": "#f2c56d",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "pts": [
+          0,
+          0,
+          0.45,
+          27,
+          8,
+          0.65,
+          55,
+          10,
+          0.45
+        ],
+        "isPen": true,
+        "done": true,
+        "ink": {
+          "version": 1,
+          "brush": "pen",
+          "color": "#f2c56d",
+          "width": 4,
+          "samples": [
+            [
+              0,
+              0,
+              0.45,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              27,
+              8,
+              0.65,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              55,
+              10,
+              0.45,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "shape:mwvzexv92prhf9": {
+      "id": "shape:mwvzexv92prhf9",
+      "typeName": "shape",
+      "type": "draw",
+      "x": 477,
+      "y": 472,
+      "z": 56,
+      "rot": 0,
+      "props": {
+        "color": "#a8d2bd",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "pts": [
+          0,
+          0,
+          0.4,
+          22,
+          -10,
+          0.65,
+          47,
+          -12,
+          0.45
+        ],
+        "isPen": true,
+        "done": true,
+        "ink": {
+          "version": 1,
+          "brush": "pencil",
+          "color": "#a8d2bd",
+          "width": 3,
+          "samples": [
+            [
+              0,
+              0,
+              0.4,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              22,
+              -10,
+              0.65,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              47,
+              -12,
+              0.45,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "shape:mwvzexv92qvqqw": {
+      "id": "shape:mwvzexv92qvqqw",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 777,
+      "y": 301,
+      "z": 57,
+      "rot": 0,
+      "props": {
+        "color": "#b9563d",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 132,
+        "h": 14,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 0 8 Q 54 0 132 8",
+          "w": 132,
+          "h": 14,
+          "fill": "none",
+          "strokeWidth": 3
+        }
+      }
+    },
+    "shape:mwvzexv92r5h9z": {
+      "id": "shape:mwvzexv92r5h9z",
+      "typeName": "shape",
+      "type": "geo",
+      "x": 790,
+      "y": 347,
+      "z": 58,
+      "rot": 0,
+      "props": {
+        "color": "#ffc875",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "kind": "vector-path",
+        "geo": "rectangle",
+        "w": 116,
+        "h": 72,
+        "fill": "none",
+        "vectorPath": {
+          "d": "M 0 0 Q 50 26 116 0 M 10 10 Q 55 38 105 12",
+          "w": 116,
+          "h": 72,
+          "fill": "none",
+          "strokeWidth": 3
+        }
+      }
+    },
+    "shape:mwvzexv92sck8f": {
+      "id": "shape:mwvzexv92sck8f",
+      "typeName": "shape",
+      "type": "draw",
+      "x": 631,
+      "y": 305,
+      "z": 59,
+      "rot": 0,
+      "props": {
+        "color": "#bfe0c8",
+        "size": "m",
+        "font": "sans",
+        "dash": "solid",
+        "pts": [
+          0,
+          0,
+          0.4,
+          13,
+          -10,
+          0.6,
+          29,
+          -15,
+          0.4
+        ],
+        "isPen": true,
+        "done": true,
+        "ink": {
+          "version": 1,
+          "brush": "pen",
+          "color": "#bfe0c8",
+          "width": 3,
+          "samples": [
+            [
+              0,
+              0,
+              0.4,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              13,
+              -10,
+              0.6,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              29,
+              -15,
+              0.4,
+              0,
+              0,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    "shape:mwvzexv92t1u9k": {
+      "id": "shape:mwvzexv92t1u9k",
+      "typeName": "shape",
+      "type": "line",
+      "x": 814,
+      "y": 112,
+      "z": 60,
+      "rot": 0,
+      "props": {
+        "color": "#e3a64d",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 0,
+        "dy": -22,
+        "bend": 0
+      }
+    },
+    "shape:mwvzexv92ut981": {
+      "id": "shape:mwvzexv92ut981",
+      "typeName": "shape",
+      "type": "line",
+      "x": 896,
+      "y": 179,
+      "z": 61,
+      "rot": 0,
+      "props": {
+        "color": "#e3a64d",
+        "size": "s",
+        "font": "sans",
+        "dash": "solid",
+        "dx": 22,
+        "dy": 0,
+        "bend": 0
+      }
+    }
+  }
+}

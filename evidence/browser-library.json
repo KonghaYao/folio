@@ -1,0 +1,13 @@
+{
+  "engine": "Chromium",
+  "version": "158.0.8127.0",
+  "checks": [
+    "search board title",
+    "favorite and browse favorites",
+    "create and rename a folder, move a board into it",
+    "recover a folder with its board",
+    "recover an individual board",
+    "mobile dialog fits a 390px viewport"
+  ],
+  "pageErrors": []
+}

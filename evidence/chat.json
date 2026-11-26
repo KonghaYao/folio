@@ -1,0 +1,34 @@
+{
+  "runtime": "@peri-code/sdk",
+  "provider": "Local scripted OpenAI Chat Completions regression fixture",
+  "chromium": "158.0.8127.0",
+  "configuredModel": "folio-regression-model",
+  "modelCalls": 18,
+  "privateHistoryReturnedToModel": true,
+  "reverseMcpReplies": 33,
+  "modelReadThenUpdatedActualObjectId": true,
+  "persistedNote": {
+    "id": "shape:mww084by008m86",
+    "type": "note",
+    "x": 310,
+    "y": 235
+  },
+  "renderedChangedPixelsOwnerViewer": [
+    42634,
+    42473
+  ],
+  "secondBrowserSawSameNote": true,
+  "pairedMobileHistorySyncedWithoutCredential": true,
+  "readOnlyViewerRead": true,
+  "readOnlyViewerWriteDenied": true,
+  "privateHistoryForEachPrincipal": true,
+  "unjoinedHistoryStatus": 404,
+  "cancelledInFlight": true,
+  "providerHttp401Reported": true,
+  "subsequentTurnSucceeded": true,
+  "historyReturnedAfterReload": true,
+  "credentialMissingAfterReload": true,
+  "credentialAbsentFromLocalStorageSessionStorageIndexedDBServerFiles": true,
+  "pageErrors": [],
+  "providerFixtureErrors": []
+}

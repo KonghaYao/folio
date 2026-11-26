@@ -1,0 +1,95 @@
+.presence-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+.peer-cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  will-change: transform;
+  transition: transform 0.12s linear;
+  filter: drop-shadow(0 1px 1px #0003);
+}
+.peer-cursor::before {
+  display: block;
+  content: '';
+  width: 14px;
+  height: 18px;
+  background: var(--peer-color);
+  clip-path: polygon(0 0, 100% 62%, 53% 65%, 34% 100%);
+}
+.peer-cursor span {
+  position: absolute;
+  left: 11px;
+  top: 13px;
+  white-space: nowrap;
+  padding: 2px 6px;
+  border-radius: 7px;
+  background: var(--peer-color);
+  color: white;
+  font:
+    600 10px/1.5 system-ui,
+    sans-serif;
+}
+.presence-control {
+  position: relative;
+  pointer-events: auto;
+}
+.presence-control[hidden],
+.presence-list[hidden] {
+  display: none;
+}
+.presence-trigger {
+  color: #375844;
+  border: 0;
+  border-right: 1px solid var(--line, #deded5);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  padding: 4px 8px 4px 2px;
+  white-space: nowrap;
+}
+.presence-list {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  min-width: 180px;
+  max-height: 260px;
+  overflow: auto;
+  padding: 5px;
+  border: 1px solid var(--line, #deded5);
+  border-radius: 10px;
+  background: #fffefb;
+  box-shadow: 0 4px 20px #19231621;
+}
+.presence-list button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 9px 6px;
+  cursor: pointer;
+  border: 0;
+  color: #303a33;
+  background: transparent;
+  font: inherit;
+  border-radius: 5px;
+}
+.presence-list button:hover,
+.presence-list button:focus-visible {
+  background: #edf3ed;
+}
+.presence-list button i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--peer-color);
+}
+.presence-list button small {
+  margin-left: auto;
+  color: #3b6943;
+}

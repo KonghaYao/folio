@@ -1,0 +1,19 @@
+{
+  "browser": "158.0.8127.0",
+  "deviceProfiles": [
+    "desktop 1200x800",
+    "touch tablet 834x1112"
+  ],
+  "beforeCrashRevision": 6,
+  "restoredRevision": 6,
+  "checks": [
+    "Independent desktop and tablet cookie jars paired into the same personal workspace",
+    "Bidirectional object sync converged with identical persisted records",
+    "Folder created on desktop visible in paired tablet library",
+    "With networking disabled, a newly opened tab restored the cached shell, board and unacknowledged stroke",
+    "Two offline strokes and a concurrent online stroke converged exactly once",
+    "SIGKILL and cold start recovered identical SQLite revision and records; paired devices resumed editing",
+    "Switching back restores the tablet’s original workspace without overwriting it"
+  ],
+  "pageErrors": []
+}

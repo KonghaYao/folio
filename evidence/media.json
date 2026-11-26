@@ -1,0 +1,53 @@
+{
+  "browser": "158.0.8127.0",
+  "files": [
+    {
+      "name": "tone.wav",
+      "type": "audio/wav",
+      "bytes": 16044,
+      "duration": 1,
+      "played": true,
+      "downloadIdentical": true
+    },
+    {
+      "name": "flight.webm",
+      "type": "video/webm",
+      "bytes": 667,
+      "duration": 1,
+      "played": true,
+      "dimensions": [
+        96,
+        64
+      ],
+      "downloadIdentical": true
+    },
+    {
+      "name": "sheet.pdf",
+      "type": "application/pdf",
+      "bytes": 777,
+      "browserPdfViewerEnabled": false,
+      "renderedPageCenterRgb": [
+        [
+          255,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          255
+        ]
+      ],
+      "pageNavigationRoundTrip": true,
+      "downloadIdentical": true
+    },
+    {
+      "name": "readme.txt",
+      "type": "text/plain",
+      "bytes": 19,
+      "downloadIdentical": true
+    }
+  ],
+  "reloadedObjects": 4,
+  "pageErrors": []
+}

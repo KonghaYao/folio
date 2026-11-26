@@ -1,0 +1,62 @@
+{
+  "browser": "158.0.8127.0",
+  "paper": {
+    "reference": {
+      "pitchPhysicalPx": [
+        11.5755,
+        11.5763
+      ],
+      "minimumIntensity": 229,
+      "meanIntensity": 252.9447,
+      "whiteFraction": 0.80921
+    },
+    "at25Percent": {
+      "pitchPhysicalPx": [
+        11.5743,
+        11.5757
+      ],
+      "minimumIntensity": 229,
+      "meanIntensity": 252.9434,
+      "whiteFraction": 0.80924
+    },
+    "at100Percent": {
+      "pitchPhysicalPx": [
+        46.2967,
+        46.3077
+      ],
+      "minimumIntensity": 229,
+      "meanIntensity": 254.8803,
+      "whiteFraction": 0.98765
+    },
+    "deviceScaleFactor": 2,
+    "viewportCss": [
+      1024,
+      774
+    ],
+    "cropPhysicalPx": [
+      420,
+      600,
+      1060,
+      1200
+    ]
+  },
+  "rulerOutputVerticalRange": 0,
+  "lassoSelection": 1,
+  "partialEraseRGB": {
+    "before": [
+      24,
+      45,
+      32
+    ],
+    "after": [
+      252,
+      252,
+      252
+    ]
+  },
+  "partialEraseUndoRedo": true,
+  "canceledCoalescedSamples": 2054,
+  "canceledServerRevisionDelta": 0,
+  "crossBoardClipboardImageReadableByDestinationOnlyViewer": true,
+  "pageErrors": []
+}

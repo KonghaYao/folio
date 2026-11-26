@@ -1,0 +1,56 @@
+{
+  "browser": "158.0.8127.0",
+  "brush": "pencil",
+  "widthSetting": 18,
+  "rasterWidthCssPixels": {
+    "light": 6,
+    "heavy": 16,
+    "side-x": 64,
+    "side-y": 18
+  },
+  "inputVariants": [
+    {
+      "name": "light",
+      "force": 0.12,
+      "tiltX": 0,
+      "tiltY": 0,
+      "tangentialPressure": 0
+    },
+    {
+      "name": "heavy",
+      "force": 0.9,
+      "tiltX": 0,
+      "tiltY": 0,
+      "tangentialPressure": 0
+    },
+    {
+      "name": "side-x",
+      "force": 0.9,
+      "tiltX": 65,
+      "tiltY": 0,
+      "tangentialPressure": 0.4
+    },
+    {
+      "name": "side-y",
+      "force": 0.9,
+      "tiltX": 0,
+      "tiltY": 65,
+      "tangentialPressure": 0.4
+    }
+  ],
+  "persistedPencilObjectsBeforeErase": 4,
+  "tangentialPressureMaximum": 0.4,
+  "eraserUndoRedoCounts": [
+    3,
+    4,
+    3
+  ],
+  "touchAndPalm": {
+    "zoomBefore": "100%",
+    "zoomAfter": "163%",
+    "palmAddedInk": false,
+    "simultaneousStylusPreserved": true,
+    "pinchChangedInk": false
+  },
+  "uncaughtBrowserErrors": []
+}

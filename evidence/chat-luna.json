@@ -1,0 +1,221 @@
+{
+  "prompt": "画一只骑单车的鹈鹕，保留可编辑笔迹。",
+  "runtime": "@peri-code/sdk",
+  "liveModel": "gpt-6-luna",
+  "modelBoundary": "A separate live GPT-6 Luna agent read real provider requests and returned tool calls and assistant text via an isolated completion transport. No commercial provider credential was used.",
+  "chromium": "158.0.8127.0",
+  "providerRequests": [
+    {
+      "number": 1,
+      "requestSha256": "088bd633667c432aec5197446a46a5d06edf8d7133d7f301bd5adb64e6c8b2cd",
+      "responseSha256": "c5643d9f712dcc220ef27d9bb90d28d76a27697f5f0a6bb5bc581c71f468eb23",
+      "toolNames": [
+        "SearchExtraTools"
+      ],
+      "canvasToolNames": [],
+      "previousToolResults": 0,
+      "result": {}
+    },
+    {
+      "number": 2,
+      "requestSha256": "749c298d59883c65c445a53f3d04f0ea1f520becd1ad07d2170a45df88b7dbef",
+      "responseSha256": "c0798e929881d3ed3f9b6a7ce73aa0a60e2c86bd19c6f42970a6e38c65288a39",
+      "toolNames": [
+        "ExecuteExtraTool"
+      ],
+      "canvasToolNames": [
+        "mcp__canvas__canvas_read"
+      ],
+      "previousToolResults": 1,
+      "result": {
+        "matched": 0
+      }
+    },
+    {
+      "number": 3,
+      "requestSha256": "aa58f269ea841eb0bc2e4ac49c166e95adfcf0428217446e82c29f33340b0f85",
+      "responseSha256": "5e277c1a50144475e2b42b41787da7e50f8e2b827e740b32a3ead0394a0ced14",
+      "toolNames": [
+        "ExecuteExtraTool"
+      ],
+      "canvasToolNames": [
+        "mcp__canvas__canvas_create"
+      ],
+      "previousToolResults": 2,
+      "toolReply": "MCP 服务器 \"canvas\" 工具 \"canvas_create\" 调用失败: Invalid vector-path geometry, styling or content."
+    },
+    {
+      "number": 4,
+      "requestSha256": "1a886995bd293280e018da4124818978cf51b6323b0dcf8314c1c371e8fdadad",
+      "responseSha256": "c1720777a55ce5c79abfb6984ea08182fc81d2fbd36f25cff935bb1dcb2a43a8",
+      "toolNames": [
+        "ExecuteExtraTool"
+      ],
+      "canvasToolNames": [
+        "mcp__canvas__canvas_create"
+      ],
+      "previousToolResults": 3,
+      "toolReply": "MCP 服务器 \"canvas\" 工具 \"canvas_create\" 调用失败: Unsupported fields for this object: w, h"
+    },
+    {
+      "number": 5,
+      "requestSha256": "81c1d551a7607b9022321f84eb4ed3c951440d6f2e1f8f305918410aef57b6df",
+      "responseSha256": "0c117d305f62cb2f4e277c2246b5346d0ae3a7eec345f56030277170baa44b7c",
+      "toolNames": [
+        "ExecuteExtraTool"
+      ],
+      "canvasToolNames": [
+        "mcp__canvas__canvas_create"
+      ],
+      "previousToolResults": 4,
+      "result": {
+        "created": 1,
+        "sync": "synced"
+      }
+    },
+    {
+      "number": 6,
+      "requestSha256": "c3028226f4dfd251fb85c87ec4a44da456c7c5d74c392d52eedc8dd871781e66",
+      "responseSha256": "1b80ee5d47762cab5d5a97178ca9221559b4d3964f8919b7cc133a8f9dadc49b",
+      "toolNames": [
+        "ExecuteExtraTool"
+      ],
+      "canvasToolNames": [
+        "mcp__canvas__canvas_delete"
+      ],
+      "previousToolResults": 5,
+      "result": {
+        "deleted": 1,
+        "sync": "synced"
+      }
+    },
+    {
+      "number": 7,
+      "requestSha256": "36a11f8a89aac3514847faf21d23d1da5bd3716fc7ab8e723d16f3b2416573eb",
+      "responseSha256": "21bc68ec994ef160abea7bb31e8def81a8bb3823432c4627cd02ca2663c1382a",
+      "toolNames": [
+        "ExecuteExtraTool"
+      ],
+      "canvasToolNames": [
+        "mcp__canvas__canvas_create"
+      ],
+      "previousToolResults": 6,
+      "result": {
+        "created": 45,
+        "sync": "synced"
+      }
+    },
+    {
+      "number": 8,
+      "requestSha256": "a55815f7e7290e12b251f1ed7187bd8351c588f9dc4c979fa0197fb56cccac79",
+      "responseSha256": "c0798e929881d3ed3f9b6a7ce73aa0a60e2c86bd19c6f42970a6e38c65288a39",
+      "toolNames": [
+        "ExecuteExtraTool"
+      ],
+      "canvasToolNames": [
+        "mcp__canvas__canvas_read"
+      ],
+      "previousToolResults": 7,
+      "result": {
+        "matched": 45
+      }
+    },
+    {
+      "number": 9,
+      "requestSha256": "ad9fa70ed6b4f64aa89d475133935e931fbd967488acb72cb69f68af6aec3d24",
+      "responseSha256": "d0b82f8d4335c993ed5e77058a284872ba76813d3c48a3188fc0d20131697d14",
+      "toolNames": [
+        "ExecuteExtraTool"
+      ],
+      "canvasToolNames": [
+        "mcp__canvas__canvas_view"
+      ],
+      "previousToolResults": 8,
+      "result": {}
+    },
+    {
+      "number": 10,
+      "requestSha256": "89e42c7d7febcd79404048de6fe833ec38b68d91b265edb80ee8cd1192aff500",
+      "responseSha256": "abd0d37b022d50ba681e47d3e6c8f31eecf9f320fce03030e17bc00f667f10de",
+      "toolNames": [
+        "ExecuteExtraTool"
+      ],
+      "canvasToolNames": [
+        "mcp__canvas__canvas_create"
+      ],
+      "previousToolResults": 9,
+      "result": {
+        "created": 16,
+        "sync": "synced"
+      }
+    },
+    {
+      "number": 11,
+      "requestSha256": "7c32c893fa6c46158c75b12b67b54bc902e746c0a4d270f2dbc8711b1df860b4",
+      "responseSha256": "c0798e929881d3ed3f9b6a7ce73aa0a60e2c86bd19c6f42970a6e38c65288a39",
+      "toolNames": [
+        "ExecuteExtraTool"
+      ],
+      "canvasToolNames": [
+        "mcp__canvas__canvas_read"
+      ],
+      "previousToolResults": 10,
+      "result": {
+        "matched": 61
+      }
+    },
+    {
+      "number": 12,
+      "requestSha256": "95e332697046fd2e87e009a92b6f32d4eab306170d169550538f1e027f4e9b7b",
+      "responseSha256": "3ce4b1becb98edd287ddfd2f12f7352ffb1957a3c66b1737fd919581e4520c14",
+      "toolNames": [
+        "ExecuteExtraTool"
+      ],
+      "canvasToolNames": [
+        "mcp__canvas__canvas_read"
+      ],
+      "previousToolResults": 11,
+      "result": {
+        "matched": 61
+      }
+    },
+    {
+      "number": 13,
+      "requestSha256": "72793af295556b580e1e4748c6e1c434b82b0b06a82d5a10f31ac64242770355",
+      "responseSha256": "37a21bf6c8cd05570c070f293ae531bc211caac39294fcc65f973dd1221b17a7",
+      "toolNames": [],
+      "canvasToolNames": [],
+      "previousToolResults": 12
+    }
+  ],
+  "rpcReplies": [
+    "result",
+    "result",
+    "result",
+    "result",
+    "result",
+    "result",
+    "result",
+    "result",
+    "result",
+    "result",
+    "result",
+    "result",
+    "result"
+  ],
+  "objects": 61,
+  "editableInkStrokes": 8,
+  "reloadedIdentically": true,
+  "portableExportReimported": true,
+  "archive": "chat-luna-pelican.folio.json",
+  "browserErrors": [],
+  "providerErrors": [],
+  "reply": "完成啦：我画好了一只骑着单车的鹈鹕，加入了车轮辐条、车架、羽毛和随风线条。主要轮廓由可编辑矢量形状组成，羽毛与细节也保留为可编辑笔迹。",
+  "captureSeconds": 216.49,
+  "video": "chat-luna-pelican.mp4",
+  "image": "chat-luna-pelican.png",
+  "board": "chat-luna-board.json",
+  "videoDurationSeconds": 219.5,
+  "previewDurationSeconds": 21.75,
+  "preview": "chat-luna-preview.mp4"
+}

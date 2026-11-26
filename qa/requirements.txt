@@ -1,0 +1,6 @@
+playwright>=1.56,<2
+Pillow>=10,<14
+svgpathtools>=1.7,<2
+pypdf>=5,<7
+numpy>=1.24,<3
+scipy>=1.11,<2

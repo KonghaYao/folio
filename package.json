@@ -1,0 +1,37 @@
+{
+  "name": "folio-whiteboard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.5",
+  "scripts": {
+    "start": "bun server/index.ts",
+    "build": "bun --bun vite build && bun run build:server",
+    "dev": "bun --bun vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "check": "bun run format:check && bun run typecheck && bun test && bun run build",
+    "format": "prettier --write client server shared tests build scripts vite.config.ts",
+    "format:check": "prettier --check client server shared tests build scripts vite.config.ts",
+    "build:server": "bun build server/index.ts server/backup.ts --target=bun --outdir=service && bun scripts/build-agent-runtime.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "@peri-code/sdk": "0.5.0",
+    "@quickdrawjs/core": "0.3.0",
+    "hono": "4.13.22",
+    "ipaddr.js": "2.3.0",
+    "pdf-lib": "1.17.1",
+    "quickselect": "3.0.0",
+    "rbush": "4.0.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.5",
+    "@types/rbush": "4.0.0",
+    "pdfjs-dist": "6.5.438",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3",
+    "vite": "7.3.1"
+  }
+}

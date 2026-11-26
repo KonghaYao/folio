@@ -1,0 +1,17 @@
+{
+  "browser": "158.0.8127.0",
+  "independentContexts": 2,
+  "roles": [
+    "owner",
+    "viewer"
+  ],
+  "cursorDeltaPixels": 233,
+  "followZoom": "193%",
+  "pannedCursorScreenErrorPixels": [
+    0,
+    0
+  ],
+  "manualNavigationExitedFollow": true,
+  "departedPeerDisappeared": true,
+  "documentRevisionUnchanged": true
+}

@@ -1,0 +1,219 @@
+{
+  "artifact": "Canvas MCP browser scale benchmark",
+  "method": "Headless Chromium 158.0.8127.0. Actual Quickdraw BoardEditor and BoardStore mounted in a 1200 x 800 CSS pixel DOM viewport, with createCanvasMcp and its official MCP Server/BrowserTransport. Every sample runs a unique tools/call JSON-RPC ID and parses the content returned by the server. Performance.now measures in-tab call through result parsing and assertions. Local transaction completion is measured; synchronization flush resolves immediately. This isolates canvas MCP overhead and excludes external model, server persistence, network latency and display frame delivery.",
+  "fixtures": {
+    "shapes": "Rectangles in 250 columns, spacing 180 x 110, 90 x 55 bounds, every ninth rotated 0.17 radians. Z values intentionally shuffled with ties. One in eight labels matches Atlas.",
+    "selectionSize": 3,
+    "defaultReadPageSize": 25,
+    "sparseViewportZoom": 1,
+    "denseViewportZoom": 0.05,
+    "batchSize": 64,
+    "mutatedBetweenColdFirstPages": "Remove previous extra ID and insert a fresh shape, outside the timed interval.",
+    "mutatedBetweenAllAfterMove": "Move one record without changing membership or stacking order, outside the timed interval.",
+    "initialSettleMs": 1200,
+    "timing": "One initial visible request before settle, then steady-state samples with four excluded warmups per operation. Cold initial request is a single observation. Baseline followed by candidate for each object count. No operating-system CPU pinning.",
+    "updatesVerified": "Native store position and created IDs, exact z/ID order for all/search pages, match counts and window bounds."
+  },
+  "baseline": "Untuned source snapshot at start of this performance task.",
+  "candidate": "Production source including the shared renderer spatial index, native store stacking revision and agent page query optimization.",
+  "harness": "qa/performance/mcp/run.py",
+  "scenarioSha256": "b480785d0335458b456e92f8fc35c9a1c73b4a9818568f71eae57ca86c31a80f",
+  "batches": [
+    {
+      "shapeCount": 50000,
+      "zoomedOutMatches": 19564,
+      "coldFirstVisibleAfterOpenMs": {
+        "baseline": 15.225,
+        "candidate": 7.815
+      },
+      "operations": {
+        "byId": {
+          "samplesPerVersion": 50,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 1.675,
+          "baselineP95Ms": 3.475,
+          "candidateP50Ms": 0.05,
+          "candidateP95Ms": 0.165
+        },
+        "selection": {
+          "samplesPerVersion": 50,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 1.52,
+          "baselineP95Ms": 2.075,
+          "candidateP50Ms": 0.03,
+          "candidateP95Ms": 0.16
+        },
+        "visible": {
+          "samplesPerVersion": 50,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 3.9,
+          "baselineP95Ms": 6.685,
+          "candidateP50Ms": 0.05,
+          "candidateP95Ms": 0.155
+        },
+        "pannedVisible": {
+          "samplesPerVersion": 25,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 4.265,
+          "baselineP95Ms": 4.74,
+          "candidateP50Ms": 0.11,
+          "candidateP95Ms": 0.2
+        },
+        "denseVisiblePages": {
+          "samplesPerVersion": 25,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 6.975,
+          "baselineP95Ms": 8.1,
+          "candidateP50Ms": 0.125,
+          "candidateP95Ms": 1.22
+        },
+        "allPages": {
+          "samplesPerVersion": 50,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 8.875,
+          "baselineP95Ms": 9.69,
+          "candidateP50Ms": 0.055,
+          "candidateP95Ms": 0.135
+        },
+        "searchPages": {
+          "samplesPerVersion": 50,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 14.74,
+          "baselineP95Ms": 19.24,
+          "candidateP50Ms": 0.055,
+          "candidateP95Ms": 0.14
+        },
+        "allAfterMove": {
+          "samplesPerVersion": 25,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 9.28,
+          "baselineP95Ms": 19.805,
+          "candidateP50Ms": 0.05,
+          "candidateP95Ms": 0.13
+        },
+        "firstPageAfterInsert": {
+          "samplesPerVersion": 25,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 8.89,
+          "baselineP95Ms": 15.73,
+          "candidateP50Ms": 1.16,
+          "candidateP95Ms": 1.795
+        },
+        "update64": {
+          "samplesPerVersion": 15,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 0.355,
+          "baselineP95Ms": 0.675,
+          "candidateP50Ms": 0.235,
+          "candidateP95Ms": 0.87
+        },
+        "create64": {
+          "samplesPerVersion": 15,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 0.615,
+          "baselineP95Ms": 1.26,
+          "candidateP50Ms": 0.46,
+          "candidateP95Ms": 2.86
+        }
+      }
+    },
+    {
+      "shapeCount": 100000,
+      "zoomedOutMatches": 19564,
+      "coldFirstVisibleAfterOpenMs": {
+        "baseline": 36.395,
+        "candidate": 10.1
+      },
+      "operations": {
+        "byId": {
+          "samplesPerVersion": 50,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 2.64,
+          "baselineP95Ms": 3.445,
+          "candidateP50Ms": 0.065,
+          "candidateP95Ms": 0.185
+        },
+        "selection": {
+          "samplesPerVersion": 50,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 2.81,
+          "baselineP95Ms": 3.58,
+          "candidateP50Ms": 0.04,
+          "candidateP95Ms": 0.09
+        },
+        "visible": {
+          "samplesPerVersion": 50,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 8.01,
+          "baselineP95Ms": 24.57,
+          "candidateP50Ms": 0.175,
+          "candidateP95Ms": 0.22
+        },
+        "pannedVisible": {
+          "samplesPerVersion": 25,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 7.7,
+          "baselineP95Ms": 8.355,
+          "candidateP50Ms": 0.175,
+          "candidateP95Ms": 2.415
+        },
+        "denseVisiblePages": {
+          "samplesPerVersion": 25,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 11.375,
+          "baselineP95Ms": 12.185,
+          "candidateP50Ms": 0.22,
+          "candidateP95Ms": 0.27
+        },
+        "allPages": {
+          "samplesPerVersion": 50,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 19.29,
+          "baselineP95Ms": 20.825,
+          "candidateP50Ms": 0.12,
+          "candidateP95Ms": 0.315
+        },
+        "searchPages": {
+          "samplesPerVersion": 50,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 17.985,
+          "baselineP95Ms": 26.99,
+          "candidateP50Ms": 0.055,
+          "candidateP95Ms": 0.095
+        },
+        "allAfterMove": {
+          "samplesPerVersion": 25,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 20,
+          "baselineP95Ms": 22.255,
+          "candidateP50Ms": 0.045,
+          "candidateP95Ms": 0.07
+        },
+        "firstPageAfterInsert": {
+          "samplesPerVersion": 25,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 20.215,
+          "baselineP95Ms": 29.05,
+          "candidateP50Ms": 1.945,
+          "candidateP95Ms": 3.325
+        },
+        "update64": {
+          "samplesPerVersion": 15,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 0.305,
+          "baselineP95Ms": 0.59,
+          "candidateP50Ms": 0.335,
+          "candidateP95Ms": 0.74
+        },
+        "create64": {
+          "samplesPerVersion": 15,
+          "warmupPerVersion": 4,
+          "baselineP50Ms": 0.705,
+          "baselineP95Ms": 1.53,
+          "candidateP50Ms": 0.49,
+          "candidateP95Ms": 0.97
+        }
+      }
+    }
+  ]
+}
