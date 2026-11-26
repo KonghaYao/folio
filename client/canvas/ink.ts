@@ -69,6 +69,63 @@ export function footprint(sample: Sample, ink: Pick<Ink, 'brush' | 'width'>) {
 }
 
 const cached = new WeakMap<object, Path2D>();
+interface DraftPath {
+  path: Path2D;
+  count: number;
+}
+const drafts = new WeakMap<object, DraftPath>();
+
+type Nib = { x: number; y: number; a: number; b: number; angle: number };
+
+/** Append the support geometry for samples [start, end) in page coordinates. */
+function appendSamples(path: Path2D, shape: ShapeRecord, ink: Ink, start: number, end: number) {
+  const pts = shape.props.pts as number[];
+  let previous: Nib | undefined;
+  if (start > 0) {
+    const { a, b, angle } = footprint(ink.samples[start - 1], ink);
+    previous = { x: pts[(start - 1) * 3], y: pts[(start - 1) * 3 + 1], a, b, angle };
+  }
+  for (let i = start; i < end; i++) {
+    const { a, b, angle } = footprint(ink.samples[i], ink);
+    const x = pts[i * 3],
+      y = pts[i * 3 + 1];
+    path.moveTo(x + a * Math.cos(angle), y + a * Math.sin(angle));
+    path.ellipse(x, y, a, b, angle, 0, Math.PI * 2);
+    path.closePath();
+    if (previous) {
+      const dx = x - previous.x,
+        dy = y - previous.y;
+      const distance = Math.hypot(dx, dy);
+      if (distance > 0.001) {
+        const normalX = -dy / distance,
+          normalY = dx / distance;
+        const startSupport = support(previous, normalX, normalY);
+        const endSupport = support({ a, b, angle }, normalX, normalY);
+        // Match ellipse winding so overlaps add under the nonzero fill rule.
+        path.moveTo(previous.x - startSupport.x, previous.y - startSupport.y);
+        path.lineTo(x - endSupport.x, y - endSupport.y);
+        path.lineTo(x + endSupport.x, y + endSupport.y);
+        path.lineTo(previous.x + startSupport.x, previous.y + startSupport.y);
+        path.closePath();
+      }
+    }
+    previous = { x, y, a, b, angle };
+  }
+}
+
+function draftPath(shape: ShapeRecord, ink: Ink) {
+  const count = Math.min(ink.samples.length, Math.floor((shape.props.pts as number[]).length / 3));
+  let entry = drafts.get(shape.props);
+  if (!entry || entry.count > count) {
+    entry = { path: new Path2D(), count: 0 };
+    drafts.set(shape.props, entry);
+  }
+  if (entry.count < count) {
+    appendSamples(entry.path, shape, ink, entry.count, count);
+    entry.count = count;
+  }
+  return entry.path;
+}
 
 function makePath(shape: ShapeRecord, ink: Ink) {
   const path = new Path2D();
@@ -88,33 +145,7 @@ function makePath(shape: ShapeRecord, ink: Ink) {
   // Quickdraw transforms its native pts during resize. Those are authoritative
   // for replay coordinates; samples preserve the original digitizer telemetry.
   const count = Math.min(ink.samples.length, Math.floor(pts.length / 3));
-  let previous: { x: number; y: number; a: number; b: number; angle: number } | undefined;
-  for (let i = 0; i < count; i++) {
-    const { a, b, angle } = footprint(ink.samples[i], ink);
-    const x = pts[i * 3],
-      y = pts[i * 3 + 1];
-    path.moveTo(x + a * Math.cos(angle), y + a * Math.sin(angle));
-    path.ellipse(x, y, a, b, angle, 0, Math.PI * 2);
-    path.closePath();
-    if (previous) {
-      const dx = x - previous.x,
-        dy = y - previous.y;
-      const distance = Math.hypot(dx, dy);
-      if (distance > 0.001) {
-        const normalX = -dy / distance,
-          normalY = dx / distance;
-        const start = support(previous, normalX, normalY);
-        const end = support({ a, b, angle }, normalX, normalY);
-        // Match ellipse winding so overlaps add under the nonzero fill rule.
-        path.moveTo(previous.x - start.x, previous.y - start.y);
-        path.lineTo(x - end.x, y - end.y);
-        path.lineTo(x + end.x, y + end.y);
-        path.lineTo(previous.x + start.x, previous.y + start.y);
-        path.closePath();
-      }
-    }
-    previous = { x, y, a, b, angle };
-  }
+  appendSamples(path, shape, ink, 0, count);
   return path;
 }
 
@@ -131,6 +162,11 @@ function support(nib: { a: number; b: number; angle: number }, nx: number, ny: n
 
 export function inkPath(shape: ShapeRecord) {
   const ink = shape.props.ink as Ink;
+  // Live stylus strokes arrive sample by sample. Append only the new geometry
+  // instead of rebuilding the whole path on every animation frame.
+  if (!shape.props.done && (shape.props.isPen || ink.brush !== 'pen')) {
+    return draftPath(shape, ink);
+  }
   let path = cached.get(shape.props);
   if (!path) {
     path = makePath(shape, ink);

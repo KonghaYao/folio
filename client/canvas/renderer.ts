@@ -10,7 +10,7 @@ import {
 } from '@quickdrawjs/core';
 import { imageData, paintCard } from './attachments';
 import { clipErased, erasedAt, toShape } from './assists';
-import { inkPath, paintInk } from './ink';
+import { inkPath, paintInk, type Ink } from './ink';
 import { paintVector, hitVector } from './vector-path';
 import { ViewportBuffer } from './viewport-buffer';
 import { shapeBounds as boxOf, documentBounds, paintOrder } from './spatial';
@@ -359,7 +359,15 @@ export class CanvasRenderer extends QuickdrawEditor {
       dpr,
       (this.store as import('./store').BoardStore).generation,
       this.grid + '/' + this.theme.id,
-      () => shapes().length >= 350,
+      // Long stylus strokes are expensive to rasterize every frame even when the
+      // scene holds few shapes, so buffer them as soon as any real ink exists.
+      () => {
+        const list = shapes();
+        return (
+          list.length >= 350 ||
+          list.some((s) => ((s.props.ink as Ink | undefined)?.samples.length ?? 0) >= 256)
+        );
+      },
       (surface, expanded, width, height) => {
         this.scene(surface, expanded, width, height, this.visibleShapes(expanded, width, height), {
           dpr,
@@ -370,11 +378,9 @@ export class CanvasRenderer extends QuickdrawEditor {
       },
     );
     if (!reused) return false;
-    if (this.draft?.type === 'highlight') {
-      this.repaintMarker(ctx, cam, w, h, dpr, [...this.pendingSegments, this.draft], true);
-      return true;
-    }
     if (this.draft) {
+      // The raster already holds the committed scene, so live ink only needs to
+      // be blended on top. This keeps stylus latency independent of board size.
       ctx.setTransform(cam.z * dpr, 0, 0, cam.z * dpr, cam.x * cam.z * dpr, cam.y * cam.z * dpr);
       const options = { theme: this.theme, store: this.store, zoom: cam.z, hideText: null };
       for (const s of this.pendingSegments) this.paint(ctx, s, options);
